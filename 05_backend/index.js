@@ -1,31 +1,36 @@
-const express = require('express')
+import express, { json } from "express"
+import 'dotenv/config'
+import jwt from 'jsonwebtoken'
+import mongoose from "mongoose"
+import Users from "./models/User.js"
+import Hotel from "./models/Hotel.js"
+import Reviews from "./models/Reviews.js"
+import Bookings from "./models/Booking.js"
+import Rooms from "./models/rooms.js"
+import router from "./routes/auth.js"
 const app = express()
-const mongoose = require("mongoose")
-const {MONGOURI} = require('./keys')
-require('./models/userModel')
-require('./models/post')
-require('dotenv').config()
-const { route } = require('./routes/auth')
+app.use(json())
 
-
-
-mongoose.connect(MONGOURI)
-mongoose.connection.on("connected",()=>{
-    console.log("connected to mongo");
-})
-mongoose.connection.on('error',(err)=>{
-    console.log("error connecting",err);
+/**Testing Working
+ * 
+ */
+app.get('/', (req, res) => {
+    console.log("works");
 })
 
 
-app.use(express.json())
-app.use(require('./routes/auth'))
+
+app.use('/',router)
+
+/**connect to mongodb
+ *  */
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log("connected");
+})
 
 
-app.use(require('./routes/post'))
 
-
-
-app.listen(5000,()=>{
-    console.log("server is runnig on",5000);
+app.listen(process.env.PORT, () => {
+    console.log("Listining on " + process.env.PORT);
 })

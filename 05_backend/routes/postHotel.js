@@ -1,56 +1,6 @@
-const express = require('express')
-const router = express.Router()
-const mongoose = require('mongoose')
-const requireLogin = require("../middleware/requireLogin")
-const Post = mongoose.model("Post")
-
-
-
-router.get('/allpost',requireLogin,(req,res)=>{
-    Post.find()
-    .populate("postedBy","_id name")
-    
-    .then(posts=>{
-        res.json({posts})
-    })
-    .catch(err=>{
-        console.log(err);
-    })
-})
-
-router.post('/createpost',requireLogin,(req,res)=>{
-    const{title,body,Imgurl} = req.body
-    // console.log(Imgurl);
-    if(!title||!body||!Imgurl){
-        return res.status(422).json({error:"Please add  the feild"})
-    }
-    req.user.password = undefined
-    const post = new Post({
-        title,
-        body,
-        img:Imgurl,
-        postedBy:req.user
-
-    })
-    post.save().then(result=>{
-        res.json({post:result})
-    })
-    .catch(err=>{
-        console.log(err);
-    })
- 
-
-})
-
-
-router.get('/mypost',requireLogin,(req,res)=>{
-    Post.find({postedBy:req.user._id})
-    .populate("postedBy","_id name")
-    .then(mypost=>{
-        res.json({mypost})
-    })
-    .catch(err=>{
-        console.log(err);
-    })
-})
-module.exports = router
+import  express  from "express";
+import 'dotenv/config'
+import jwt from 'jsonwebtoken'
+import mongoose from "mongoose"
+import { Router } from "express";
+const router = Router()

@@ -1,75 +1,72 @@
-const express = require('express')
-const router = express.Router()
-const mongoose = require('mongoose')
-const User = mongoose.model("User")
-const jwt = require("jsonwebtoken")
-const {JWT_SECRET} = require("../keys")
-const requireLogin = require('../middleware/requireLogin')
+import  express  from "express";
+import 'dotenv/config'
+import jwt from 'jsonwebtoken'
+import mongoose from "mongoose"
+import { Router } from "express";
+const router = Router()
+import Users from "../models/User.js";
 
 
+router.post('/signup', (req, res) => {
+    const username = req.body.username
+    const password = req.body.password
+    if (!password || !username) {
+        res.status(422).json({ error: "please enter all fields" })
 
-
-
-
-
-router.post('/signup',(req,res)=>{
-    const {name,EnrollmentNo,email,password} = req.body
-    if(!name||!EnrollmentNo||!email||!password){
-        return res.status(422).json({error:"please add all feilds"})
     }
-    User.findOne({EnrollmentNo:EnrollmentNo})
-    .then((savedUser)=>{
-        if(savedUser){
-            return res.status(422).json({error:"user already exist"})
-        }
-        const user = new User({
-            name,
-            email,
-            EnrollmentNo,
-            password
+    Users.findOne({ name: username })
+        .then((saveduser) => {
+            if (saveduser) {
+                return res.status(422).json({ error: "user already exist" })
+            }
+            const user = new Users({
+                name: username,
+                password: password
+            })
+            user.save()
+                .then(user => {
+                    res.json({ message: "saved successfully" })
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         })
-        user.save()
-        .then(user=>{
-            res.json({message:"saved successfully"})
-        })
-        .catch(err=>{
+        .catch(err => {
             console.log(err);
         })
-    })
-    .catch(err=>{
-        console.log(err);
-    })
-
 })
 
-router.post('/signin',(req,res)=>{
-    const {password,EnrollmentNo} = req.body
-    if(!password||!EnrollmentNo){
-        res.status(422).json({error:"please enter all fields"})
+/**Sign in route
+ * 
+ */
+router.post('/signin', (req, res) => {
+    const username = req.body.username
+    const password = req.body.password
+    console.log(username);
+    // console.log(username);
+    // if username and password not given
+    if (!password || !username) {
+        res.status(422).json({ error: "please enter all fields" })
 
     }
-    User.findOne({EnrollmentNo:EnrollmentNo})
-    .then(savedUser=>{
-        if(!savedUser){
-            return res.status(422).json({error:"invalid user"})
-        }
-        if(password==savedUser.password){
-            // res.json({message:"successfully"})
-            
-            const token = jwt.sign({_id:savedUser._id},JWT_SECRET)
-            const {_id,name,EnrollmentNo} = savedUser
-            res.json({token,user:{_id,name,EnrollmentNo}})
-        }
-        else{
-            return res.status(422).json({error:"invalid user"})
-        }
-    })
-    .catch(err=>{
-        console.log(err);
-    })
+    // check password is correct
+    Users.findOne({ name: username })
+        .then(saveduser => {
+            if (!saveduser) {
+                return res.status(422).json({ error: "invalid user it is" })
+            }
+            if (password == saveduser.password) {
+
+                const token = jwt.sign({ _id: saveduser._id }, process.env.SECRET_KEY)
+                res.send(token)
+            }
+            else {
+                return res.status(422).json({ error: "invalid user" })
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        })
 })
 
-router.get("/protected",requireLogin,(req,res)=>{
-    res.send("hello")
-})
-module.exports = router
+export default router
