@@ -7,7 +7,7 @@ import Hotel from "./models/Hotel.js"
 import Reviews from "./models/Reviews.js"
 import Bookings from "./models/Booking.js"
 import Rooms from "./models/rooms.js"
-import router from "./routes/auth.js"
+import authRouter from "./routes/auth.js"
 const app = express()
 app.use(json())
 
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 
 
-app.use('/',router)
+app.use('/',authRouter)
 
 /**connect to mongodb
  *  */

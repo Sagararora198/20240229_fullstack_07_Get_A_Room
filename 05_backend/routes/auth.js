@@ -3,11 +3,11 @@ import 'dotenv/config'
 import jwt from 'jsonwebtoken'
 import mongoose from "mongoose"
 import { Router } from "express";
-const router = Router()
+const authRouter = express.Router()
 import Users from "../models/User.js";
 
 
-router.post('/signup', (req, res) => {
+authRouter.post('/signup', (req, res) => {
     const username = req.body.username
     const password = req.body.password
     if (!password || !username) {
@@ -39,7 +39,7 @@ router.post('/signup', (req, res) => {
 /**Sign in route
  * 
  */
-router.post('/signin', (req, res) => {
+authRouter.post('/signin', (req, res) => {
     const username = req.body.username
     const password = req.body.password
     console.log(username);
@@ -69,4 +69,4 @@ router.post('/signin', (req, res) => {
         })
 })
 
-export default router
+export default authRouter
