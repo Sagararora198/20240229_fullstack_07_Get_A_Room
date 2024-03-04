@@ -8,6 +8,8 @@ import Reviews from "./models/Reviews.js"
 import Bookings from "./models/Booking.js"
 import Rooms from "./models/rooms.js"
 import authRouter from "./routes/auth.js"
+import profileRouter from "./routes/profile.js"
+
 const app = express()
 app.use(json())
 
@@ -21,6 +23,8 @@ app.get('/', (req, res) => {
 
 
 app.use('/',authRouter)
+
+app.use('/',profileRouter)
 
 /**connect to mongodb
  *  */
