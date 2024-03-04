@@ -10,6 +10,7 @@ import Rooms from "./models/rooms.js"
 import authRouter from "./routes/auth.js"
 const app = express()
 app.use(json())
+import cloudinary from 'cloudinary'
 
 /**Testing Working
  * 
