@@ -3,4 +3,4 @@ import 'dotenv/config'
 import jwt from 'jsonwebtoken'
 import mongoose from "mongoose"
 import { Router } from "express";
-const router = Router()
+const profileRouter = express.Router()
