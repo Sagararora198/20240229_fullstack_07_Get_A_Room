@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="./login-ux.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Milliard:wght@500;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Public Sans:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap"
+    />
+  </head>
+  <body>
+    <div class="login-ux">
+      <div class="login-ux-child"></div>
+      <b class="login3">
+        <span>Login</span>
+        <span class="span22"> </span>
+      </b>
+      <div class="login-frame1">
+        <div class="inner-frame">
+          <div class="email">Email</div>
+          <div class="password">Password</div>
+        </div>
+      </div>
+      <img
+        class="login-ux-item"
+        loading="lazy"
+        alt=""
+        src="../public/line-13.svg"
+      />
+
+      <section class="background-frame1">
+        <img
+          class="background-frame-child"
+          loading="lazy"
+          alt=""
+          src="../public/rectangle-19.svg"
+        />
+
+        <img
+          class="background-frame-item"
+          loading="lazy"
+          alt=""
+          src="../public/rectangle-19.svg"
+        />
+
+        <div class="signup3">
+          <div class="button-vector">
+            <img
+              class="example-email-icon"
+              loading="lazy"
+              alt=""
+              src="../public/vector5.svg"
+            />
+          </div>
+          <div class="examplegmailcom">Example@gmail.com</div>
+          <div class="forgot-password-text">
+            <div class="empty-frame">*******</div>
+            <div class="link-frame">
+              <div class="forgot-password">Forgot password?</div>
+            </div>
+            <div class="outer-frame">
+              <div class="sub-frame">
+                <div class="dont-have-an-container" id="dontHaveAn">
+                  <span>
+                    <span>Don’t have an account?</span>
+                    <span class="span23"> </span>
+                  </span>
+                  <span class="sign-up1">
+                    <span class="sign-up2">Sign up</span>
+                  </span>
+                </div>
+                <button class="account-creation">
+                  <div class="signup-button" id="signupButton"></div>
+                  <b class="continue1">Continue</b>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      var dontHaveAn = document.getElementById("dontHaveAn");
+      if (dontHaveAn) {
+        dontHaveAn.addEventListener("click", function (e) {
+          window.location.href = "./sign-up.html";
+        });
+      }
+      
+      var signupButton = document.getElementById("signupButton");
+      if (signupButton) {
+        signupButton.addEventListener("click", function (e) {
+          window.location.href = "./admin-pannel.html";
+        });
+      }
+      </script>
+  </body>
+</html>

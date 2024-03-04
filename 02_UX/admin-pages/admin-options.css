@@ -1,0 +1,105 @@
+.frame-frame-help-center-logout-child {
+  width: 183px;
+  height: 144px;
+  position: relative;
+  border-radius: var(--br-7xs);
+  background-color: var(--colors-white);
+  box-shadow: 0 0 8px rgba(194, 198, 204, 0.6);
+  display: none;
+}
+.profile1 {
+  width: 70px;
+  display: inline-block;
+  cursor: pointer;
+}
+.notifications1,
+.profile1 {
+  position: relative;
+  font-weight: 600;
+  z-index: 1;
+}
+.frame-notifications {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-9xs);
+}
+.admin-options-child {
+  height: 1px;
+  width: 146px;
+  position: relative;
+  z-index: 1;
+}
+.admin-options1 {
+  height: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-10xs) var(--padding-10xs);
+  box-sizing: border-box;
+}
+.help-center7 {
+  flex: 1;
+  position: relative;
+  font-weight: 500;
+  z-index: 1;
+}
+.help-center-logout {
+  width: 113px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-10xs);
+  box-sizing: border-box;
+}
+.logout1 {
+  flex: 1;
+  position: relative;
+  font-weight: 500;
+  z-index: 1;
+}
+.frame-frame-help-center-logout,
+.help-center-logout1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.help-center-logout1 {
+  width: 71px;
+  flex-direction: row;
+  padding: 0 var(--padding-8xs);
+  box-sizing: border-box;
+}
+.frame-frame-help-center-logout {
+  border-radius: var(--br-7xs);
+  background-color: var(--colors-white);
+  box-shadow: 0 0 8px rgba(194, 198, 204, 0.6);
+  flex-direction: column;
+  padding: var(--padding-6xs) var(--padding-5xl) var(--padding-mid)
+    var(--padding-6xs);
+  gap: 13px 0;
+}
+.frame-help-center-logout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0;
+  text-align: left;
+  font-size: var(--paragraph-04-size);
+  color: var(--color-darkslategray);
+  font-family: var(--font-montserrat);
+}
+.admin-options {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-9xs) 0 0;
+  box-sizing: border-box;
+}

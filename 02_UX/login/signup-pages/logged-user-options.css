@@ -1,0 +1,130 @@
+.logged-user-options-child {
+  width: 183px;
+  height: 210px;
+  position: relative;
+  border-radius: var(--br-7xs);
+  background-color: var(--colors-white);
+  box-shadow: 0 0 8px rgba(194, 198, 204, 0.6);
+  display: none;
+}
+.profile {
+  width: 70px;
+  height: 21.3px;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  z-index: 1;
+}
+.notifications,
+.profile,
+.reservations {
+  flex-shrink: 0;
+}
+.notifications,
+.reservations,
+.wishlists {
+  height: 22.3px;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  z-index: 1;
+}
+.wishlists-frame {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-10xs);
+}
+.profile-notifications-frame,
+.reservations-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px 0;
+}
+.profile-notifications-frame {
+  gap: 8px 0;
+}
+.line-vector-child {
+  height: 1px;
+  width: 146px;
+  position: relative;
+  z-index: 1;
+}
+.line-vector {
+  height: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-8xs);
+  box-sizing: border-box;
+}
+.help-center6,
+.logout {
+  height: 23.4px;
+  position: relative;
+  font-weight: 500;
+  display: inline-block;
+  z-index: 1;
+}
+.help-center6 {
+  align-self: stretch;
+  flex-shrink: 0;
+}
+.logout {
+  flex: 1;
+}
+.logout-wrapper {
+  width: 65px;
+  flex-direction: row;
+  padding: 0 var(--padding-11xs);
+  box-sizing: border-box;
+}
+.help-frame,
+.logged-user-options1,
+.logout-text,
+.logout-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.help-frame {
+  flex: 1;
+  flex-direction: column;
+  gap: 4px 0;
+}
+.logged-user-options1,
+.logout-text {
+  width: 113px;
+  flex-direction: row;
+  padding: 0 var(--padding-10xs);
+  box-sizing: border-box;
+}
+.logged-user-options1 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-7xs);
+  background-color: var(--colors-white);
+  box-shadow: 0 0 8px rgba(194, 198, 204, 0.6);
+  flex-direction: column;
+  padding: var(--padding-4xs) var(--padding-xl) var(--padding-3xl)
+    var(--padding-6xs);
+  gap: var(--gap-2xs);
+  text-align: left;
+  font-size: var(--paragraph-04-size);
+  color: var(--color-darkslategray);
+  font-family: var(--font-montserrat);
+}
+.logged-user-options {
+  width: 100%;
+  height: 210px;
+  position: relative;
+}
