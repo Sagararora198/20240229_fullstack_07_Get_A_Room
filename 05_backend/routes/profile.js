@@ -1,17 +1,17 @@
 import  express  from "express";
 import 'dotenv/config'
-import requireLogin from "../middleware/requireLogin.js";
 import Users from "../models/User.js";
 const profileRouter = express.Router()
 
-
+//middleware 
+import requireLogin from "../middleware/requireLogin.js";
+//roles of different users
 import { roles } from "../dependencies/constants/userConstants.js";
 
 // Define the route handler for GET /profile endpoint
 profileRouter.get('/profile', requireLogin,(req, res) => {
     // Extract user object from request
     const { user } = req;
-    
     //to check the available roles 
     const availableRoles = Object.values(roles)
     
@@ -30,8 +30,7 @@ profileRouter.get('/profile', requireLogin,(req, res) => {
 
 
 profileRouter.post('/profileUpdate',requireLogin,(req,res)=>{
-    const {user}=req;
-
+    const {user}=req.user;
     if(!user){
         return res.status(404).send('User not Found')
      }

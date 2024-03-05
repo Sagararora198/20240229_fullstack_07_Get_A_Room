@@ -58,7 +58,7 @@ authRouter.post('/signin', async (req, res) => {
     if (!passwordValidator(password) || !emailValidator(email)) {
         return res.status(422).json({ error: "please enter all fields" });
     }
-
+    console.log(email);
     try {
         // Check if the user exists
         const savedUser = await Users.findOne({ email: email });

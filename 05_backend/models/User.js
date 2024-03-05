@@ -45,8 +45,11 @@ const userSchema = new mongoose.Schema({
     },
     wallet:{
         type:Number,
-        min:0
-
+        min:1
+    },
+    location:{
+        type:String,
+        maxLength: 10
     },
     wishlist:{
         type:mongoose.Schema.Types.ObjectId,
