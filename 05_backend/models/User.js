@@ -39,6 +39,10 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:false
     },
+    location:{
+        type:String,
+        maxLenght:10
+    },
     wallet:{
         type:Number,
         min:0
