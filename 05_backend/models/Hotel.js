@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
-import RoomId from "./roomId.js";
+import RoomId from "./roomId.js";   
 import Users from "./User.js";
+
 
 const hotelSchema = new mongoose.Schema({
     hotelName:{
