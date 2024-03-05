@@ -8,6 +8,7 @@ const authRouter = express.Router()
 //internal dependencies
 import Users from "../models/User.js";
 import { emailValidator, passwordValidator, usernameValidator } from "../dependencies/validations/userValidations.js";
+import signupValidation from "../dependencies/validations/signupValidation.js";
 
 /**signup route
  * 
@@ -16,10 +17,13 @@ authRouter.post('/signup', async (req, res) => {
     const password = req.body.password;
     const email = req.body.email;
     const username = req.body.username;
+    const userdata = {password,email,username}
 
-    if (!emailValidator(email) || !passwordValidator(password) || !usernameValidator(username)) {
-        return res.status(422).json({ error: "please enter all fields correctly" });
+    const validations = signupValidation(userdata)
+    if(validations.error){
+        return res.send(400).json(validations)
     }
+    
 
     try {
         const savedUser = await Users.findOne({ email: email });
