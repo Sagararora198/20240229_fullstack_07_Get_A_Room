@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import jwt from 'jsonwebtoken'
-import Users from '../models/User'
+import Users from '../models/User.js'
 
 //Require Function to Login
 const requireLogin = (req,res,next)=>{
