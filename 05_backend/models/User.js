@@ -40,7 +40,10 @@ const userSchema = new mongoose.Schema({
     wallet:{
         type:Number,
         min:0
-
+    },
+    location:{
+        type:String,
+        maxLength: 10
     },
     wishlist:{
         type:mongoose.Schema.Types.ObjectId,

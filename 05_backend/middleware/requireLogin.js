@@ -15,7 +15,7 @@ const requireLogin = (req,res,next)=>{
         const userdata = payload
         req.user = userdata
         next()
-        })
+        
     })
 }
 export default requireLogin
