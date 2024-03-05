@@ -1,5 +1,11 @@
 import { emailValidator, passwordValidator, usernameValidator } from "./userValidations.js"
 import { Error400 } from "../constants/signupErrorConstants.js"
+/**
+ * 
+ * @param {{}} userdata user fields
+ * @returns {{error}} 
+ * 
+ */
 function signupValidation(userdata){
     const {username,email,password} = userdata
     const error = {}
