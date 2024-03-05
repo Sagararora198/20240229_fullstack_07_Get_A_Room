@@ -27,6 +27,13 @@ app.get('/', (req, res) => {
 // authentication route
 app.use('/',authRouter)
 
+// hotel route
+app.use('/',hotelRouter)
+
+
+// room route
+app.use('/',roomRouter)
+
 /**connect to mongodb
  *  */
 mongoose.connect(process.env.MONGO_URI)
