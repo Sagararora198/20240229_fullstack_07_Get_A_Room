@@ -10,6 +10,7 @@ import cloudinary from 'cloudinary'
 import authRouter from "./routes/auth.js"
 import profileRouter from "./routes/profile.js"
 import walletRouter from "./routes/wallet.js"
+import checkoutRouter from "./routes/checkout.js"
 
 const app = express()
 //middleware
@@ -32,6 +33,11 @@ app.use('/',profileRouter)
 
 //Wallet route
 app.use('/',walletRouter)
+
+//checkout Router
+app.use('/',checkoutRouter)
+
+
 /**connect to mongodb
  *  */
 mongoose.connect(process.env.MONGO_URI)

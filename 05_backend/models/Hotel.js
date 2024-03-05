@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import RoomId from "./roomId.js";
+import Users from "./User.js";
 
 const hotelSchema = new mongoose.Schema({
     hotelName:{
@@ -33,8 +34,12 @@ const hotelSchema = new mongoose.Schema({
     },
     hotelAmenities:{
         type:String
+    },
+    managedBy:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:Users
     }
-
 })
+
 const Hotel = mongoose.model('Hotels',hotelSchema)
 export default Hotel
