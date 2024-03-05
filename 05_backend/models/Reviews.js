@@ -11,10 +11,15 @@ const reviewsSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:Hotel
     },
-    review:String,
+    review:
+    {
+        type:String,
+        required:false,
+        minLength:5
+    },
     rating:{
         type:Number,
-        required:false,
+        required:true,
         min:0,
         max:5
     }
