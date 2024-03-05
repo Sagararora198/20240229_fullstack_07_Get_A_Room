@@ -51,22 +51,23 @@ authRouter.post('/signup', async (req, res) => {
  * 
  */
 authRouter.post('/signin', async (req, res) => {
-    const username = req.body.username;
+    const email = req.body.email;
     const password = req.body.password;
 
     // if username and password not given
-    if (!passwordValidator(password) || !usernameValidator(username)) {
+    if (!passwordValidator(password) || !emailValidator(username)) {
         return res.status(422).json({ error: "please enter all fields" });
     }
 
     try {
         // Check if the user exists
-        const savedUser = await Users.findOne({ name: username });
+        const savedUser = await Users.findOne({ email: email });
         if (!savedUser) {
             return res.status(422).json({ error: "invalid user" });
         }
 
         // Compare the input password with the hashed password
+        console.log(savedUser.password);
         const passwordMatch = await bcrypt.compare(password, savedUser.password);
 
         if (passwordMatch) {
