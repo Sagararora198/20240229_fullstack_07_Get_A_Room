@@ -1,5 +1,12 @@
+//external dependencies
+import validator from "validator";
 import mongoose from "mongoose";
-import Hotel from "./Hotel.js";
+
+//internal dependencies
+import Hotel from "./Hotel.js";   
+import { emailValidationMessage, roles } from "../dependencies/constants/userConstants.js";
+import { emailValidator } from "../dependencies/validations/userValidations.js";
+
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -12,20 +19,35 @@ const userSchema = new mongoose.Schema({
     },
     email:{
         type:String,
-        
+        required:true,
+        validate:{
+            validator:emailValidator,
+            message:emailValidationMessage
+        }
+            
+    },
+    role:{
+        type:String,
+        enum:[roles.USER,roles.ADMIN],
+        default:roles.USER
     },
     phoneNumber:{
-        type:String
+        type:String,
+        required:false
     },
     about:{
-        type:String
+        type:String,
+        required:false
     },
     wallet:{
-        type:Number
+        type:Number,
+        min:0
+
     },
     wishlist:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:Hotel
+        ref:Hotel,
+        required:false
     }
 
 })

@@ -1,17 +1,20 @@
+// external dependencies
 import express, { json } from "express"
 import 'dotenv/config'
 import jwt from 'jsonwebtoken'
 import mongoose from "mongoose"
-import Users from "./models/User.js"
-import Hotel from "./models/Hotel.js"
-import Reviews from "./models/Reviews.js"
-import Bookings from "./models/Booking.js"
-import Rooms from "./models/rooms.js"
+import cloudinary from 'cloudinary'
+
+
+//internal dependencies
 import authRouter from "./routes/auth.js"
 import profileRouter from "./routes/profile.js"
 
+
 const app = express()
+//middleware
 app.use(json())
+
 
 /**Testing Working
  * 
@@ -21,20 +24,23 @@ app.get('/', (req, res) => {
 })
 
 
-
+// authentication route
 app.use('/',authRouter)
 
+//profile route
 app.use('/',profileRouter)
+
 
 /**connect to mongodb
  *  */
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log("connected");
+        app.listen(process.env.PORT, () => {
+            console.log("Listining on " + process.env.PORT);
+        })
 })
 
 
 
-app.listen(process.env.PORT, () => {
-    console.log("Listining on " + process.env.PORT);
-})
+

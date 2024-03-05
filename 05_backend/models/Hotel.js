@@ -13,10 +13,11 @@ const hotelSchema = new mongoose.Schema({
     },
     visibility:{
         type:Boolean,
+        default:true
 
     },
     phoneNumber:{
-        type:Number
+        type:Number,
     },
     rooms:[
         {
@@ -27,8 +28,12 @@ const hotelSchema = new mongoose.Schema({
             
         }
     ],
-    hotelPhotos:String,
-    hotelAmenities:String
+    hotelPhotos:{
+        type:String
+    },
+    hotelAmenities:{
+        type:String
+    }
 
 })
 const Hotel = mongoose.model('Hotels',hotelSchema)

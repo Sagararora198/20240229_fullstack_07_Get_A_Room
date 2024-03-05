@@ -1,6 +1,8 @@
 import 'dotenv/config'
 import jwt from 'jsonwebtoken'
-import Users from '../models/User.js'
+import Users from '../models/User'
+
+//Require Function to Login
 const requireLogin = (req,res,next)=>{
     const{authorization} = req.headers
     if(!authorization){
@@ -12,11 +14,9 @@ const requireLogin = (req,res,next)=>{
             return res.status(401).json({error:"you must be logged in"})
 
         }
-        const{_id} = payload
-        Users.findById(_id).then(userdata=>{
-            req.user = userdata
-            next()
+        const userdata = payload
+        req.user = userdata
+        next()
         })
-    })
-}
+    }
 export default requireLogin
