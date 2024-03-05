@@ -3,9 +3,11 @@ import validator from "validator";
 import mongoose from "mongoose";
 
 //internal dependencies
-import Hotel from "./Hotel.js";   
 import { emailValidationMessage, roles } from "../dependencies/constants/userConstants.js";
 import { emailValidator } from "../dependencies/validations/userValidations.js";
+// import Hotel from "./Hotel.js";   
+
+
 const userSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -37,19 +39,23 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:false
     },
+    location:{
+        type:String,
+        maxLenght:10
+    },
     wallet:{
         type:Number,
-        min:0
+        min:1
     },
     location:{
         type:String,
         maxLength: 10
     },
-    wishlist:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:Hotel,
-        required:false
-    }
+    // wishlist:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:Hotel,
+    //     required:false
+    // }
 
 })
 const Users = mongoose.model('Users',userSchema)

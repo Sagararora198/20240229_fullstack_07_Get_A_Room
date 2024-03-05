@@ -66,6 +66,7 @@ authRouter.post('/signin', async (req, res) => {
     try {
         // Check if the user exists
         const savedUser = await Users.findOne({ email: email });
+        console.log(savedUser);
         if (!savedUser) {
             return res.status(422).json({ error: "invalid user" });
         }
