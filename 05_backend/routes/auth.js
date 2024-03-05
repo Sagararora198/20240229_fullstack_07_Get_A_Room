@@ -55,10 +55,10 @@ authRouter.post('/signin', async (req, res) => {
     const password = req.body.password;
 
     // if username and password not given
-    if (!passwordValidator(password) || !emailValidator(username)) {
+    if (!passwordValidator(password) || !emailValidator(email)) {
         return res.status(422).json({ error: "please enter all fields" });
     }
-
+    console.log(email);
     try {
         // Check if the user exists
         const savedUser = await Users.findOne({ email: email });
