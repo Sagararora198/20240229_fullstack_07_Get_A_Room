@@ -1,6 +1,5 @@
 import express from "express";
 import 'dotenv/config';
-import mongoose from "mongoose";
 import Hotels from "../models/Hotel.js";
 
 const searchRouter = express.Router();
