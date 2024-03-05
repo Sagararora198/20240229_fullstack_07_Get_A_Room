@@ -1,4 +1,4 @@
-import { roles } from "../constants/userConstants"
+import { roles } from "../constants/userConstants.js"
 
 function passwordValidator(input){
 
