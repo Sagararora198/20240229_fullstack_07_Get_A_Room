@@ -16,6 +16,5 @@ const requireLogin = (req,res,next)=>{
         req.user = userdata
         next()
         })
-    })
 }
 export default requireLogin

@@ -8,6 +8,8 @@ import cloudinary from 'cloudinary'
 
 //internal dependencies
 import authRouter from "./routes/auth.js"
+import hotelRouter from "./routes/hotels.js"
+import roomRouter from "./routes/rooms.js"
 
 
 const app = express()
@@ -27,6 +29,13 @@ app.get('/', (req, res) => {
 // authentication route
 app.use('/',authRouter)
 
+
+// hotel route
+app.use('/',hotelRouter)
+
+
+// room route
+app.use('/',roomRouter)
 /**connect to mongodb
  *  */
 mongoose.connect(process.env.MONGO_URI)
