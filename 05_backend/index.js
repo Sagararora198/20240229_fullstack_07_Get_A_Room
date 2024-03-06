@@ -28,6 +28,15 @@ app.get('/', (req, res) => {
 // authentication route
 app.use('/',authRouter)
 
+<<<<<<< HEAD
+// hotel route
+app.use('/',hotelRouter)
+
+
+// room route
+app.use('/',roomRouter)
+
+=======
 //profile route
 app.use('/',profileRouter)
 
@@ -38,6 +47,7 @@ app.use('/',walletRouter)
 app.use('/',checkoutRouter)
 
 
+>>>>>>> a21ba2adec897eb1c5e3a0b125ee5d052c251abd
 /**connect to mongodb
  *  */
 mongoose.connect(process.env.MONGO_URI)
