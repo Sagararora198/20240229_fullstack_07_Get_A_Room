@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
-import RoomId from "./roomId.js";   
+import RoomId from "./roomId.js";
 import Users from "./User.js";
-
 
 const hotelSchema = new mongoose.Schema({
     hotelName:{
@@ -35,6 +34,12 @@ const hotelSchema = new mongoose.Schema({
     },
     hotelAmenities:{
         type:String
+    },
+    rating:{
+        type:Number,
+        required:false,
+        min:0,
+        max:5
     },
     managedBy:{
         type:mongoose.Schema.Types.ObjectId,
