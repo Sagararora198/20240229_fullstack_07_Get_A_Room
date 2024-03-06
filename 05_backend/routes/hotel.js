@@ -12,25 +12,6 @@ import { roles } from "../dependencies/constants/userConstants.js";
 
 const hotelRouter = express.Router();
 
-// Middleware to verify if the user is an admin
-// const verifyAdmin = (req, res, next) => {
-//     const { authorization } = req.headers;
-//     if (!authorization) {
-//         return res.status(401).json({ error: "JWT token is missing." });
-//     }
-//     const token = authorization.replace("Bearer ", "");
-//     jwt.verify(token, process.env.SECRET_KEY, (err, payload) => {
-//         if (err) {
-//             return res.status(401).json({ error: "Invalid JWT token." });
-//         }
-//         // Assuming the payload contains isAdmin property
-//         if (!payload.isAdmin) {
-//             return res.status(403).json({ error: "Access forbidden. Admin access required." });
-//         }
-//         req.user = payload; // Add user payload to request
-//         next();
-//     });
-// };
 
 // API to update hotel properties by admin
 
