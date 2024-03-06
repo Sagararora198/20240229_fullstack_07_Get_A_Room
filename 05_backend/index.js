@@ -22,6 +22,11 @@ const app = express()
 app.use(json())
 
 
+
+.then((result)=>{
+    console.log(result);
+})
+
 /**Testing Working
  * 
  */
