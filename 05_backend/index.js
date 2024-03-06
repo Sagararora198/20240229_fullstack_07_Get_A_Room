@@ -48,7 +48,11 @@ app.use('/',walletRouter)
 //checkout Router
 app.use('/',checkoutRouter)
 
+//booking Router
 app.use('/',bookingRouter)
+
+//review router
+app.use('/',reviewRouter)
 
 /**connect to mongodb
  *  */
