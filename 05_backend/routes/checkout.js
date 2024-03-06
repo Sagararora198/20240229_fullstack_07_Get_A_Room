@@ -51,4 +51,3 @@ checkoutRouter.post('/checkout', requireLogin, async (req, res) => {
 
 export default checkoutRouter;
 
-export default checkoutRouter
