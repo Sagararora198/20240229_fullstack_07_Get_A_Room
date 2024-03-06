@@ -11,6 +11,9 @@ import authRouter from "./routes/auth.js"
 import profileRouter from "./routes/profile.js"
 import walletRouter from "./routes/wallet.js"
 import checkoutRouter from "./routes/checkout.js"
+import bookingRouter from "./routes/booking.js"
+import hotelRouter from "./routes/hotel.js"
+import roomRouter from "./routes/room.js"
 import reviewRouter from "./routes/reviews.js"
 
 const app = express()
@@ -45,8 +48,7 @@ app.use('/',walletRouter)
 //checkout Router
 app.use('/',checkoutRouter)
 
-//Review route
-app.use('/',reviewRouter);
+app.use('/',bookingRouter)
 
 /**connect to mongodb
  *  */

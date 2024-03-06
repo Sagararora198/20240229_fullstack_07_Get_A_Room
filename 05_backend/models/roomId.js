@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Hotel from "./Hotel.js";
+// import Hotel from "./Hotel.js";
 
 const roomIdSchema = new mongoose.Schema({
 
