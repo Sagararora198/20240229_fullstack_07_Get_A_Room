@@ -11,6 +11,7 @@ import authRouter from "./routes/auth.js"
 import profileRouter from "./routes/profile.js"
 import walletRouter from "./routes/wallet.js"
 import checkoutRouter from "./routes/checkout.js"
+import reviewRouter from "./routes/reviews.js"
 
 const app = express()
 //middleware
@@ -28,7 +29,6 @@ app.get('/', (req, res) => {
 // authentication route
 app.use('/',authRouter)
 
-<<<<<<< HEAD
 // hotel route
 app.use('/',hotelRouter)
 
@@ -36,7 +36,6 @@ app.use('/',hotelRouter)
 // room route
 app.use('/',roomRouter)
 
-=======
 //profile route
 app.use('/',profileRouter)
 
@@ -46,8 +45,9 @@ app.use('/',walletRouter)
 //checkout Router
 app.use('/',checkoutRouter)
 
+//Review route
+app.use('/',reviewRouter);
 
->>>>>>> a21ba2adec897eb1c5e3a0b125ee5d052c251abd
 /**connect to mongodb
  *  */
 mongoose.connect(process.env.MONGO_URI)

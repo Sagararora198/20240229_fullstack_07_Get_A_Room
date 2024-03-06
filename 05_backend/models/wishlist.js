@@ -7,6 +7,7 @@ const wishlistSchema=new mongoose.Schema({
       ref:Hotel,
       required:false
   }
+  
 })
 
 
