@@ -15,6 +15,7 @@ import bookingRouter from "./routes/booking.js"
 import hotelRouter from "./routes/hotel.js"
 import roomRouter from "./routes/room.js"
 import reviewRouter from "./routes/reviews.js"
+import searchRouter from "./routes/search.js"
 
 const app = express()
 //middleware
@@ -53,6 +54,9 @@ app.use('/',bookingRouter)
 
 //review router
 app.use('/',reviewRouter)
+
+// search route
+app.use('/',searchRouter)
 
 /**connect to mongodb
  *  */

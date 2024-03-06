@@ -53,13 +53,13 @@ hotelRouter.put('/hotel/:hotelId', requireLogin, async (req, res) => {
 });
 
 //API to post hotel by admin 
-hotelRouter.post('/hotel', requireLogin, async (req, res) => {
+hotelRouter.post('/hotel', async (req, res) => {
     const { hotelName, hotelAddress, roomTypes } = req.body; // Assuming roomTypes is an array of strings
     //checking if user is admin
-    if (user.role == roles.USER) {
-        return res.status(403).json({ error: "Unauthorized user" })
-    }
-    else if (user.role == roles.ADMIN) {
+    // if (user.role == roles.USER) {
+    //     return res.status(403).json({ error: "Unauthorized user" })
+    // }
+    // else if (user.role == roles.ADMIN) {
         try {
             // Process each room type
             const roomIds = await Promise.all(roomTypes.map(async (type) => {
@@ -83,7 +83,7 @@ hotelRouter.post('/hotel', requireLogin, async (req, res) => {
             console.error(error);
             res.status(500).json({ error: "Internal server error" });
         }
-    }
+    // }
 });
 
 //API to delete hotel by admin
