@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Users from "./User.js";
-import Rooms from "./rooms.js";
+import Hotel from "./Hotel.js";
 
 const reviewsSchema = new mongoose.Schema({
     reviewedBy:{
@@ -9,10 +9,20 @@ const reviewsSchema = new mongoose.Schema({
     },
     reviewedTo:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:Rooms
+        ref:Hotel
     },
-    review:String,
-    ratings:String
+    review:
+    {
+        type:String,
+        required:false,
+        minLength:5
+    },
+    rating:{
+        type:Number,
+        required:true,
+        min:0,
+        max:5
+    }
 
 })
 const Reviews = mongoose.model('Reviews',reviewsSchema)
