@@ -6,11 +6,12 @@ import 'dotenv/config';
 import Hotels from "../models/Hotel.js";
 import Reviews from "../models/Reviews.js";
 import { roles } from "../dependencies/constants/userConstants.js";
+import requireLogin from "../middleware/requireLogin.js";
 
 const reviewRouter = express.Router();
 
 //API to add reviews by authorized users only
-reviewRouter.get('/reviews', async (req, res) => {
+reviewRouter.post('/reviews',requireLogin, async (req, res) => {
     const { hotelId } = req.query; // Assuming hotelId is passed as a query parameter
     const { rating, review } = req.body;
     const {user} = req; 

@@ -22,10 +22,10 @@ const hotelSchema = new mongoose.Schema({
     },
     rooms:[
         {
-            room_id:{
-                type:mongoose.Schema.Types.ObjectId,
+            
+            type:mongoose.Schema.Types.ObjectId,
                 ref:RoomId
-            }
+            
             
         }
     ],
@@ -34,12 +34,6 @@ const hotelSchema = new mongoose.Schema({
     },
     hotelAmenities:{
         type:String
-    },
-    rating:{
-        type:Number,
-        required:false,
-        min:0,
-        max:5
     },
     managedBy:{
         type:mongoose.Schema.Types.ObjectId,
