@@ -10,6 +10,8 @@ import mongoose from "mongoose";
  * @param {String} hotelid hotelId
  * @returns {Array<{}>}
  */
+
+
 async function availableRooms(usercheckindate,usercheckoutdate,hotelid){
     const desiredCheckinDate = new Date(usercheckindate)
     const desiredCheckoutDate = new Date(usercheckoutdate)
@@ -73,8 +75,9 @@ async function availableRooms(usercheckindate,usercheckoutdate,hotelid){
         }
       ])
 
-    //   const availableRoomsArray = emptyRooms.map(doc=>doc.availableRooms)
-    //   return availableRoomsArray
+      const availableRoomsArray = emptyRooms.map(doc=>doc.availableRooms)
+      // console.log(availableRooms);
+      return availableRoomsArray
     // console.log(emptyRooms);
     return emptyRooms
 

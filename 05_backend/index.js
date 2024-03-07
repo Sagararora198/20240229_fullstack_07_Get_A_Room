@@ -16,16 +16,18 @@ import hotelRouter from "./routes/hotel.js"
 import roomRouter from "./routes/room.js"
 import reviewRouter from "./routes/reviews.js"
 import searchRouter from "./routes/search.js"
-
+import availableRooms from "./dependencies/controllers/roomAvailabilityController.js"
 const app = express()
+
 //middleware
-app.use(json())
+// app.use(json())
 
 
+// const result=availableRooms('2024-03-04','2024-03-15','')
+// .then((result)=>{
+//     console.log(result);
+// })
 
-.then((result)=>{
-    console.log(result);
-})
 
 /**Testing Working
  * 

@@ -53,6 +53,7 @@ walletRouter.get('/wallet', requireLogin, async (req, res) => {
 })
 
 //adding amount to the specified user
+//This can only be done by the admin 
 walletRouter.put('/addMoney', requireLogin, async (req, res) => {
   const { user } = req; // The admin user making the request
   const { userId, amountToAdd } = req.body; // Extract userId and amountToAdd from the request body
