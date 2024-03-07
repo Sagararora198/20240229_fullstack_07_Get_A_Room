@@ -20,9 +20,11 @@ app.use(express.json()); // This line is crucial
 
 checkoutRouter.post('/checkout', requireLogin, async (req, res) => {
   const { checkinDate, checkoutDate, paymentDetails, hotelId } = req.body;
-  // const { user } = req;
+  const { user } = req;
 
-  
+  console.log(user);
+  console.log(checkinDate);
+
   // Ensure all required fields are provided
   if (!checkinDate || !checkoutDate || !paymentDetails || !hotelId) {
     return res.status(400).send('Missing required booking details');
@@ -39,7 +41,7 @@ checkoutRouter.post('/checkout', requireLogin, async (req, res) => {
       }
 
       // Select an available room ID from the list
-      const room = availableRoomsList[0]._id; // Adjust according to your actual data structure
+      const room = availableRoomsList[0]; // Adjust according to your actual data structure
       //if the room is not present
       if (!room) {
         return res.status(404).send('Room not found');
