@@ -18,6 +18,7 @@ import reviewRouter from "./routes/reviews.js"
 import searchRouter from "./routes/search.js"
 import availableRooms from "./dependencies/controllers/roomAvailabilityController.js"
 // import availableRooms from "./dependencies/controllers/roomAvailabilityController.js"
+
 const app = express()
 
 // middleware
@@ -34,6 +35,12 @@ availableRooms("2024-03-12","2024-03-14","65e6bf0537c8e77de452be2f")
 // })
 
 
+
+
+availableRooms("2024-03-12","2024-03-13","65e6bf0537c8e77de452be2f")
+.then((result)=>{
+    console.log(result);
+})
 /**Testing Working
  * 
  */

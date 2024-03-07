@@ -42,6 +42,19 @@ checkoutRouter.post('/checkout', requireLogin, async (req, res) => {
 
       // Select an available room ID from the list
       const room = availableRoomsList[0]; // Adjust according to your actual data structure
+
+      const existingBooking = await Bookings.findOne({
+        bookedRoom: room,
+        $or: [
+          { checkinDate: { $lt: new Date(checkoutDate), $gte: new Date(checkinDate) } },
+          { checkoutDate: { $gt: new Date(checkinDate), $lte: new Date(checkoutDate) } }
+        ]
+      });
+
+      if (existingBooking) {
+        return res.status(400).send('Selected room is already booked for the given dates');
+      }
+      
       //if the room is not present
       if (!room) {
         return res.status(404).send('Room not found');
@@ -56,7 +69,7 @@ checkoutRouter.post('/checkout', requireLogin, async (req, res) => {
         checkoutDate: new Date(checkoutDate), // checkoutDate from user
         paymentDetails: paymentDetails,
       });
-
+      
       // Save the new booking to the database
       await newBooking.save();
 

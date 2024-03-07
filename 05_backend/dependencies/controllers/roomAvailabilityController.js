@@ -73,9 +73,9 @@ async function availableRooms(usercheckindate,usercheckoutdate,hotelid){
         }
       ])
 
-      const availableRoomsArray = emptyRooms.map(doc=>doc.availableRooms)
-      console.log(availableRoomsArray);
-      return availableRoomsArray
+      // const availableRoomsArray = emptyRooms.map(doc=>doc.availableRooms)
+      // console.log(availableRoomsArray);
+      // return availableRoomsArray
     // console.log(emptyRooms);
     return emptyRooms
 
@@ -86,7 +86,7 @@ export default availableRooms
 
 
 // for testing
-availableRooms("2024-03-12","2024-03-14","65e6bf0537c8e77de452be2f")
-.then(result=>{
-  console.log(result);
-})
+// availableRooms("2024-03-12","2024-03-14","65e6bf0537c8e77de452be2f")
+// .then(result=>{
+//   console.log(result);
+// })
