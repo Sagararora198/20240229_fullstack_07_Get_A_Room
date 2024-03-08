@@ -12,15 +12,29 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+/** visibility of email
+ 
+ */
   emailErrorVisible: boolean = false;
+  /**visibility of password
+   */
   passwordErrorVisible: boolean = false;
+  /**submit buttom visibility
+   */
   submitDisabled: boolean = true;
+  /**email error message
+   */
   emailError: { errorMsg: string }[] = [{errorMsg:""}];
+  /**password error message
+   */
   passwordError: { errorMsg: string }[] = [{errorMsg:""}];
 
  
-
+/** To validate email field
+ * 
+ * @param {String} email input email  
+ * @returns {String|undefined} error string or undefined
+ */
   validateEmail(email: string): string | undefined {
     if (!email) {
       return 'Email is required';
@@ -36,6 +50,11 @@ export class LoginComponent implements OnInit {
   
     return undefined;
   }
+  /** To validate password field
+ * 
+ * @param {String} email input password  
+ * @returns {String|undefined} error string or undefined
+ */
   validatePassword(password: string): string | undefined {
     // Check if the password is at least 8 characters long
     if (password.length < 8) {
@@ -66,10 +85,17 @@ export class LoginComponent implements OnInit {
     return undefined;
   }
 
+  /** To handel onblue event and show error if required on email
+   * 
+   * @param {event} 
+   */
   handleEmailBlur(event: any) {
+    //take email value
     const email = event.target.value;
+    // check for validation
     const error = this.validateEmail(email);
     this.emailError = error ? [{ errorMsg: error }] : [];
+    // if error then make error visible
     if(this.emailError.length>0){
       this.emailErrorVisible = true
       
@@ -79,12 +105,18 @@ export class LoginComponent implements OnInit {
     
     
   }
+  /** make errormessage disabled on focus
+   * 
+   */
   onEmailFocus(){
     this.emailErrorVisible=false
     
     
   }
-
+/**To handel onblue event and show error if required on password
+ * 
+ * @param {event}  
+ */
   handlePasswordBlur(event: any) {
     const password = event.target.value;
     const error = this.validatePassword(password);
@@ -96,14 +128,21 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onPasswordFocus(event:any){
+  /**make errormessage disabled on focus
+   * 
+   * 
+   */
+  onPasswordFocus(){
     this.passwordErrorVisible=false
   }
   
 
   handelOnchange(event:any){}
   handelOnmouseenter(){}
- 
+ /**to handel submit button visibility and make error msg disabled
+  * 
+  * @param {event }
+  */
   handelPasswordChange(event:any){
     this.passwordErrorVisible = false
     const password = event.target.value
