@@ -96,4 +96,14 @@ body {
     color: #333333;
     font-weight: 600;
   }
+.login-button:disabled{
+  pointer-events: none;
+  background-color: #333333;
+}
+.error_msg{
+  color: red;
+  margin: 0px;
+  padding: 0px;
+  margin-left: 354px;
   
+}
