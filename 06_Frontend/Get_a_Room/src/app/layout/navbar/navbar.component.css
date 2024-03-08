@@ -1,3 +1,21 @@
+
+  .properties {
+    background-color: var(--colors-white);
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    font-family: var(--font-montserrat);
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    gap: 47px 0;
+    letter-spacing: normal;
+    font-size: var(--font-size-16xl);
+    color: var(--color-crimson);
+  }
+  
 .rectangle-parent {
     align-self: stretch;
     background-color: var(--color-whitesmoke-100);
@@ -43,4 +61,97 @@
     cursor: pointer;
     z-index: 1;
   }
-  
+
+
+
+  @media screen and (max-width: 1200px) {
+    .properties-inner {
+      padding-bottom: var(--padding-65xl);
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 1050px) {
+    .logo6 {
+      font-size: var(--font-size-9xl);
+    }
+    .location-parent {
+      display: none;
+    }
+    .properties-inner {
+      padding-bottom: 55px;
+      box-sizing: border-box;
+    }
+    .logo7 {
+      font-size: var(--font-size-21xl);
+    }
+  }
+  @media screen and (max-width: 750px) {
+    .rectangle-parent {
+      padding-left: var(--padding-19xl);
+      padding-right: var(--padding-18xl);
+      box-sizing: border-box;
+    }
+    .which-city-do1 {
+      display: none;
+    }
+    .location-parent {
+      width: 1.1000000000000227px;
+    }
+    .frame-parent4 {
+      gap: 0 47px;
+    }
+    .search-bar1 {
+      gap: var(--gap-13xl);
+    }
+    .types-and-filters {
+      gap: 0 77px;
+    }
+    .types-and-filters-parent {
+      gap: 31px 0;
+    }
+    .properties {
+      gap: 47px 0;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .logo6 {
+      font-size: var(--font-size-2xl);
+    }
+    .rectangle-parent {
+      flex-wrap: wrap;
+    }
+    .check-in-parent {
+      display: none;
+    }
+    .frame-parent5 {
+      width: 20px;
+    }
+    .adddatesframe,
+    .featherheartpropertyframe {
+      display: none;
+    }
+    .framesliders-parent {
+      gap: 0 40px;
+    }
+    .types-and-filters {
+      gap: 0 77px;
+    }
+    .container,
+    .group,
+    .parent1,
+    .parent2,
+    .parent3,
+    .parent4,
+    .parent5,
+    .parent6,
+    .sliderindicatorssliderindicato {
+      flex-wrap: wrap;
+    }
+    .properties-inner {
+      padding-bottom: var(--padding-17xl);
+      box-sizing: border-box;
+    }
+    .logo7 {
+      font-size: var(--font-size-11xl);
+    }
+  }

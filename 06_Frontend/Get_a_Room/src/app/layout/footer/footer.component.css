@@ -1,0 +1,415 @@
+/*Footer component */
+.footer-frame{
+  width: 100vw;
+}
+
+.footer-bg-icon,
+.footer-bg-icon1,
+.footer-bg-icon2 {
+  position: absolute;
+  top: 0;
+  left: -0.5px;
+  width: inherit;
+  background-color: #eff0f2;
+  height: 648px;
+}
+
+
+.footer-bg-icon1,
+.footer-bg-icon2 {
+  z-index: 1;
+}
+
+.footer-bg-icon2 {
+  z-index: 2;
+}
+.footer-frame {
+  margin-bottom: -205px;
+  height: 648px;
+  flex: 1;
+  position: relative;
+ width: inherit;
+}
+
+.footer-frame {
+  margin-bottom: -205px;
+  height: 648px;
+  flex: 1;
+  position: relative;
+ width: inherit;
+}
+
+
+.footer,
+.home {
+  background-color: var(--colors-white);
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+
+.footer {
+  margin-left: -2px;
+  align-self: stretch;
+  height: 443px;
+  flex-shrink: 0;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+  font-size: var(--font-size-mini);
+  color: var(--color-darkslategray);
+  font-family: var(--font-montserrat);
+}
+
+/*apple and playstore logo*/
+.apple-store-app-logo,
+.play-store-logo-google-play-st {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*logo1*/
+
+.logo1,
+.lorem-ipsum-dolor {
+  position: absolute;
+  left: 87px;
+  display: inline-block;
+  z-index: 3;
+}
+.logo1 {
+  margin: 0;
+  top: 72px;
+  font-size: var(--font-size-31xl);
+  font-weight: 800;
+  font-family: inherit;
+  width: 166px;
+  height: 56px;
+}
+.lorem-ipsum-dolor {
+  top: 159px;
+  line-height: 20px;
+  color: var(--color-darkgray);
+  white-space: pre-wrap;
+  width: 382px;
+  height: 96px;
+}
+
+
+.playstore-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gainsboro-200);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.ionlogo-google-playstore-icon {
+  position: absolute;
+  top: 15px;
+  left: 29px;
+  width: 22px;
+  height: 22px;
+  overflow: hidden;
+  z-index: 1;
+}
+.playstore1 {
+  position: absolute;
+  top: 18px;
+  left: 66px;
+  font-size: var(--font-size-mini);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  color: var(--color-darkslategray);
+  text-align: left;
+  display: inline-block;
+  width: 86px;
+  height: 26px;
+  z-index: 1;
+}
+.applestore-child,
+.playstore {
+  position: absolute;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gainsboro-200);
+}
+.playstore {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  top: 262px;
+  left: 87px;
+  width: 172px;
+  height: 52px;
+  z-index: 3;
+}
+.applestore-child {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.applestore1 {
+  position: absolute;
+  top: 18px;
+  left: 60px;
+  font-size: var(--font-size-mini);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  color: var(--color-darkslategray);
+  text-align: left;
+  display: inline-block;
+  width: 94px;
+  height: 26px;
+  z-index: 1;
+}
+.ionlogo-apple-appstore-icon {
+  position: absolute;
+  top: 15px;
+  left: 21px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  z-index: 1;
+}
+.applestore {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-gainsboro-200);
+  position: absolute;
+  top: 262px;
+  left: 272px;
+  border-radius: var(--br-7xs);
+  width: 172px;
+  height: 52px;
+  z-index: 3;
+}
+
+
+.about-us,
+.blogs,
+.company,
+.contact-us,
+.legal-information {
+  position: absolute;
+  left: 517px;
+  line-height: 20px;
+  display: inline-block;
+  height: 28px;
+  z-index: 3;
+}
+.company {
+  top: 86px;
+  font-size: var(--font-size-lg);
+  width: 176px;
+}
+.about-us,
+.blogs,
+.contact-us,
+.legal-information {
+  top: 134px;
+  font-weight: 500;
+  width: 87px;
+}
+.blogs,
+.contact-us,
+.legal-information {
+  top: 167px;
+  width: 153px;
+}
+.blogs,
+.contact-us {
+  top: 200px;
+  width: 103px;
+}
+.blogs {
+  top: 233px;
+  width: 57px;
+}
+.contact-info,
+.email-companyemailcom,
+.location-100-smart,
+.phone-1234567890 {
+  position: absolute;
+  left: 1025px;
+  line-height: 20px;
+  display: inline-block;
+  z-index: 3;
+}
+.contact-info {
+  top: 89px;
+  font-size: var(--font-size-lg);
+  width: 153px;
+  height: 28px;
+}
+.email-companyemailcom,
+.location-100-smart,
+.phone-1234567890 {
+  top: 138px;
+  font-weight: 500;
+  width: 157px;
+  height: 21px;
+}
+.email-companyemailcom,
+.location-100-smart {
+  top: 170px;
+  width: 224px;
+}
+.location-100-smart {
+  top: 202px;
+  width: 294px;
+}
+.social-media-links {
+  position: absolute;
+  top: 250px;
+  left: 1016px;
+  width: 191px;
+  height: 38px;
+  overflow: hidden;
+  z-index: 3;
+}
+.faqs,
+.find-a-hotel,
+.help-center,
+.rental-guides,
+.why-us {
+  position: absolute;
+  left: 778px;
+  line-height: 20px;
+  display: inline-block;
+  height: 28px;
+  z-index: 3;
+}
+.help-center {
+  top: 89px;
+  font-size: var(--font-size-lg);
+  width: 153px;
+}
+.faqs,
+.find-a-hotel,
+.rental-guides,
+.why-us {
+  top: 137px;
+  font-weight: 500;
+  width: 132px;
+}
+.faqs,
+.rental-guides,
+.why-us {
+  top: 170px;
+  width: 103px;
+}
+.faqs,
+.rental-guides {
+  top: 201px;
+  width: 57px;
+}
+.rental-guides {
+  top: 236px;
+  width: 132px;
+}
+
+.home {
+  width: 100%;
+  position: relative;
+  border-radius: var(--br-xl);
+  flex-direction: column;
+  align-items: center;
+  gap: 88px 0;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 925px) {
+  .logo {
+    font-size: var(--font-size-9xl);
+  }
+  .banner {
+    font-size: var(--font-size-29xl);
+  }
+  .find {
+    font-size: 32px;
+  }
+  .top-rated-properties {
+    font-size: var(--font-size-10xl);
+    line-height: 38px;
+  }
+  .latest-property-frame {
+    justify-content: center;
+    grid-template-columns: repeat(2, minmax(209px, 363px));
+  }
+  .logo1 {
+    font-size: var(--font-size-21xl);
+  }
+}
+@media screen and (max-width: 700px) {
+  .add-dates-frame {
+    flex-wrap: wrap;
+    gap: 0 38px;
+  }
+  .banners {
+    gap: 93px 0;
+    padding: var(--padding-xl) var(--padding-18xl) var(--padding-30xl)
+      var(--padding-19xl);
+    box-sizing: border-box;
+  }
+  .top-rated-properties-frame-parent {
+    gap: 64px 0;
+    padding-bottom: var(--padding-28xl);
+    box-sizing: border-box;
+  }
+  .home {
+    gap: 88px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .logo {
+    font-size: var(--font-size-2xl);
+  }
+  .banner-frames {
+    flex-wrap: wrap;
+  }
+  .banner {
+    font-size: var(--font-size-11xl);
+  }
+  .find {
+    font-size: var(--font-size-5xl);
+  }
+  .guests-and-dates-frame,
+  .round-search-frame {
+    flex-wrap: wrap;
+  }
+  .banners {
+    gap: 93px 0;
+  }
+  .top-rated-properties {
+    font-size: var(--heading-04-size);
+    line-height: 29px;
+  }
+  .latest-property-1,
+  .latest-property-2,
+  .latest-property-3,
+  .latest-property-4 {
+    gap: var(--gap-129xl);
+  }
+  .latest-property-frame {
+    grid-template-columns: minmax(209px, 1fr);
+  }
+  .top-rated-properties-frame-parent {
+    gap: 64px 0;
+  }
+  .logo1 {
+    font-size: var(--font-size-11xl);
+  }
+  .home {
+    gap: 88px 0;
+  }
+}

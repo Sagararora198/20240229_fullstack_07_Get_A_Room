@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../layout/navbar/navbar.component';
 import { FooterComponent } from '../layout/footer/footer.component';
-import { SearchComponent } from '../search/search.component';
 import { SearchComponentComponent } from '../layout/search-component/search-component.component';
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'app-properties',
   standalone: true,
-  imports: [NavbarComponent,FooterComponent,SearchComponentComponent],
-  templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.css'
+  imports: [NavbarComponent,FooterComponent, SearchComponentComponent],
+  templateUrl: './properties.component.html',
+  styleUrl: './properties.component.css'
 })
-export class HomePageComponent {
+export class PropertiesComponent {
 
 }
