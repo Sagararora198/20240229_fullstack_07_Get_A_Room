@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #fff;
+  }
+  
+  .container {
+    width: 658px;
+    height: 536px;
+    position: relative;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    padding: 50px;
+  }
+  
+  .login-title {
+    text-align: center;
+  }
+  
+  .title {
+    color: #FF3366;
+    font-size: 31px;
+    font-family: Montserrat;
+    font-weight: 700;
+    position: relative;
+    left: -290px;
+
+  }
+  
+  .input-container {
+    margin-top: 50px;
+  }
+  
+  .email-label,
+  .password-label {
+    color: black;
+    font-size: 14px;
+    font-family: Roboto;
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
+  
+  .email-field,
+  .password-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px rgba(72.25, 72.25, 72.25, 0.75) solid;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    
+  }
+  
+
+  .forgot-password {
+    color: #666666;
+    font-size: 13px;
+    font-family: Roboto;
+    font-weight: 400;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .divider {
+    width: 558px;
+    height: 1px;
+    background: #E0E2E6;
+    margin: 30px 0;
+  }
+  
+  .login-button {
+    width: 271px;
+    height: 60px;
+    background: #FF3366;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 15px;
+    font-family: Montserrat;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 30px auto;
+    position: relative;
+    left: 30%;
+  }
+  
+  .signup-text {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .signup-text a {
+    color: #333333;
+    font-weight: 600;
+  }
+  

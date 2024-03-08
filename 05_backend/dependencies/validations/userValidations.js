@@ -10,6 +10,7 @@ function passwordValidator(input){
     return passwordRegex.test(input)
 
 }
+
 /** email validator
  * 
  * @param {String} input input password
@@ -20,6 +21,7 @@ function emailValidator(input){
     const emailRegex = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}$/
     return emailRegex.test(input)
 }
+
 /** username validator
  * 
  * @param {String} input input password
@@ -34,6 +36,7 @@ function usernameValidator(input){
     }
     return true
 }
+
 /** role validator
  * 
  * @param {String} input input password
@@ -49,6 +52,7 @@ function roleValidator(input){
         return false
     }
 }
+
 /** location validator
  * 
  * @param {String} input input password
@@ -61,6 +65,7 @@ function locationValidator(input){
     return true
 
 }
+
 /** phone Number validator
  * 
  * @param {String} input input password
@@ -72,6 +77,7 @@ function phoneNumberValidation(){
     return phoneRegex.test(phoneNumber);
 
 }
+
 /** about  validator
  * 
  * @param {String} input input password
