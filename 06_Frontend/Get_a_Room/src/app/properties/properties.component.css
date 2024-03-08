@@ -340,6 +340,7 @@
   border-radius: var(--br-5xl);
   align-items: center;
   gap: var(--gap-7xs);
+  margin-left: 60px;
 }
 .filter-btn:hover {
   background-color: var(--color-gainsboro-100);

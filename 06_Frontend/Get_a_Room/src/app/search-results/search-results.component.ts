@@ -3,12 +3,12 @@ import { NavbarComponent } from '../layout/navbar/navbar.component';
 import { FooterComponent } from '../layout/footer/footer.component';
 
 @Component({
-  selector: 'app-search',
+  selector: 'app-search-results',
   standalone: true,
   imports: [NavbarComponent,FooterComponent],
-  templateUrl: './search.component.html',
-  styleUrl: './search.component.css'
+  templateUrl: './search-results.component.html',
+  styleUrl: './search-results.component.css'
 })
-export class SearchComponent {
+export class SearchResultsComponent {
 
 }

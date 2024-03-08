@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { DropdownProfileComponent } from '../dropdown-profile/dropdown-profile.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [DropdownProfileComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../layout/navbar/navbar.component';
 import { FooterComponent } from '../layout/footer/footer.component';
-import { SearchComponent } from '../search/search.component';
 import { SearchComponentComponent } from '../layout/search-component/search-component.component';
 
 @Component({
