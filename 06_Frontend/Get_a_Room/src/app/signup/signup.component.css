@@ -1,0 +1,382 @@
+*{
+    font-family: "roboto";
+  }
+  .main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 515px;
+    width: 612px;
+    position: absolute;
+    margin: 0 !important;
+    top: 10%;
+    left: calc(50% - 306px);
+    border-radius: var(--br-3xs);
+    background-color: var(--colors-white);
+    box-shadow: 0 0 8px rgba(194, 198, 204, 0.6);
+  }
+  
+  .signup {
+    /* background-color: black; */
+    width: 90%;
+    top: 50px;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 57px 0 0 var(--padding-12xs);
+    letter-spacing: normal;
+  }
+  
+  /* for continue button */
+  .continue-text-parent {
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: #FF3366;
+    align-self: stretch;
+    flex: 1;
+    align-items: center;
+  }
+  
+  .continue {
+    font-size: medium;
+    display: inline-block;
+    color: white;
+    text-align: left;
+    z-index: 2;
+    margin-left: 61px;
+  
+  }
+  
+  .email-input-frame {
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    width: 90%;
+    height: 50px;
+    margin-left: 20px;
+    /* background-color: bisque; */
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 var(--padding-10xs) 0 0;
+  }
+  
+  .enter-your-text {
+    padding-left: 12px;
+    box-sizing: border-box;
+    width: 158px;
+    border: 0;
+    outline: 0;
+    font-weight: 600;
+    /* background-color: black; */
+    height: 16px;
+    position: relative;
+    color: #333333;
+    text-align: left;
+    display: inline-block;
+    z-index: 2;
+  }
+  
+  .enter-your-text::placeholder{
+    margin-left: 10px;
+    color: #999999;
+  }
+  
+  .already-have-an {
+    font-weight: 400;
+    color: #999999;
+  }
+  
+  .login2 {
+    font-weight: 600;
+    color: #333333;
+  }
+  
+  .continue-text {
+    align-self: stretch;
+    width: 187px;
+    border-radius: var(--br-11xl);
+    background-color: var(--color-crimson);
+    z-index: 1;
+  }
+  
+  .continue-text-parent,
+  .login-frame {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  
+  .signup2 {
+    margin: 0;
+    width: 187px;
+    position: relative;
+    font-size: 30px;
+    font-weight: 700;
+    color: #FF3366;
+    text-align: left;
+    display: inline-block;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  
+  
+  /*
+  *------------------- UNTOUCHED CSS ---------------------------------------*
+  */
+  
+  .vector-icon2 {
+    height: 16.4px;
+    width: 15px;
+    position: relative;
+  }
+  .login-link-frame {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--padding-12xs) 0 0;
+    gap: var(--gap-xl);
+  }
+  .divider-line,
+  .enter-your-email-child {
+    position: relative;
+    box-sizing: border-box;
+  }
+  .divider-line {
+    align-self: stretch;
+    height: 1px;
+    border-top: 1px solid var(--color-gainsboro-200);
+    z-index: 1;
+  }
+  .enter-your-email-child {
+    height: 60px;
+    width: 536px;
+    border-radius: var(--br-7xs);
+    background-color: var(--colors-white);
+    border: 1px solid var(--color-silver);
+    display: none;
+    max-width: 100%;
+  }
+  
+  .enter-your-email {
+    flex: 1;
+    border-radius: var(--br-7xs);
+    /* background-color: var(--colors-white); */
+    border: 1px solid var(--color-silver);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: var(--padding-3xl) var(--padding-lgi);
+    z-index: 1;
+  }
+  .email-input-frame,
+  .enter-your-email,
+  .frame-child6 {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  
+  .frame-child6 {
+    height: 60px;
+    width: 536px;
+    position: relative;
+    border-radius: var(--br-7xs);
+    background-color: var(--colors-white);
+    border: 1px solid var(--color-silver);
+    display: none;
+  }
+  .enter-your-email1 {
+    width: 158px;
+    border: 0;
+    outline: 0;
+    font-weight: 600;
+    /* font-family: var(--font-roboto); */
+    font-size: var(--paragraph-04-size);
+    background-color: transparent;
+    height: 16px;
+    position: relative;
+    color: var(--color-darkgray-100);
+    text-align: left;
+    display: inline-block;
+    z-index: 2;
+  }
+  .rectangle-parent2 {
+    flex: 1;
+    border-radius: var(--br-7xs);
+    background-color: var(--colors-white);
+    border: 1px solid var(--color-silver);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: var(--padding-3xl) var(--padding-base);
+    z-index: 1;
+  }
+  .email-input-frame1,
+  .frame-child7,
+  .rectangle-parent2 {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .email-input-frame1 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 0 var(--padding-10xs);
+  }
+  .frame-child7 {
+    height: 60px;
+    width: 536px;
+    position: relative;
+    border-radius: var(--br-7xs);
+    background-color: var(--colors-white);
+    border: 1px solid var(--color-silver);
+    display: none;
+  }
+  .enter-your-password {
+    width: 158px;
+    border: 0;
+    outline: 0;
+    font-weight: 600;
+    /* font-family: var(--font-roboto); */
+    font-size: var(--paragraph-04-size);
+    background-color: transparent;
+    height: 16px;
+    position: relative;
+    color: var(--color-darkgray-100);
+    text-align: left;
+    display: inline-block;
+    z-index: 2;
+  }
+  .email-input-frame2,
+  .rectangle-parent3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .rectangle-parent3 {
+    flex: 1;
+    border-radius: var(--br-7xs);
+    background-color: var(--colors-white);
+    border: 1px solid var(--color-silver);
+    align-items: center;
+    padding: var(--padding-2xl) var(--padding-base) var(--padding-4xl);
+    z-index: 1;
+  }
+  .email-input-frame2 {
+    align-self: stretch;
+    align-items: flex-start;
+    padding: 0 0 var(--padding-5xs) var(--padding-10xs);
+  }
+  
+  .span21 {
+    color: var(--color-darkslategray-100);
+  }
+  .already-have-an-account,
+  .login2 {
+    /* font-family: var(--font-roboto); */
+  }
+  
+  .login1 {
+    color: var(--color-darkslategray-100);
+  }
+  .already-have-an-container {
+    position: relative;
+    font-size: var(--font-size-smi);
+    text-align: left;
+  }
+  .already-have-account-text {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 var(--padding-12xl) var(--padding-7xs) 0;
+  }
+  .continue,
+  .continue-text {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  
+  .login-frame {
+    width: 189px;
+    height: 54px;
+    align-items: flex-start;
+    padding: 0 0 0 var(--padding-11xs);
+    box-sizing: border-box;
+  }
+  .rectangle-parent1,
+  .signup1 {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+  .signup1 {
+    margin: 0;
+    border-radius: var(--br-xl);
+    background-color: var(--color-gray-400);
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--padding-11xs) 61px var(--padding-170xl) var(--padding-39xl);
+    box-sizing: border-box;
+    gap: 20px 0;
+    z-index: 3;
+  }
+  .rectangle-parent1 {
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+  }
+  .sign-up-container,
+  .signup {
+    display: flex;
+    box-sizing: border-box;
+  }
+  .sign-up-container {
+    align-self: stretch;
+    height: 552px;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    max-width: 100%;
+  }
+  
+  
+  
+  
+  
+  @media screen and (max-width: 600px) {
+    .signup1 {
+      padding-top: var(--padding-xl);
+      padding-bottom: var(--padding-104xl);
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .signup2 {
+      font-size: var(--heading-04-size);
+    }
+    .signup1 {
+      padding-left: var(--padding-xl);
+      padding-right: var(--padding-xl);
+      box-sizing: border-box;
+    }
+  }
+  
