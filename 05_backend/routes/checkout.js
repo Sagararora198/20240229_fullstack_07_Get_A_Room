@@ -22,8 +22,12 @@ checkoutRouter.post('/checkout', requireLogin, async (req, res) => {
   const { checkinDate, checkoutDate, paymentDetails, hotelId } = req.body;
   const { user } = req;
 
-  console.log(user);
-  console.log(checkinDate);
+  //convert string into new date
+  const checkinDateObj = new Date(checkinDate);
+  const checkoutDateObj = new Date(checkoutDate);
+  if (checkinDate>=checkoutDate) {
+    res.status(400).send('checkindate should be greater than checkout date')
+  }
 
   // Ensure all required fields are provided
   if (!checkinDate || !checkoutDate || !paymentDetails || !hotelId) {
@@ -43,8 +47,10 @@ checkoutRouter.post('/checkout', requireLogin, async (req, res) => {
       // Select an available room ID from the list
       const room = availableRoomsList[0]; // Adjust according to your actual data structure
 
+      // checking whether the room is available during those dates
       const existingBooking = await Bookings.findOne({
         bookedRoom: room,
+        //condition to check that new checkin date
         $or: [
           { checkinDate: { $lt: new Date(checkoutDate), $gte: new Date(checkinDate) } },
           { checkoutDate: { $gt: new Date(checkinDate), $lte: new Date(checkoutDate) } }
@@ -54,7 +60,7 @@ checkoutRouter.post('/checkout', requireLogin, async (req, res) => {
       if (existingBooking) {
         return res.status(400).send('Selected room is already booked for the given dates');
       }
-      
+
       //if the room is not present
       if (!room) {
         return res.status(404).send('Room not found');
