@@ -12,6 +12,9 @@ import { HotelContainerComponent } from '../layout/hotel-container/hotel-contain
   styleUrl: './properties.component.css'
 })
 export class PropertiesComponent {
+  onSearch(eventData:any){
+    
+  }
   searchedHotels:{hotelName:String,hotelAddress:String,hotelPricerange:String}[]=[
     {
       hotelName:"Pride Inn",

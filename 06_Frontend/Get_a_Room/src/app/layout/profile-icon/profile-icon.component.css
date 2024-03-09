@@ -1,0 +1,17 @@
+.initial-options-icon3 {
+    height: 59px;
+    width: 109px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .profileContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 2px;
+    width: 30px;
+    height: 30px;
+  }

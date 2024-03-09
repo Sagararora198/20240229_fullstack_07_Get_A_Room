@@ -1,9 +1,9 @@
-<!-- <app-navbar></app-navbar> -->
+
 <section class="banners">
   <div class="first-frame">
     <h1 class="banner">BANNER</h1>
   </div>
-  <app-search-component></app-search-component>
+  <app-search-component (userPreference)="onSearch($event)"></app-search-component>
 </section>
 
 <section class="top-rated-properties-frame-parent">
@@ -20,4 +20,4 @@
     
   </div>
 </section>
-<!-- <app-footer></app-footer> -->
+
