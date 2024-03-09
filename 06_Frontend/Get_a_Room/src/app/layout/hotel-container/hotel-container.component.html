@@ -27,6 +27,9 @@
       <div class="add-dates-frame1">
         <b class="radisson-blu">{{Hotel.hotelName}}</b>
         <div class="hitech-city">{{Hotel.hotelAddress}}</div>
+        @if (Hotel.hotelPricerange) {
+          <div class="priceRange">{{Hotel.hotelPricerange}}</div>
+        }
       </div>
     </div>
   

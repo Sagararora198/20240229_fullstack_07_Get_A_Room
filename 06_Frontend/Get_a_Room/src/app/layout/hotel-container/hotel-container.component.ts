@@ -9,9 +9,10 @@ import { Component, Input } from '@angular/core';
 })
 export class HotelContainerComponent {
 
-  @Input() Hotel:{hotelName:String,hotelAddress:String} = {
+  @Input() Hotel:{hotelName:String,hotelAddress:String,hotelPricerange:String} = {
     hotelName:"sdf",
-    hotelAddress:"sf"
+    hotelAddress:"sf",
+    hotelPricerange:"as"
 
 
 }
