@@ -9,12 +9,8 @@ body {
   }
   
   .container {
-    left: 30%;
-    position: absolute;
-    top: 10%;
     width: 500px;
     height: 470px;
-    /* background-color: black; */
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
