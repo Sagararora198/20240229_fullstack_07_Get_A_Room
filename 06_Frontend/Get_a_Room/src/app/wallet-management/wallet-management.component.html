@@ -1,0 +1,45 @@
+<div class="wallet-management">
+    <section class="wallet-management-inner">
+        <div class="wallet-management-parent">
+            <h1 class="wallet-management1">Wallet Management</h1>
+            <div class="frame-parent24">
+                <div class="frame-wrapper10">
+                    <div class="user-parent">
+                        <b class="user">User</b>
+                        <div class="wallet-money-wrapper">
+                            <div class="wallet-money">Wallet Money</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-parent">
+                    <div class="frame-child25"></div>
+                    <div class="frame-child26"></div>
+                </div>
+            </div>
+            <div class="frame-wrapper11">
+                @for (user of Users; track $index) {
+                    <div class="walletContainer  ">
+
+                    
+
+                    <div class="user user-1 frame-child27">{{user.username}}</div>
+                    <div class="walletMoney div26">{{user.userWalletMoney}}</div>
+                    <div class="footer-background1 add-minus-icon">
+                        <img class="add-1-icon" loading="lazy" alt="" src="../assets/public/add-1@2x.png" />
+                    </div>
+                    <div class="play-store-logo1 add-minus-icon" >
+                        <img class="minus-1-icon" loading="lazy" alt="" src="../assets/public/minus-1@2x.png" />
+                    </div>
+                    <div class="logo-frame5">
+                        <div class="contact-info-frame2">
+                            <h3 class="save1">Save</h3>
+                        </div>
+                    </div>
+                </div>
+                }
+                
+            </div>
+        </div>
+    </section>
+
+</div>
