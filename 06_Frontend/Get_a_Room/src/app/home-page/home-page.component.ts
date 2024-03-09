@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../layout/navbar/navbar.component';
 import { FooterComponent } from '../layout/footer/footer.component';
-import { SearchComponent } from '../search/search.component';
 import { SearchComponentComponent } from '../layout/search-component/search-component.component';
 import { HotelContainerComponent } from '../layout/hotel-container/hotel-container.component';
 @Component({
@@ -12,22 +11,26 @@ import { HotelContainerComponent } from '../layout/hotel-container/hotel-contain
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
-  TopRatedHotels:{hotelName:String,hotelAddress:String}[]=[
+  TopRatedHotels:{hotelName:String,hotelAddress:String,hotelPricerange:String}[]=[
     {
       hotelName:"Pride In",
-      hotelAddress:"Hitech city , Hyderabad"
+      hotelAddress:"Hitech city , Hyderabad",
+      hotelPricerange:""
     },
     {
       hotelName:"Pride In",
-      hotelAddress:"Hitech city , Hyderabad"
+      hotelAddress:"Hitech city , Hyderabad",
+      hotelPricerange:""
     },
     {
       hotelName:"Pride In",
-      hotelAddress:"Hitech city , Hyderabad"
+      hotelAddress:"Hitech city , Hyderabad",
+      hotelPricerange:""
     },
     {
       hotelName:"Pride In",
-      hotelAddress:"Hitech city , Hyderabad"
+      hotelAddress:"Hitech city , Hyderabad",
+      hotelPricerange:""
     },
   ]
 }
