@@ -139,7 +139,7 @@ export class LoginComponent implements OnInit {
 
   handelOnchange(event:any){}
   handelOnmouseenter(){}
- /**to handel submit button visibility and make error msg disabled
+ /**to handel submit button visibility and make error msg disabled  
   * 
   * @param {event }
   */
