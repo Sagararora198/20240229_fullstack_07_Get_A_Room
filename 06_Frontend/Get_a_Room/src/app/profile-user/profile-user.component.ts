@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-
+import { BookingsboxComponent } from '../layout/bookingsbox/bookingsbox.component';
 @Component({
   selector: 'app-profile-user',
   standalone: true,
-  imports: [],
+  imports: [BookingsboxComponent],
   templateUrl: './profile-user.component.html',
   styleUrl: './profile-user.component.css'
 })

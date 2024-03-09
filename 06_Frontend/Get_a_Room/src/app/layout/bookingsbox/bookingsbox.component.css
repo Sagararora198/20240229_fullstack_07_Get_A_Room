@@ -1,0 +1,176 @@
+.duration-days-frame,
+.pride-inn-frame {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.duration-days-frame {
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 78px;
+}
+.rectangle-parent8,
+.taj-falaknuma-palace1 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px 0;
+  min-width: 332px;
+  max-width: 100%;
+}
+.rectangle-parent8 {
+  flex-direction: row;
+  align-items: center;
+  gap: 0 23px;
+  min-width: 417px;
+  
+}
+.frame-child15 {
+    height: 94px;
+    width: 107px;
+    position: relative;
+    border-radius: var(--br-7xs);
+    background-color: var(--color-darkgray);
+  }
+  .rectangle-parent8,
+  .taj-falaknuma-palace1 {
+    flex: 1;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 5px 0;
+    min-width: 332px;
+    max-width: 100%;
+  }
+  .pride-inn9 {
+    margin: 0;
+    width: 268px;
+    position: relative;
+    font-size: inherit;
+    font-weight: 700;
+    font-family: inherit;
+    display: inline-block;
+    box-sizing: border-box;
+    padding-right: var(--padding-xl);
+    margin-top: 8px;
+  }
+  .mar-check-in {
+    align-self: stretch;
+    height: 48px;
+    position: relative;
+    font-size: var(--font-size-smi);
+  }
+  .duration-long-container {
+    position: absolute;
+    top: 0;
+    left: 174px;
+    display: inline-block;
+    width: 193px;
+    height: 19px;
+  }
+  .duration {
+    font-weight: 600;
+  }
+  .long-2 {
+    font-weight: 500;
+    color: var(--color-darkgray);
+  }
+  .guests-4-adults-container {
+    position: absolute;
+    top: 0;
+    left: 390px;
+    display: inline-block;
+    width: 121px;
+    height: 19px;
+  }
+  .guests2 {
+    font-weight: 600;
+  }
+  .adults {
+    font-weight: 500;
+    color: var(--color-darkgray);
+  }
+  .cancel-reservation-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 301px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 5px 0;
+  }
+  .check-in-12-container {
+    width: 179px;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    padding-right: var(--padding-xl);
+  }
+  .check-in2 {
+    font-weight: 600;
+  }
+  .mar-2024 {
+    font-weight: 500;
+    color: var(--color-darkgray);
+  }
+  .div24 {
+    align-self: stretch;
+    position: relative;
+    font-size: var(--font-size-lg);
+    white-space: nowrap;
+  }
+  .span30 {
+    font-weight: 600;
+  }
+  .duration-days-frame-inner {
+    width: 193px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-3xs);
+    box-sizing: border-box;
+  }
+  .frame-button {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-3xs) var(--padding-9xs) var(--padding-9xs);
+    background-color: var(--color-crimson);
+    align-self: stretch;
+    border-radius: var(--br-xl);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .frame-button:hover,
+  .rectangle-parent10:hover {
+    background-color: var(--color-deeppink);
+  }
+  .frame-child16 {
+    height: 38px;
+    width: 193px;
+    position: relative;
+    border-radius: var(--br-xl);
+    background-color: var(--color-crimson);
+    display: none;
+  }
+  .cancel-reservation {
+    height: 24px;
+    position: relative;
+    font-size: var(--paragraph-04-size);
+    font-weight: 600;
+    font-family: var(--font-montserrat);
+    color: var(--colors-white);
+    text-align: left;
+    display: inline-block;
+    z-index: 1;
+  }
