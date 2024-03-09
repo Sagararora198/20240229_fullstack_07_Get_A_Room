@@ -1,0 +1,79 @@
+.verification-text-child {
+    width: 279px;
+    height: 566px;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-whitesmoke-100);
+    display: none;
+  }
+  .avatar-frame,
+  .identity-text {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .avatar-frame {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px 0;
+  }
+  .identity-text {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0 var(--padding-25xl) 0 var(--padding-xl);
+  }
+  .carbonuser-avatar-filled-icon2 {
+    width: 163px;
+    height: 163px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .upload-a-photo2 {
+    position: relative;
+    font-weight: 600;
+    z-index: 1;
+  }
+  .identity-group {
+    align-self: stretch;
+    align-items: flex-start;
+    gap: 2px 0;
+    font-size: var(--font-size-lg);
+  }
+  .identity-group,
+  .verification-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .identity-verification3 {
+    margin: 0;
+    align-self: stretch;
+    height: 30px;
+    font-size: inherit;
+    font-weight: 700;
+    font-family: inherit;
+  }
+  .identity-verification3,
+  .lorem-ipsum-dolor17 {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .lorem-ipsum-dolor17 {
+    width: 253px;
+    height: 72px;
+    font-size: var(--paragraph-04-size);
+    line-height: 20px;
+    color: var(--color-darkgray);
+    box-sizing: border-box;
+    padding-right: var(--padding-sm);
+  }
+  .avatar-frame {
+    margin-left: -30px;
+}
+.upload-a-photo2 {
+    margin-left: 0px;
+}
