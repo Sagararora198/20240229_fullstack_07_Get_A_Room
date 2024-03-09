@@ -6,6 +6,7 @@ import { PropertiesComponent } from './properties/properties.component';
 import { HotelDescriptionComponent } from './hotel-description/hotel-description.component';
 import { RoomdetailsComponent } from './roomdetails/roomdetails.component';
 import { WalletManagementComponent } from './wallet-management/wallet-management.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 
 export const routes: Routes = [
@@ -15,5 +16,6 @@ export const routes: Routes = [
   {path:'properities',component:PropertiesComponent},
   {path:'hotelDesc',component:HotelDescriptionComponent},
   {path:'roomdetail',component:RoomdetailsComponent},
-  {path:'walletmanage',component:WalletManagementComponent}
+  {path:'walletmanage',component:WalletManagementComponent},
+  {path:'profile',component:ProfileUserComponent}
 ];
