@@ -11,6 +11,13 @@ import { HotelContainerComponent } from '../layout/hotel-container/hotel-contain
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
+  
+  onSearch(eventData:any){
+    if(eventData.checkoutDate==null){
+      //logic of automatically taking the checkout date
+    }
+
+  }
   TopRatedHotels:{hotelName:String,hotelAddress:String,hotelPricerange:String}[]=[
     {
       hotelName:"Pride In",
@@ -33,4 +40,5 @@ export class HomePageComponent {
       hotelPricerange:""
     },
   ]
+
 }

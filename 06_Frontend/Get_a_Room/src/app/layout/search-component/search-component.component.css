@@ -276,7 +276,14 @@
   z-index: 1;
 }
 
-
+.inputbox{
+  border: none;
+  color: #273240;
+}
+.inputbox:focus{
+  outline: none;
+  border:none
+}
 
 /*Media Query*/
 @media screen and (max-width: 925px) {
