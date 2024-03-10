@@ -7,7 +7,8 @@
       <div class="search-bar-child"></div>
       <div class="location-frames">
         <div class="location">Location</div>
-        <div class="which-city-do">Which city do you prefer?</div>
+        <input type="text" [(ngModel)]="city" class="which-city-do inputbox" placeholder="Which city do you prefer?" >
+        
       </div>
       <div class="add-dates-frame">
         <div class="guests-frame">
@@ -16,7 +17,8 @@
           </div>
           <div class="round-search">
             <div class="check-in">Check In</div>
-            <div class="add-dates">Add Dates</div>
+            <input type="date" class="add-dates inputbox" placeholder="Add Dates" [(ngModel)]="checkinDate">
+            
           </div>
         </div>
         <div class="round-search-frame">
@@ -28,19 +30,22 @@
               <div class="check-out">
                 <p class="check-out1">Check Out</p>
               </div>
-              <div class="add-dates1">
-                <p class="add-dates2">Add Dates</p>
-              </div>
+          
+                <input type="date" class="add-dates1 inputbox"  autocomplete="off" [(ngModel)]="checkoutDate"> 
+                
+              
             </div>
             <div class="round-search-results-frame1">
               <div class="round-search-results-frame-child"></div>
             </div>
             <div class="check-out-guests-panel1">
               <div class="guests">Guests</div>
-              <div class="add-guests">Add Guests</div>
+              <input type="number" class="add-guests inputbox" placeholder="Add Guests">
+              <!-- <div class="add-guests">Add Guests</div> -->
             </div>
           </div>
           <img
+          (click)="onSearch()"
             class="round-search-icon"
             loading="lazy"
             alt=""

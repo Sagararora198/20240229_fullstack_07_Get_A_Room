@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { BookingsboxComponent } from '../layout/bookingsbox/bookingsbox.component';
+import { ProfileVerificationComponent } from '../layout/profile-verification/profile-verification.component';
 @Component({
   selector: 'app-profile-user',
   standalone: true,
-  imports: [BookingsboxComponent],
+  imports: [BookingsboxComponent,ProfileVerificationComponent],
   templateUrl: './profile-user.component.html',
   styleUrl: './profile-user.component.css'
 })

@@ -3,7 +3,7 @@
 <section class="properties-inner">
   <div class="types-and-filters-parent">
     <header class="types-and-filters">
-     <app-search-component></app-search-component>
+     <app-search-component (userPreference)="onSearch($event)"></app-search-component>
       <button class="filter-btn">
         <div class="filter-btn-child"></div>
         <img class="filter-icon" alt="" src="../../../assets/public/filtericon.svg" />

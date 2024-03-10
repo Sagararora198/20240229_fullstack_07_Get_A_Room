@@ -1,0 +1,900 @@
+.manage-hotels {
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.manage-hotels {
+  position: relative;
+  background-color: var(--color-white);
+  text-align: left;
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-montserrat);
+}
+
+.plus-1-icon {
+  width: 71px;
+  height: 71px;
+  position: absolute;
+  margin: 0 !important;
+  right: 105px;
+  bottom: 464px;
+  object-fit: cover;
+}
+.header-background,
+.header-background1 {
+  width: 1366px;
+  position: relative;
+  background-color: var(--color-whitesmoke-100);
+  display: none;
+  max-width: 100%;
+}
+.header-background {
+  align-self: stretch;
+}
+.header-background1 {
+  height: 104px;
+}
+.logo {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 800;
+  font-family: inherit;
+  z-index: 1;
+}
+.initial-options-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-6xs) 0 0;
+}
+.akar-iconsglobe {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  display: none;
+}
+.initial-options-icon {
+  height: 59px;
+  width: 109px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.header-background-group,
+.header-background-parent {
+  background-color: var(--color-whitesmoke-100);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.header-background-group {
+  flex: 1;
+  justify-content: space-between;
+  padding: var(--padding-5xl) var(--padding-55xl) var(--padding-2xl)
+    var(--padding-57xl);
+  box-sizing: border-box;
+  gap: var(--gap-xl);
+  z-index: 1;
+}
+.header-background-parent {
+  align-self: stretch;
+  justify-content: flex-start;
+  top: 0;
+  z-index: 99;
+  position: sticky;
+  text-align: left;
+  font-size: var(--font-size-16xl);
+  color: var(--color-crimson);
+  font-family: var(--font-montserrat);
+}
+.listed-properties1 {
+  margin: 0;
+}
+.listed-properties {
+  margin: 0;
+  width: 382px;
+  height: 53px;
+  position: relative;
+  font-size: inherit;
+  font-weight: 800;
+  font-family: inherit;
+  display: inline-block;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+.frame-child {
+  width: 279px;
+  height: 300px;
+  position: relative;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-darkgray);
+  display: none;
+}
+.pride-inn {
+  width: 161px;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+.madhpur-hyderabad1 {
+  margin: 0;
+}
+.madhpur-hyderabad {
+  width: 222px;
+  flex: 1;
+  position: relative;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  display: inline-block;
+  z-index: 1;
+}
+.rectangle-parent {
+  align-self: stretch;
+  flex: 1;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-darkgray);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--padding-222xl) var(--padding-5xl) var(--padding-smi);
+  gap: var(--gap-9xs);
+}
+.remove-group-child {
+  height: 38px;
+  width: 116px;
+  position: relative;
+  border-radius: var(--br-xl);
+  background-color: var(--color-crimson);
+  display: none;
+}
+.modify {
+  height: 24px;
+  flex: 1;
+  position: relative;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  z-index: 1;
+}
+.remove-group {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-3xs) var(--padding-5xl) var(--padding-9xs)
+    var(--padding-15xl);
+  background-color: var(--color-crimson);
+  flex: 1;
+  border-radius: var(--br-xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.remove-group:hover {
+  background-color: var(--color-deeppink);
+}
+.frame-item {
+  height: 38px;
+  width: 116px;
+  position: relative;
+  border-radius: var(--br-xl);
+  background-color: var(--color-whitesmoke-200);
+  display: none;
+}
+.remove {
+  height: 24px;
+  position: relative;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  color: var(--color-darkslategray-100);
+  text-align: left;
+  display: inline-block;
+  z-index: 1;
+}
+.rectangle-group {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-3xs) var(--padding-lgi) var(--padding-9xs)
+    var(--padding-11xl);
+  background-color: var(--color-whitesmoke-200);
+  border-radius: var(--br-xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rectangle-group:hover {
+  background-color: var(--color-lightgray);
+}
+.modify-group {
+  flex: 1;
+  flex-direction: row;
+  gap: 0 13px;
+}
+.madhpur-hyderabad-kondapur,
+.modify-group,
+.playstore-apple-frame {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.playstore-apple-frame {
+  width: 247px;
+  flex-direction: row;
+  padding: 0 var(--padding-12xs);
+  box-sizing: border-box;
+}
+.madhpur-hyderabad-kondapur {
+  height: 372px;
+  width: 279px;
+  flex-direction: column;
+  gap: 34px 0;
+}
+.frame-inner {
+  width: 279px;
+  height: 300px;
+  position: relative;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-darkgray);
+  display: none;
+}
+.radisson-blu {
+  width: 161px;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+.kondapur-hyderabad1 {
+  margin: 0;
+}
+.kondapur-hyderabad {
+  width: 222px;
+  flex: 1;
+  position: relative;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  display: inline-block;
+  z-index: 1;
+}
+.rectangle-container {
+  align-self: stretch;
+  flex: 1;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-darkgray);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--padding-222xl) var(--padding-5xl) var(--padding-smi);
+  gap: var(--gap-9xs);
+}
+.rectangle-icon {
+  height: 38px;
+  width: 116px;
+  position: relative;
+  border-radius: var(--br-xl);
+  display: none;
+}
+.modify1 {
+  height: 24px;
+  flex: 1;
+  position: relative;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  z-index: 1;
+}
+.vector-parent {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-3xs) var(--padding-5xl) var(--padding-9xs)
+    var(--padding-15xl);
+  background-color: var(--color-crimson);
+  flex: 1;
+  border-radius: var(--br-xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.vector-parent:hover {
+  background-color: var(--color-deeppink);
+}
+.rectangle-div {
+  height: 38px;
+  width: 116px;
+  position: relative;
+  border-radius: var(--br-xl);
+  background-color: var(--color-whitesmoke-200);
+  display: none;
+}
+.remove1 {
+  height: 24px;
+  position: relative;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  color: var(--color-darkslategray-100);
+  text-align: left;
+  display: inline-block;
+  z-index: 1;
+}
+.frame-button {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-3xs) var(--padding-lgi) var(--padding-9xs)
+    var(--padding-11xl);
+  background-color: var(--color-whitesmoke-200);
+  border-radius: var(--br-xl);
+}
+.frame-button:hover {
+  background-color: var(--color-lightgray);
+}
+.frame-button,
+.frame-parent,
+.madhpur-hyderabad-kondapur-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frame-parent {
+  flex: 1;
+  gap: 0 13px;
+}
+.madhpur-hyderabad-kondapur-inner {
+  width: 247px;
+  padding: 0 var(--padding-12xs);
+  box-sizing: border-box;
+}
+.madhpur-hyderabad-kondapur1 {
+  height: 372px;
+  width: 279px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 34px 0;
+}
+.pride-inn-radisson-b-lu {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+.frame-group-location {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 0 0 var(--padding-12xs);
+  box-sizing: border-box;
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+}
+.footer-frame,
+.frame-group-location,
+.listed-properties-text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.listed-properties-text {
+  flex: 1;
+  flex-direction: column;
+  gap: 34px 0;
+  padding-top: 50px;
+}
+.footer-frame {
+  width: 872px;
+  flex-direction: row;
+  padding: 0 var(--padding-59xl) 279px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.logo1,
+.lorem-ipsum-dolor {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 3;
+}
+.logo1 {
+  margin: 0;
+  width: 186px;
+  height: 56px;
+  font-size: inherit;
+  font-weight: 800;
+  font-family: inherit;
+  box-sizing: border-box;
+  padding-right: var(--padding-xl);
+}
+.lorem-ipsum-dolor {
+  align-self: stretch;
+  height: 96px;
+  line-height: 20px;
+  white-space: pre-wrap;
+}
+.playstore-child {
+  height: 52px;
+  width: 172px;
+  position: relative;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gainsboro);
+  display: none;
+}
+.ionlogo-google-playstore-icon {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.playstore1 {
+  align-self: stretch;
+  height: 26px;
+  position: relative;
+  font-size: var(--font-size-mini);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  color: var(--color-darkslategray-100);
+  text-align: left;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.playstore-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-10xs) 0 0;
+}
+.applestore-child,
+.playstore {
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gainsboro);
+}
+.playstore {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-mini) var(--padding-xl) var(--padding-5xs)
+    var(--padding-10xl);
+  flex: 0.9248;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  gap: var(--gap-mini);
+  min-width: 112px;
+  z-index: 3;
+}
+.applestore-child {
+  height: 52px;
+  width: 172px;
+  position: relative;
+  display: none;
+}
+.ionlogo-apple-appstore-icon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.applestore1 {
+  height: 26px;
+  position: relative;
+  font-size: var(--font-size-mini);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  color: var(--color-darkslategray-100);
+  text-align: left;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.applestore-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-10xs) 0 0;
+}
+.applestore,
+.playstoreionlogogoogleplaystor {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.applestore {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-mini) var(--padding-lg) var(--padding-5xs)
+    var(--padding-2xl);
+  background-color: var(--color-gainsboro);
+  flex: 1;
+  border-radius: var(--br-7xs);
+  box-sizing: border-box;
+  gap: var(--gap-mini);
+  min-width: 112px;
+  z-index: 3;
+}
+.playstoreionlogogoogleplaystor {
+  align-self: stretch;
+  padding: 0 var(--padding-xl) 0 0;
+  gap: 0 13px;
+}
+.logo-parent,
+.lorem-ipsum-dolor-sit-amet-co-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.lorem-ipsum-dolor-sit-amet-co-parent {
+  align-self: stretch;
+  gap: 7px 0;
+  font-size: var(--font-size-mini);
+  color: var(--color-darkgray);
+}
+.logo-parent {
+  width: 382px;
+  gap: 31px 0;
+  max-width: 100%;
+  font-size: var(--font-size-31xl);
+}
+.company {
+  align-self: stretch;
+  height: 28px;
+  position: relative;
+  line-height: 20px;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 3;
+}
+.about-us {
+  width: 87px;
+}
+.about-us,
+.blogs,
+.contact-us,
+.legal-information {
+  height: 28px;
+  position: relative;
+  line-height: 20px;
+  font-weight: 500;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 3;
+}
+.legal-information {
+  align-self: stretch;
+}
+.blogs,
+.contact-us {
+  width: 103px;
+}
+.blogs {
+  width: 57px;
+}
+.about-us-legal-information-con {
+  width: 153px;
+  gap: 5px 0;
+  font-size: var(--font-size-mini);
+}
+.about-us-legal-information-con,
+.frame-modify-remove,
+.madhpur-hyderabad-kondapur-hyd {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frame-modify-remove {
+  align-self: stretch;
+  gap: 20px 0;
+}
+.madhpur-hyderabad-kondapur-hyd {
+  width: 213px;
+  padding: var(--padding-sm) var(--padding-18xl) 0 0;
+  box-sizing: border-box;
+}
+.faqs,
+.find-a-hotel,
+.help-center,
+.why-us {
+  height: 28px;
+  position: relative;
+  line-height: 20px;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 3;
+}
+.help-center {
+  align-self: stretch;
+}
+.faqs,
+.find-a-hotel,
+.why-us {
+  font-weight: 500;
+}
+.find-a-hotel,
+.why-us {
+  align-self: stretch;
+}
+.faqs {
+  width: 57px;
+}
+.why-us-f-a-qs-container {
+  width: 103px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 3px 0;
+}
+.rental-guides {
+  align-self: stretch;
+  height: 28px;
+  position: relative;
+  line-height: 20px;
+  font-weight: 500;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 3;
+}
+.contact-info,
+.footerbg-footerbg-footerbg,
+.framefooterbg-footerbg-footerb {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.framefooterbg-footerbg-footerb {
+  width: 132px;
+  gap: 6px 0;
+  font-size: var(--font-size-mini);
+}
+.contact-info,
+.footerbg-footerbg-footerbg {
+  box-sizing: border-box;
+}
+.footerbg-footerbg-footerbg {
+  width: 173px;
+  padding: 0 var(--padding-xl) 0 0;
+  gap: 20px 0;
+}
+.contact-info {
+  width: 199px;
+  padding: var(--padding-mid) 0 0;
+}
+.contact-info1,
+.phone-1234567890 {
+  display: inline-block;
+  box-sizing: border-box;
+  padding-right: var(--padding-xl);
+}
+.contact-info1 {
+  width: 173px;
+  height: 28px;
+  position: relative;
+  line-height: 20px;
+  flex-shrink: 0;
+  z-index: 3;
+}
+.phone-1234567890 {
+  width: 177px;
+}
+.email-companyemailcom,
+.location-100-smart,
+.phone-1234567890 {
+  position: relative;
+  line-height: 20px;
+  font-weight: 500;
+  z-index: 3;
+}
+.email-companyemailcom {
+  width: 244px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-right: var(--padding-xl);
+}
+.location-100-smart {
+  align-self: stretch;
+}
+.phone-email-location-frame {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 11px 0;
+  font-size: var(--font-size-mini);
+}
+.social-media-links-frame {
+  align-self: stretch;
+  flex-direction: column;
+  gap: 21px 0;
+}
+.companyframe,
+.footer-background-frame,
+.social-media-links-frame {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.footer-background-frame {
+  width: 294px;
+  flex-direction: column;
+  padding: var(--padding-mid) 0 0;
+  box-sizing: border-box;
+}
+.companyframe {
+  flex-direction: row;
+  gap: 0 48px;
+  max-width: calc(100% - -261px);
+}
+.footer-bg-icon,
+.footer-bg-icon1,
+.footer-bg-icon2 {
+  position: absolute;
+  top: 0;
+  left: -7.5px;
+  width: 1376px;
+  height: 648px;
+}
+.footer-bg-icon1,
+.footer-bg-icon2 {
+  z-index: 1;
+}
+.footer-bg-icon2 {
+  z-index: 2;
+}
+.social-media-links {
+  position: absolute;
+  top: 250px;
+  left: 1009px;
+  width: 191px;
+  height: 38px;
+  overflow: hidden;
+  z-index: 3;
+}
+.footer-b-g-footer-b-g-footer-b {
+  height: 409px;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+.footer-bg-icon3,
+.footer-bg-icon4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1376px;
+  height: 648px;
+}
+.footer-bg-icon4 {
+  z-index: 1;
+}
+.footer-b-g-footer-b-g {
+  width: 1376px;
+  height: 303px;
+  position: relative;
+  max-width: -491%;
+  flex-shrink: 0;
+}
+
+.footer-frame1 {
+  width: -280.5px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-15xl) 0 0 0;
+}
+.manage-hotels {
+  width: 100%;
+  border-radius: var(--br-xl);
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  gap: 77px 0;
+  letter-spacing: normal;
+  font-size: 38px;
+}
+@media screen and (max-width: 1250px) {
+  .companyframe {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .footer-frame {
+    padding-left: var(--padding-20xl);
+    padding-right: var(--padding-20xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .header-background-group {
+    padding-left: var(--padding-19xl);
+    padding-right: var(--padding-18xl);
+    box-sizing: border-box;
+  }
+  .listed-properties {
+    font-size: var(--font-size-11xl);
+  }
+  .pride-inn-radisson-b-lu {
+    flex-wrap: wrap;
+  }
+  .listed-properties-text {
+    gap: 17px 0;
+  }
+  .footer-frame {
+    padding-bottom: 181px;
+    box-sizing: border-box;
+  }
+  .logo1 {
+    font-size: var(--font-size-21xl);
+  }
+  .companyframe {
+    gap: 0 24px;
+  }
+  .footer {
+    padding-left: var(--padding-21xl);
+    box-sizing: border-box;
+  }
+  .manage-hotels {
+    gap: 38px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .listed-properties {
+    font-size: 23px;
+  }
+  .madhpur-hyderabad-kondapur,
+  .madhpur-hyderabad-kondapur1 {
+    gap: 17px 0;
+  }
+  .logo1 {
+    font-size: var(--font-size-11xl);
+  }
+  .playstore {
+    flex: 1;
+  }
+  .playstoreionlogogoogleplaystor {
+    flex-wrap: wrap;
+  }
+  .logo-parent {
+    gap: 15px 0;
+  }
+  .footer {
+    padding-top: var(--padding-28xl);
+    padding-bottom: var(--padding-3xl);
+    box-sizing: border-box;
+  }
+  .manage-hotels {
+    gap: 19px 0;
+  }
+}

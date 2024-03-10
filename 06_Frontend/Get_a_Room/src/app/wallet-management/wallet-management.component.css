@@ -291,6 +291,9 @@
   padding: 0 0 var(--padding-mid);
   box-sizing: border-box;
 }
+.logo-frame5:hover{
+  cursor: pointer;
+}
 .frame-wrapper12,
 .logo-frame5,
 .wallet-icon-parent {
@@ -775,6 +778,9 @@
     margin-left: 60px;
     margin-right: 30px;
 
+}
+.add-minus-icon:hover{
+  cursor: pointer;
 }
 .save1{
     justify-content: center;
