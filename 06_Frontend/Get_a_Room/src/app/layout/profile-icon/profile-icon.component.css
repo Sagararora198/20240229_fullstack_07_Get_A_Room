@@ -1,4 +1,4 @@
-.initial-options-icon3 {
+/* .initial-options-icon3 {
     height: 59px;
     width: 109px;
     position: relative;
@@ -6,12 +6,20 @@
     flex-shrink: 0;
     cursor: pointer;
     z-index: 1;
-  }
-  .profileContainer{
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 2px;
-    width: 30px;
-    height: 30px;
-  }
+  } */
+
+    .profileContainer {
+        display: flex;
+        flex-direction: column;
+        background-color: #fbf2f2;
+        border-radius: 10px;
+        width: 208px;
+        height: 161px;
+        position: absolute;
+        align-items: center;
+        top: 88px;
+        justify-content: space-around;
+        right: 31px;
+        z-index: 1000;
+        border: 3px solid #ebbfbf;
+      }

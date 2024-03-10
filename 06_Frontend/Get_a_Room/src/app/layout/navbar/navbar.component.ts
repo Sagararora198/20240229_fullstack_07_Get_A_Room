@@ -8,5 +8,9 @@ import { ProfileIconComponent } from '../profile-icon/profile-icon.component';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  profileVisibility:Boolean = false
 
+  toggleProfileVisibility(){
+    this.profileVisibility = !this.profileVisibility
+  }
 }
