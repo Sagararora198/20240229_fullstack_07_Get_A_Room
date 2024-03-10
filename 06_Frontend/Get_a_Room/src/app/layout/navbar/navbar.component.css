@@ -53,6 +53,15 @@
     padding: 0 0 var(--padding-11xs);
   }
 
+  .initial-options-icon3 {
+    height: 59px;
+    width: 109px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
 
 
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile-icon',
@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './profile-icon.component.css'
 })
 export class ProfileIconComponent {
-  profileVisibility:Boolean = false
+  @Input() profileVisibility:Boolean = true
+
+
 }
