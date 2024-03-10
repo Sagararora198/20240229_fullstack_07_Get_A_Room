@@ -7,6 +7,7 @@ import { HotelDescriptionComponent } from './hotel-description/hotel-description
 import { RoomdetailsComponent } from './roomdetails/roomdetails.component';
 import { WalletManagementComponent } from './wallet-management/wallet-management.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
+import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 
 
 export const routes: Routes = [
@@ -17,5 +18,6 @@ export const routes: Routes = [
   {path:'hotelDesc',component:HotelDescriptionComponent},
   {path:'roomdetail',component:RoomdetailsComponent},
   {path:'walletmanage',component:WalletManagementComponent},
-  {path:'profile',component:ProfileUserComponent}
+  {path:'profile',component:ProfileUserComponent},
+  {path:'**',component:PageNotFoundComponent}
 ];
