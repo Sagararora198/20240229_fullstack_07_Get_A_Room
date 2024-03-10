@@ -1,0 +1,72 @@
+<div class="profile-user">
+
+    <section class="input-frame3">
+        <!-- <div class="verification-text"> -->
+            <app-profile-verification class="verification-text"></app-profile-verification>
+            <!-- <div class="verification-text-child"></div>
+            <div class="identity-text">
+                <div class="avatar-frame">
+                    <img class="carbonuser-avatar-filled-icon2" loading="lazy" alt=""
+                        src="../assets/public/carbonuseravatarfilled.svg" />
+
+                    <div class="upload-a-photo2">Upload a Photo</div>
+                </div>
+            </div>
+            <div class="identity-group">
+                <h3 class="identity-verification3">Identity Verification</h3>
+                <div class="lorem-ipsum-dolor17">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor.
+                </div>
+            </div> -->
+        <!-- </div> -->
+        <div class="edit-button">
+            <div class="wallet-frame">
+                <div class="currency-symbol">
+                    <div class="bordered-button2">
+                        <h1 class="hello-john-doe3">Hello, John Doe</h1>
+                        <div class="carbon-avatar">
+                            <button class="bordered-btn6">
+                                <div class="bordered-btn-child1"></div>
+                                <div class="edit-profile1">Edit Profile</div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="identity-verification4">
+                        <div class="wallet-wrapper">
+                            <h1 class="wallet">Wallet</h1>
+                        </div>
+                        <button class="bordered-btn7">
+                            <div class="bordered-btn-child2"></div>
+                            <div class="div23">{{walletMoney}}</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="check-in-frame1">
+                    <div class="frame-parent19">
+                        <div class="vector-container">
+                            <img class="frame-child14" loading="lazy" alt="" src="../assets/public/line-9.svg" />
+                        </div>
+                        <h1 class="bookings">Bookings</h1>
+                    </div>
+                    <div class="booking-timeline">
+                        <div class="upcoming-past-section">
+                            <div class="upcoming-past">
+                                <h3 class="upcoming">Upcoming</h3>
+                                <h3 class="past">Past</h3>
+                            </div>
+                        </div>
+                        <div class="seperator-line">
+                            <div class="rectangle-container1"></div>
+                            <div class="guest-count-frame"></div>
+                        </div>
+                    </div>
+                    @for (booking of upcomingBookings; track $index) {
+                        <app-bookingsbox class="pride-inn-frame" [booking]="booking"></app-bookingsbox>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

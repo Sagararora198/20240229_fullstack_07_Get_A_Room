@@ -1,0 +1,96 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="search">
+    <section class="background-frame">
+        <div class="hotel-name-parent">
+            <h1 class="hotel-name">{{hotelDesc.hotelName}}</h1>
+            <div class="frame-wrapper">
+                <div class="hpr-text-parent">
+                    <div class="hpr-text">
+                        <h3 class="hotel-description">Hotel Description</h3>
+                        <div class="lorem-ipsum-dolor1">
+                            {{hotelDesc.hotelDesc}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="room-types-frame">
+        <div class="footer-bg-vector">
+            <div class="logo-text">
+                <div class="initial-options-frame1">
+                    @for (image of hotelDesc.hotelImages; track $index) {
+
+                    <div class="property-col-image">
+                        <img [src]="image.image" alt="image" />
+                        <div class="image-image">
+                            <div class="image-2">Image </div>
+                        </div>
+                    </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="room-types-text-wrapper">
+        <div class="room-types-text">
+            <div class="property-frame">
+                <h3 class="room-types">Room Types</h3>
+            </div>
+            <div class="slider-indicators">
+                @for (type of roomTypes; track $index) {
+                    
+                    <div class="property-frame-1" id="propertyFrame1">
+                        <div class="property-large">
+                            <div class="property-col"></div>
+                            <div class="vector">
+                                <div class="property-image"></div>
+                                <img class="featherheart-icon" loading="lazy" alt=""
+                                    src="../assets/public/featherheart.svg" />
+    
+                                <div class="apple-store">
+                                    <img class="slider-indicators-icon" loading="lazy" alt=""
+                                        src="../assets/public/slider-indicators.svg" />
+                                </div>
+                            </div>
+                            <div class="hotel-type-indicator">
+                                <div class="super-deluxe-suites-parent">
+                                    <b class="super-deluxe-suites">Super Deluxe Suites</b>
+                                    <div class="bedroom-type-frame">
+                                        <div class="vector-frame-parent">
+                                            <div class="vector-frame">
+                                                <img class="bed-icon" loading="lazy" alt=""
+                                                    src="../assets/public/bed.svg" />
+                                            </div>
+                                            <div class="div">4</div>
+                                        </div>
+                                        <div class="transportation-icon-frame">
+                                            <img class="vector-icon" loading="lazy" alt=""
+                                                src="../assets/public/vector.svg" />
+    
+                                            <div class="div1">1</div>
+                                        </div>
+                                        <div class="car-icon-frame">
+                                            <img class="car-icon" loading="lazy" alt=""
+                                                src="../assets/public/car-icon.svg" />
+    
+                                            <div class="div2">2</div>
+                                        </div>
+                                        <div class="pet-icon-frame">
+                                            <img class="pet-icon" loading="lazy" alt=""
+                                                src="../assets/public/pet-icon.svg" />
+    
+                                            <div class="div3">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+</div>
+<!-- <app-footer></app-footer> -->

@@ -1,0 +1,128 @@
+.check-in-frame1,
+.frame-parent20,
+.pride-inn-frame1 {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+  flex-direction: column;
+    align-items: flex-start;
+    margin-left: 230px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.check-in-frame1 {
+    align-self: stretch;
+    gap: 25px 0;
+    font-size: var(--font-size-lg);
+    color: var(--color-darkslategray);
+
+  }
+  .check-in-frame1,
+  .edit-button,
+  .wallet-frame {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .frame-parent19 {
+    width: 901px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 var(--padding-xl) var(--padding-3xs) 0;
+    box-sizing: border-box;
+    gap: 1px 0;
+    max-width: 100%;
+    font-size: var(--font-size-19xl);
+  }
+
+
+  .bookings {
+    margin: 0;
+    width: 382px;
+    height: 53px;
+    position: relative;
+    font-size: inherit;
+    font-weight: 800;
+    font-family: inherit;
+    display: inline-block;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+  .booking-timeline,
+  .seperator-line {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+  .booking-timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 0 var(--padding-smi);
+    box-sizing: border-box;
+    gap: 8px 0;
+  }
+  .upcoming-past,
+  .upcoming-past-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .upcoming-past-section {
+    width: 212px;
+    padding: 0 var(--padding-11xs);
+    box-sizing: border-box;
+  }
+  .upcoming-past {
+    flex: 1;
+    gap: 0 16px;
+  }
+  .past,
+  .upcoming {
+    margin: 0;
+    height: 30px;
+    position: relative;
+    font-size: inherit;
+    font-weight: 700;
+    font-family: inherit;
+    display: inline-block;
+  }
+  .upcoming {
+    flex: 1;
+  }
+  .past {
+    width: 66px;
+    flex-shrink: 0;
+  }
+  .rectangle-container1 {
+    height: 1px;
+    width: 1204px;
+    position: relative;
+    border-top: 1px solid var(--color-whitesmoke-200);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .guest-count-frame {
+    height: 3px;
+    width: 107px;
+    position: relative;
+    background-color: var(--color-crimson);
+    z-index: 1;
+    margin-left: -1202px;
+  }
+  .pride-inn-frame {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+  .pride-inn-frame {
+    width: 916px;
+    align-items: flex-start;
+    padding: 0 var(--padding-11xs);
+    box-sizing: border-box;
+  }
