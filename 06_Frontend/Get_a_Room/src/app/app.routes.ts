@@ -9,6 +9,7 @@ import { RoomdetailsComponent } from './roomdetails/roomdetails.component';
 import { WalletManagementComponent } from './wallet-management/wallet-management.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { PropertiesComponent } from './properties/properties.component';
+import { AddNewHotelComponent } from './add-new-hotel/add-new-hotel.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -18,5 +19,6 @@ export const routes: Routes = [
   {path:'hotelDesc',component:HotelDescriptionComponent},
   {path:'roomdetail',component:RoomdetailsComponent},
   {path:'walletmanage',component:WalletManagementComponent},
-  {path:'profile',component:ProfileUserComponent}
+  {path:'profile',component:ProfileUserComponent},
+  {path:'addNewHotel',component:AddNewHotelComponent}
 ];
