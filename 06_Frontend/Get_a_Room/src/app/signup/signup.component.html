@@ -1,7 +1,7 @@
-<div class="main-container">
+<!-- <div class="main-container"> -->
     <div class="signup">
       <section class="sign-up-container">
-        <form class="signup1" data-scroll-to="signup">
+        <div class="signup1" data-scroll-to="signup">
           <div class="login-link-frame">
             <h2 class="signup2">Signup</h2>
             <img class="vector-icon2" loading="lazy" alt="" src="../../assets/svgs/vector2.svg" />
@@ -9,26 +9,29 @@
           <hr>
           <!-- <div class="field-container"> -->
           <div class="email-input-frame">
-            <input class="enter-your-text" placeholder="Enter Your Username" type="text" />
+            <input class="enter-your-text" [(ngModel)]="username" (blur)="validateUsername()" (focus)="hideUsernameError()" placeholder="Enter Your Username" type="text" />
           </div>
+          <span class="error usernameError" [ngStyle]="{'display':usernameErrorVisibility?'':'none'}">{{usernameErrorMessage}}</span>
           <div class="email-input-frame">
-            <input class="enter-your-text" placeholder="Enter Your Email" type="text" />
+            <input class="enter-your-text" (blur)="validateEmail()" (focus)="hideEmailError()" [(ngModel)]="email" placeholder="Enter Your Email" type="text" />
           </div>
+          <span class="error emailError"  [ngStyle]="{'display':emailErrorVisibility?'':'none'}"  >{{emailErrorMessage}}</span>
           <div class="email-input-frame">
-            <input class="enter-your-text" placeholder="Enter Your Password" type="text" />
+            <input class="enter-your-text"(change)="validatePassword()"  (focus)="hidePasswordError()" [(ngModel)]="password" placeholder="Enter Your Password" type="text" />
           </div>
+          <span class="error passwordError"  [ngStyle]="{'display':passwordErrorVisibility?'':'none'}" >{{passwordErrorMessage}}</span>
           <div class="already-have-account-text">
                 <span class="already-have-an">Already have an account?</span>&nbsp;
                 <span class="login2">Login</span>
           </div>
           <div class="login-frame">
-            <button class="continue-text-parent">
+            <button class="continue-text-parent" [disabled]="submitDisabled">
               <b class="continue" id="continueText">Continue</b>
             </button>
           </div>
           <!-- </div> -->
-        </form>
+        </div>
       </section>
     </div>
-  </div>
+  <!-- </div> -->
 
