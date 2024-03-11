@@ -18,11 +18,12 @@ export class SearchComponentComponent {
       city:this.city,
       checkinDate:this.checkinDate,
       checkoutDate:this.checkoutDate
-    } 
+    }
     this.userPreference.emit(userPreferenceObject)
   }
-  
 
 
-  
+
+
+
 }
