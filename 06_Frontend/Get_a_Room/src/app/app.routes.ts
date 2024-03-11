@@ -9,6 +9,8 @@ import { WalletManagementComponent } from './wallet-management/wallet-management
 import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 import { AdminbookingsComponent } from './adminbookings/adminbookings.component';
+import { CheckoutComponent } from './layout/checkout/checkout.component';
+import { ConfirmationComponent } from './layout/confirmation/confirmation.component';
 
 
 export const routes: Routes = [
@@ -21,5 +23,7 @@ export const routes: Routes = [
   {path:'walletmanage',component:WalletManagementComponent},
   {path:'profile',component:ProfileUserComponent},
   {path:'bookings',component:AdminbookingsComponent},
+  {path:'checkout',component:CheckoutComponent},
+  {path:'confirmation',component:ConfirmationComponent},
   {path:'**',component:PageNotFoundComponent}
 ];
