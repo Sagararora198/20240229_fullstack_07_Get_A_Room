@@ -41,7 +41,7 @@ import swaggerUi from 'swagger-ui-express';
 //     };
 //     // Use the .default property since swaggerJSDoc is a CommonJS module
 //     const swaggerSpec = swaggerJSDoc.default(options);
-    
+
 //     //one to set up Swagger UI with the swaggerSpec definitions and 
 //     // one to serve it to the /docs endpoint.
 //     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -86,6 +86,7 @@ app.use(json())
 // .then(result=>{
 //   console.log(result);
 // })
+
 
 
 
@@ -224,14 +225,14 @@ app.use(json())
  *                                  example: "Internal Server Error"
  */
 
-app.use('/',authRouter)
+app.use('/', authRouter)
 
 // hotel route
-app.use('/',hotelRouter)
-
+app.use('/', hotelRouter)
 
 // room route
-app.use('/',roomRouter)
+app.use('/', roomRouter)
+
 
 
 /**
@@ -309,31 +310,71 @@ app.use('/',roomRouter)
  */
 
 //profile route
-app.use('/',profileRouter)
+app.use('/', profileRouter)
 
 //Wallet route
-app.use('/',walletRouter)
+app.use('/', walletRouter)
 
 //checkout Router
-app.use('/',checkoutRouter)
+app.use('/', checkoutRouter)
 
 //booking Router
-app.use('/',bookingRouter)
+app.use('/', bookingRouter)
+
+
+/**
+ * @swagger
+ * /reviews:
+ *   post:
+ *     summary: Add a new review for a hotel
+ *     tags: [Reviews]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: hotelId
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The ID of the hotel being reviewed
+ *       - in: body
+ *         name: review
+ *         description: Review details
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             rating:
+ *               type: number
+ *               description: The rating for the hotel (0-5)
+ *             review:
+ *               type: string
+ *               description: The review content
+ *     responses:
+ *       '200':
+ *         description: Review added successfully
+ *       '400':
+ *         description: Invalid rating provided
+ *       '404':
+ *         description: Hotel not found
+ *       '500':
+ *         description: Internal server error
+ */
 
 //review router
-app.use('/',reviewRouter)
+app.use('/', reviewRouter)
 
 // search route
-app.use('/',searchRouter)
+app.use('/', searchRouter)
 
 /**connect to mongodb
  *  */
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        console.log("connected");
+        console.log("🚀 Connected to Database Successfully 🚀");
         app.listen(process.env.PORT, () => {
-            console.log("Listining on " + process.env.PORT);
-         })
+            console.log("🚀 Server is running 🚀 Listening on " + process.env.PORT);
+        })
     })
 
 
