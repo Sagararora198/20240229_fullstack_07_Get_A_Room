@@ -1,0 +1,155 @@
+.add-saftey-available {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  line-height: 48px;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+  padding-top: 50px;
+}
+.sanitizers-frame {
+  width: 609px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-11xs);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.button-frame1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px 28.67px;
+  min-height: 230px;
+}
+.button-child1 {
+  height: 56px;
+  width: 119px;
+  position: relative;
+  border-radius: var(--br-9xl);
+  background-color: var(--color-crimson);
+  display: none;
+}
+.next3 {
+  height: 23px;
+  flex: 1;
+  position: relative;
+  font-size: var(--font-size-mini);
+  display: inline-block;
+  font-family: var(--font-montserrat);
+  color: var(--color-white);
+  text-align: left;
+  z-index: 1;
+}
+.additional-property-frame,
+.button3,
+.safety-frame {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.button3 {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-lgi) var(--padding-15xl) var(--padding-sm)
+    var(--padding-23xl);
+  background-color: var(--color-crimson);
+  width: 119px;
+  border-radius: var(--br-9xl);
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.button3:hover {
+  background-color: var(--color-deeppink);
+}
+.additional-property-frame,
+.safety-frame {
+  max-width: 100%;
+}
+.safety-frame {
+  flex: 1;
+  flex-direction: column;
+  gap: 59px 0;
+}
+.additional-property-frame {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-59xl) 41px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-17xl);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-montserrat);
+}
+
+@media screen and (max-width: 1275px) {
+  .company-logo-text {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 750px) {
+  .group-header {
+    padding-left: var(--padding-19xl);
+    padding-right: var(--padding-18xl);
+    box-sizing: border-box;
+  }
+  .add-saftey-available {
+    font-size: var(--font-size-10xl);
+    line-height: 38px;
+  }
+  .safety-frame {
+    gap: 29px 0;
+  }
+  .additional-property-frame {
+    padding-left: var(--padding-20xl);
+    padding-right: var(--padding-20xl);
+    padding-bottom: var(--padding-8xl);
+    box-sizing: border-box;
+  }
+  .logo9 {
+    font-size: var(--font-size-21xl);
+  }
+  .company-logo-text {
+    gap: 0 24px;
+  }
+  .footer4 {
+    padding-left: var(--padding-21xl);
+    box-sizing: border-box;
+  }
+  .add-new-hotel-room-property3 {
+    gap: 46px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .add-saftey-available {
+    font-size: var(--font-size-3xl);
+    line-height: 29px;
+  }
+  .logo9 {
+    font-size: var(--font-size-11xl);
+  }
+  .playstore8 {
+    flex: 1;
+  }
+  .playstore-parent1 {
+    flex-wrap: wrap;
+  }
+  .about-us-legal-information-fra {
+    gap: 15px 0;
+  }
+  .footer4 {
+    padding-top: var(--padding-28xl);
+    box-sizing: border-box;
+  }
+  .add-new-hotel-room-property3 {
+    gap: 23px 0;
+  }
+}
