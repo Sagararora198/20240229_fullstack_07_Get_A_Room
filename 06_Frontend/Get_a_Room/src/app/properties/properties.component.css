@@ -31,6 +31,23 @@
   justify-content: flex-start;
   box-sizing: border-box;
 }
+.filter-btn {
+  cursor: pointer;
+  border: 1px solid var(--color-darkgray);
+  padding: var(--padding-xs) var(--padding-13xl) var(--padding-smi)
+    var(--padding-12xl);
+  background-color: var(--colors-white);
+  width: 146px;
+  border-radius: var(--br-5xl);
+  align-items: center;
+  gap: var(--gap-7xs);
+  margin-left: 60px;
+}
+.filter-btn:hover {
+  background-color: var(--color-gainsboro-100);
+  border: 1px solid var(--color-dimgray-200);
+  box-sizing: border-box;
+}
 .types-and-filters {
   align-self: stretch;
   height: 75px;
