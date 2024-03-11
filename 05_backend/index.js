@@ -223,10 +223,9 @@ app.use(json())
  *                                  description: Error message explaining the reason for the server error.
  *                                  example: "Internal Server Error"
  */
-
 app.use('/',authRouter)
 
-// hotel route
+
 app.use('/',hotelRouter)
 
 
