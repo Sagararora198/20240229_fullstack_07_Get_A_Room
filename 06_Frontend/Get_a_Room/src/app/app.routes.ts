@@ -14,6 +14,8 @@ import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.co
 import { ManageHotelComponent } from './manage-hotel/manage-hotel.component';
 import { AdminbookingsComponent } from './adminbookings/adminbookings.component';
 import { AddNewHotelRoomproperty1Component } from './add-new-hotel-roomproperty1/add-new-hotel-roomproperty1.component';
+import { AddNewHotelRoomproperty2Component } from './add-new-hotel-roomproperty2/add-new-hotel-roomproperty2.component';
+import { AddNewHotelRoomproperty3Component } from './add-new-hotel-roomproperty3/add-new-hotel-roomproperty3.component';
 
 
 export const routes: Routes = [
@@ -29,5 +31,7 @@ export const routes: Routes = [
   {path:'manageHotel',component:ManageHotelComponent},
   {path:'bookings',component:AdminbookingsComponent},
   {path:'addNewHotelProperty1',component:AddNewHotelRoomproperty1Component},
+  {path:'addNewHotelProperty2',component:AddNewHotelRoomproperty2Component},
+  {path:'addNewHotelProperty3',component:AddNewHotelRoomproperty3Component},
   {path:'**',component:PageNotFoundComponent}
 ];

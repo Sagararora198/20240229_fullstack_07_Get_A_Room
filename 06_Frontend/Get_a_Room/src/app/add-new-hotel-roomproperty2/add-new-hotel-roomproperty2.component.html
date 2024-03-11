@@ -1,1 +1,78 @@
-<p>add-new-hotel-roomproperty2 works!</p>
+<section class="additional-property-frame">
+  <div class="safety-frame">
+    <div class="sanitizers-frame">
+      <h1 class="add-saftey-available">
+        Add saftey available at your place.
+      </h1>
+    </div>
+     <div class="button-frame1">
+    <!--  <div
+        class="footer-frame3"
+        placeholder="Sanitizers"
+        rows="{5}"
+        cols="{14}"
+      >
+      </div>
+      <div
+        class="footer-frame4"
+        placeholder="Fire Throwers"
+        rows="{5}"
+        cols="{14}"
+      >
+      </div>
+      <div
+        class="footer-frame5"
+        placeholder="Daily Cleaner"
+        rows="{5}"
+        cols="{14}"
+      >
+      </div>
+      <div
+        class="footer-frame6"
+        placeholder="Option"
+        rows="{5}"
+        cols="{14}"
+      >
+      </div>
+      <div
+        class="footer-frame7"
+        placeholder="Option"
+        rows="{5}"
+        cols="{14}"
+      >
+      </div>
+      <div
+        class="footer-frame8"
+        placeholder="Option"
+        rows="{5}"
+        cols="{14}"
+      >
+      </div>
+      <div
+        class="footer-frame9"
+        placeholder="Option
+"
+        rows="{5}"
+        cols="{14}"
+      >
+      </div>
+      <div
+        class="footer-frame10"
+        placeholder="Option
+"
+        rows="{5}"
+        cols="{14}"
+      >
+      </div>-->
+
+      @for (item of roomResource  ; track $index) {
+        <app-room-resource [amenity]="item"></app-room-resource>
+      }
+    </div>
+    <button class="button3" id="button">
+      <div class="button-child1"></div>
+      <b class="next3">Next</b>
+    </button>
+
+  </div>
+</section>
