@@ -21,12 +21,10 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { AddNewHotelRoomproperty2Component } from './add-new-hotel-roomproperty2/add-new-hotel-roomproperty2.component';
 import { AddNewHotelRoomproperty3Component } from './add-new-hotel-roomproperty3/add-new-hotel-roomproperty3.component';
 
-
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path:'properties',component:PropertiesComponent},
   {path:'properties',component:PropertiesComponent},
   {path:'hotelDesc',component:HotelDescriptionComponent},
   {path:'roomdetail',component:RoomdetailsComponent},

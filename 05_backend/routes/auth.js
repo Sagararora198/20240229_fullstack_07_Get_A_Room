@@ -3,45 +3,45 @@ import  express  from "express";
 import 'dotenv/config'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
+//To create Swagger UI page for your API's
 
 const authRouter = express.Router()
-//internal dependencies
+
+//internal dependencies(Model,Validators)
 import Users from "../models/User.js";
 import { emailValidator, passwordValidator, usernameValidator } from "../dependencies/validations/userValidations.js";
 import signupValidation from "../dependencies/validations/signupValidation.js";
 
-/**signup route
- * 
- */
+
 authRouter.post('/signup', async (req, res) => {
     const password = req.body.password;
     const email = req.body.email;
     const username = req.body.username;
     const userdata = {password,email,username}
 
+    //validation of the user if correct password,email and username is typed 
     const validations = signupValidation(userdata)
     if(validations.error){
         return res.send(400).json(validations)
     }
     
-
     try {
         const savedUser = await Users.findOne({ email: email });
-
+        
+        //If the email is already present
         if (savedUser) {
             return res.status(422).json({ error: `user with email - ${email} already exists` });
         }
-
         // hash the password
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
-
+        // creating the new user with username,email and hashed password
         const user = new Users({
             name: username,
             email: email,
             password: hashedPassword,
         });
-
+        //save new user details
         await user.save();
         res.json({ message: "saved successfully" });
     } catch (err) {
@@ -50,10 +50,7 @@ authRouter.post('/signup', async (req, res) => {
     }
 });
 
-
-/**Sign in route
- * 
- */
+//Signin or login of the user or admin
 authRouter.post('/signin', async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
