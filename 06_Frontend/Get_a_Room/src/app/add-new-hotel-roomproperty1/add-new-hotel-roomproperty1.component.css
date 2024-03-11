@@ -1,0 +1,146 @@
+.add-facilities-available {
+  position: absolute;
+  top: 140px;
+  left: 80px;
+  font-size: 30px;
+  line-height: 48px;
+  display: inline-block;
+  width: 605px;
+  height: 140px;
+}
+.button-child {
+  top: 0;
+  left: 0;
+  border-radius: var(--br-9xl);
+  background-color: var(--color-crimson);
+  width: 119px;
+  height: 56px;
+}
+.button,
+.button-child,
+.next {
+  position: absolute;
+  cursor: pointer;
+}
+.next {
+  top: 19px;
+  left: 42px;
+  display: inline-block;
+  width: 43px;
+  height: 23px;
+}
+.button {
+  top: 427px;
+  left: 80px;
+  width: 119px;
+  height: 56px;
+  color: var(--color-white);
+}
+.add-new-hotel-room-property-1-child,
+.add-new-hotel-room-property-1-item {
+  position: absolute;
+  top: 338px;
+  left: 80px;
+  border-radius: 50%;
+  background-color: var(--color-whitesmoke-200);
+  width: 40px;
+  height: 40px;
+}
+.add-new-hotel-room-property-1-item {
+  left: 277px;
+}
+.b,
+.bedrooms {
+  position: absolute;
+  display: inline-block;
+}
+.bedrooms {
+  top: 347px;
+  left: 165px;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  width: 106px;
+  height: 26px;
+}
+.b {
+  top: 344px;
+  left: 140px;
+  font-size: var(--font-size-3xl);
+  width: 19px;
+  height: 29px;
+}
+.akar-iconsminus {
+  position: absolute;
+  top: 349px;
+  left: 91px;
+  width: 18px;
+  height: 18px;
+  border: none;
+  overflow: hidden;
+}
+.akar-iconsplus {
+  position: absolute;
+  top: 348px;
+  left: 287px;
+  width: 20px;
+  height: 20px;
+}
+.add-new-hotel-room-property-1-inner,
+.ellipse-div {
+  position: absolute;
+  top: 338px;
+  left: 389px;
+  border-radius: 50%;
+  background-color: var(--color-whitesmoke-200);
+  width: 40px;
+  height: 40px;
+}
+.ellipse-div {
+  left: 590px;
+}
+.b1,
+.bathrooms {
+  position: absolute;
+  display: inline-block;
+}
+.bathrooms {
+  top: 347px;
+  left: 474px;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  width: 106px;
+  height: 26px;
+}
+.b1 {
+  top: 344px;
+  left: 449px;
+  font-size: var(--font-size-3xl);
+  width: 19px;
+  height: 29px;
+}
+.akar-iconsminus1 {
+  position: absolute;
+  top: 349px;
+  left: 400px;
+  width: 18px;
+  height: 18px;
+  overflow: hidden;
+}
+.akar-iconsplus1 {
+  position: absolute;
+  top: 348px;
+  left: 600px;
+  width: 20px;
+  height: 20px;
+}
+.add-new-hotel-room-property-1 {
+  width: 100%;
+  position: relative;
+  border-radius: var(--br-xl);
+  background-color: var(--color-white);
+  height: 550px;
+  text-align: left;
+  font-size: var(--font-size-mini);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-montserrat);
+}

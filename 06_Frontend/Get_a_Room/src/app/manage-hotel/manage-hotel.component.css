@@ -20,6 +20,7 @@
   right: 105px;
   bottom: 464px;
   object-fit: cover;
+
 }
 .header-background,
 .header-background1 {
@@ -371,7 +372,6 @@
 .pride-inn-radisson-b-lu {
   flex: 1;
   display: flex;
-  flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
   max-width: 100%;
