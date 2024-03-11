@@ -1,0 +1,20 @@
+<section class="additional-property-frame">
+  <div class="safety-frame">
+    <div class="sanitizers-frame">
+      <h1 class="add-saftey-available">
+        Add amenities available at your place.
+      </h1>
+    </div>
+     <div class="button-frame1">
+   
+      @for (item of roomAmenity  ; track $index) {
+        <app-room-resource [amenity]="item"></app-room-resource>
+      }
+    </div>
+    <button class="button3" id="button">
+      <div class="button-child1"></div>
+      <b class="next3">Next</b>
+    </button>
+
+  </div>
+</section>

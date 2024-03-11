@@ -18,6 +18,8 @@ import { ConfirmationComponent } from './layout/confirmation/confirmation.compon
 import { AddNewHotelRoomproperty1Component } from './add-new-hotel-roomproperty1/add-new-hotel-roomproperty1.component';
 import { HotelAddedSuccessComponent } from './hotel-added-success/hotel-added-success.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { AddNewHotelRoomproperty2Component } from './add-new-hotel-roomproperty2/add-new-hotel-roomproperty2.component';
+import { AddNewHotelRoomproperty3Component } from './add-new-hotel-roomproperty3/add-new-hotel-roomproperty3.component';
 
 
 export const routes: Routes = [
@@ -37,5 +39,7 @@ export const routes: Routes = [
   {path:'addNewHotelProperty1',component:AddNewHotelRoomproperty1Component},
   {path:'hoteladdedsuccess',component:HotelAddedSuccessComponent},
   {path:'notification',component:NotificationsComponent},
+  {path:'addNewHotelProperty2',component:AddNewHotelRoomproperty2Component},
+  {path:'addNewHotelProperty3',component:AddNewHotelRoomproperty3Component},
   {path:'**',component:PageNotFoundComponent}
 ];
