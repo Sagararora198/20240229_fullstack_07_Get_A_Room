@@ -1,5 +1,6 @@
 import { emailValidator, passwordValidator, usernameValidator } from "./userValidations.js"
 import { Error400 } from "../constants/signupErrorConstants.js"
+
 /**
  * 
  * @param {{}} userdata user fields
