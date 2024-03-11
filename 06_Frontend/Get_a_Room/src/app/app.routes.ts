@@ -17,6 +17,7 @@ import { CheckoutComponent } from './layout/checkout/checkout.component';
 import { ConfirmationComponent } from './layout/confirmation/confirmation.component';
 import { AddNewHotelRoomproperty1Component } from './add-new-hotel-roomproperty1/add-new-hotel-roomproperty1.component';
 import { HotelAddedSuccessComponent } from './hotel-added-success/hotel-added-success.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 export const routes: Routes = [
@@ -35,5 +36,6 @@ export const routes: Routes = [
   {path:'confirmation',component:ConfirmationComponent},
   {path:'addNewHotelProperty1',component:AddNewHotelRoomproperty1Component},
   {path:'hoteladdedsuccess',component:HotelAddedSuccessComponent},
+  {path:'notification',component:NotificationsComponent},
   {path:'**',component:PageNotFoundComponent}
 ];
