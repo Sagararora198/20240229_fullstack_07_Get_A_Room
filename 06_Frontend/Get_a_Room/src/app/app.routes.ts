@@ -1,4 +1,6 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core'
+//add
+import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 // import {PropertiesComponent} from './properties/properties.component'
@@ -23,21 +25,28 @@ import { AddNewHotelRoomproperty3Component } from './add-new-hotel-roomproperty3
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
-  {path:'login',component:LoginComponent},
-  {path:'signup',component:SignupComponent},
-  {path:'properties',component:PropertiesComponent},
-  {path:'hotelDesc',component:HotelDescriptionComponent},
-  {path:'roomdetail',component:RoomdetailsComponent},
-  {path:'walletmanage',component:WalletManagementComponent},
-  {path:'profile',component:ProfileUserComponent},
-  {path:'manageHotel',component:ManageHotelComponent},
-  {path:'bookings',component:AdminbookingsComponent},
-  {path:'checkout',component:CheckoutComponent},
-  {path:'confirmation',component:ConfirmationComponent},
-  {path:'addNewHotelProperty1',component:AddNewHotelRoomproperty1Component},
-  {path:'hoteladdedsuccess',component:HotelAddedSuccessComponent},
-  {path:'notification',component:NotificationsComponent},
-  {path:'addNewHotelProperty2',component:AddNewHotelRoomproperty2Component},
-  {path:'addNewHotelProperty3',component:AddNewHotelRoomproperty3Component},
-  {path:'**',component:PageNotFoundComponent}
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'properties', component: PropertiesComponent },
+  // { path: 'hoteldesc', component: HotelDescriptionComponent },
+  { path: 'hoteldesc/:id', component: HotelDescriptionComponent },
+  { path: 'roomdetail', component: RoomdetailsComponent },
+  { path: 'walletmanage', component: WalletManagementComponent },
+  { path: 'profile', component: ProfileUserComponent },
+  { path: 'manageHotel', component: ManageHotelComponent },
+  { path: 'bookings', component: AdminbookingsComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'confirmation', component: ConfirmationComponent },
+  { path: 'addNewHotelProperty1', component: AddNewHotelRoomproperty1Component },
+  { path: 'hoteladdedsuccess', component: HotelAddedSuccessComponent },
+  { path: 'notification', component: NotificationsComponent },
+  { path: 'addNewHotelProperty2', component: AddNewHotelRoomproperty2Component },
+  { path: 'addNewHotelProperty3', component: AddNewHotelRoomproperty3Component },
+  { path: '**', component: PageNotFoundComponent }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

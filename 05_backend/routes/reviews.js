@@ -11,7 +11,6 @@ import requireLogin from "../middleware/requireLogin.js";
 // Create a router instance
 const reviewRouter = express.Router();
 
-
 //API to add reviews by authorized users only
 
 /**

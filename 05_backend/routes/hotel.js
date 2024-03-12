@@ -167,29 +167,29 @@ hotelRouter.post('/hotel', async (req, res) => {
     //     return res.status(403).json({ error: "Unauthorized user" })
     // }
     // else if (user.role == roles.ADMIN) {
-        try {
-            // Process each room type
-            const roomIds = await Promise.all(roomTypes.map(async (type) => {
-                const room = new RoomId({ roomType: type });
-                await room.save();
-                return room._id; // Collect the ID of the newly created RoomId document
-            }));
+    try {
+        // Process each room type
+        const roomIds = await Promise.all(roomTypes.map(async (type) => {
+            const room = new RoomId({ roomType: type });
+            await room.save();
+            return room._id; // Collect the ID of the newly created RoomId document
+        }));
 
-            // Create a new hotel with references to the created RoomId documents
-            const hotel = new Hotels({
-                hotelName,
-                hotelAddress,
-                rooms: roomIds// Map each roomId to the expected format
-            });
+        // Create a new hotel with references to the created RoomId documents
+        const hotel = new Hotels({
+            hotelName,
+            hotelAddress,
+            rooms: roomIds// Map each roomId to the expected format
+        });
 
-            await hotel.save();
+        await hotel.save();
 
-            res.status(201).json({ message: "Hotel added successfully", hotel });
-        }
-        catch (error) {
-            console.error(error);
-            res.status(500).json({ error: "Internal server error" });
-        }
+        res.status(201).json({ message: "Hotel added successfully", hotel });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
     // }
 });
 
@@ -234,4 +234,53 @@ hotelRouter.delete('/hotel/:hotelId', requireLogin, async (req, res) => {
         res.status(500).json({ error: "Internal server error" });
     }
 })
+
+
+//API to get hotel by ID
+/**
+ * @swagger
+ * /hotels/{hotelId}:
+ *   get:
+ *     summary: Get a hotel by ID
+ *     tags: [Hotel]
+ *     parameters:
+ *       - in: path
+ *         name: hotelId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The hotel ID
+ *     responses:
+ *       200:
+ *         description: Returns the hotel
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Hotel'
+ *       404:
+ *         description: Hotel not found
+ *       500:
+ *         description: Internal server error
+ *     security:
+ *       - bearerAuth: []
+ */
+hotelRouter.get('/hotel/find/:hotelId', async (req, res) => {
+    const { hotelId } = req.params;
+
+    try {
+        // Find the hotel by ID
+        const hotel = await Hotels.findById(hotelId);
+
+        if (!hotel) {
+            return res.status(404).json({ error: "Hotel not found." });
+        }
+
+        res.json(hotel); // Return the hotel
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+
 export default hotelRouter;
