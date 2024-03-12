@@ -313,9 +313,15 @@
   .round-search-frame {
     flex-wrap: wrap;
   }
+}
+
+.search-button{
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+}
 
 
-
-
-
+.search-button:disabled img.round-search-icon {
+  filter: grayscale(100%);
 }
