@@ -9,6 +9,51 @@ import requireLogin from "../middleware/requireLogin.js";
 import { roles } from "../dependencies/constants/userConstants.js";
 
 // Define the route handler for GET /profile endpoint
+
+/**
+ * @swagger
+ * /profile:
+ *   get:
+ *     summary: Retrieve user profile
+ *     description: Allows users to retrieve their profile information. Admins can access all user profiles, while non-admins can only access their own.
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Profile accessed successfully. Returns user data.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   description: Success message indicating the profile was accessed.
+ *                 userdata:
+ *                   $ref: '#/components/schemas/User'
+ *       404:
+ *         description: User profile not found.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: Error message indicating the user profile could not be found.
+ *       401:
+ *         description: Unauthorized. Token not provided or invalid.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: Error message indicating the request is unauthorized.
+ *     tags:
+ *       - Profile
+ */
 profileRouter.get('/profile', requireLogin, async (req, res) => {
     // Extract user object from request
     const { user } = req;
@@ -31,6 +76,54 @@ profileRouter.get('/profile', requireLogin, async (req, res) => {
 });
 
 
+
+/**
+ * @swagger
+ * /profileUpdate:
+ *  post:
+ *    summary: Update user profile
+ *    description: Update the profile information of the currently logged-in user.
+ *    security:
+ *      - bearerAuth: []
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            properties:
+ *              about:
+ *                type: string
+ *                description: About information of the user.
+ *              location:
+ *                type: string
+ *                description: Location information of the user.
+ *              phoneNumber:
+ *                type: string
+ *                description: Phone number of the user.
+ *    responses:
+ *      '200':
+ *        description: User profile updated successfully.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  description: Success message.
+ *                user:
+ *                  type: object
+ *                  description: Updated user profile data.
+ *      '401':
+ *        description: Unauthorized. User must be logged in.
+ *      '404':
+ *        description: User profile not found.
+ *      '500':
+ *        description: Internal Server Error. Something went wrong on the server.
+ *    tags:
+ *       - Profile
+ */
 profileRouter.post('/profileUpdate', requireLogin, (req, res) => {
     const { user } = req;
     if (!user) {
