@@ -61,6 +61,18 @@ const swaggerDefinition = {
     },
     servers: [{
         url: "http://localhost:3000/"
+    }],
+    components: {
+        securitySchemes: {
+            bearerAuth: {
+                type: 'http',
+                scheme: 'bearer',
+                bearerFormat: 'JWT',
+            }
+        }
+    },
+    security: [{
+        bearerAuth: []
     }]
 };
 
@@ -69,6 +81,8 @@ const options = {
     swaggerDefinition,
     // Paths to files containing OpenAPI definitions
     apis: ['./index.js'],
+    
+    
 };
 
 // Initialize swagger-jsdoc -> returns validated swagger spec in json format
@@ -230,7 +244,7 @@ app.use('/',authRouter)
 
 /**
  * @swagger
- * /hotel/{hotelId}:
+ * /hotels/{hotelId}:
  *   put:
  *     summary: Updates hotel properties by admin
  *     tags: [Hotel]
@@ -295,7 +309,7 @@ app.use('/',authRouter)
  */
 /**
  * @swagger
- * /hotel:
+ * /hotels:
  *   post:
  *     summary: Adds a new hotel by admin
  *     tags: [Hotel]
@@ -338,12 +352,6 @@ app.use('/',authRouter)
  */
 app.use('/',hotelRouter)
 
-
-app.use('/', authRouter)
-
-// hotel route
-app.use('/', hotelRouter)
-
 // room route
 /**
  * @swagger
@@ -351,6 +359,7 @@ app.use('/', hotelRouter)
  *  post:
  *    summary: Add a room to a hotel
  *    description: Add a new room to the specified hotel.
+ *    tags: [Hotel]
  *    parameters:
  *      - in: path
  *        name: hotelId
@@ -436,8 +445,6 @@ app.use('/', hotelRouter)
  *                  description: Error message explaining the reason for the server error.
  *                  example: "Internal Server Error"
  */
-
-
 app.use('/', roomRouter)
 
 
@@ -445,29 +452,46 @@ app.use('/', roomRouter)
 /**
  * @swagger
  * /profile:
- *  get:
- *    summary: Get user profile
- *    description: Retrieve the profile of the currently logged-in user.
- *    security:
- *      - bearerAuth: []
- *    responses:
- *      '200':
- *        description: User profile retrieved successfully.
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                message:
- *                  type: string
- *                  description: Success message.
- *                user:
- *                  type: object
- *                  description: User profile data.
- *      '401':
- *        description: Unauthorized. User must be logged in.
- *      '404':
- *        description: User profile not found.
+ *   get:
+ *     summary: Retrieve user profile
+ *     description: Allows users to retrieve their profile information. Admins can access all user profiles, while non-admins can only access their own.
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Profile accessed successfully. Returns user data.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   description: Success message indicating the profile was accessed.
+ *                 userdata:
+ *                   $ref: '#/components/schemas/User'
+ *       404:
+ *         description: User profile not found.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: Error message indicating the user profile could not be found.
+ *       401:
+ *         description: Unauthorized. Token not provided or invalid.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: Error message indicating the request is unauthorized.
+ *     tags:
+ *       - Profile
  */
 /**
  * @swagger
@@ -513,6 +537,8 @@ app.use('/', roomRouter)
  *        description: User profile not found.
  *      '500':
  *        description: Internal Server Error. Something went wrong on the server.
+ *    tags:
+ *       - Profile
  */
 app.use('/',profileRouter)
 
@@ -736,7 +762,7 @@ app.use('/',bookingRouter)
  *     summary: Add a new review for a hotel
  *     tags: [Reviews]
  *     security:
- *       - bearerAuth: []
+ *       - bearerAuth: []  
  *     parameters:
  *       - in: query
  *         name: hotelId
@@ -777,6 +803,7 @@ app.use('/', reviewRouter)
  *  get:
  *    summary: Retrieves top-rated hotels
  *    description: Retrieves the top 10 rated hotels based on user reviews.
+ *    tags: [Hotel]
  *    responses:
  *      200:
  *        description: Successfully retrieved top-rated hotels.
@@ -805,6 +832,7 @@ app.use('/', reviewRouter)
  *  get:
  *    summary: Retrieves hotels based on search criteria
  *    description: Retrieves hotels based on the provided search criteria such as location, check-in date, and optional parameters like check-out date, number of guests, and sorting options.
+ *    tags: [Hotel]
  *    parameters:
  *      - in: query
  *        name: searchLocation
