@@ -14,7 +14,6 @@ const hotelRouter = express.Router();
 
 
 // API to update hotel properties by admin
-
 hotelRouter.put('/hotel/:hotelId', requireLogin, async (req, res) => {
     const { hotelId } = req.params;
     const { hotelName, hotelVisibility, hotelPhotos, hotelPhoneNumber, hotelLocation, hotelAmenities } = req.body;
@@ -87,9 +86,7 @@ hotelRouter.post('/hotel', async (req, res) => {
 });
 
 //API to delete hotel by admin
-/*
-! NOT YET COMPLETE  
-*/
+
 hotelRouter.delete('/hotel/:hotelId', requireLogin, async (req, res) => {
     // Extract the hotelId from the request parameters
     const { hotelId } = req.params;

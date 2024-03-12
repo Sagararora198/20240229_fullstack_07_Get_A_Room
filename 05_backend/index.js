@@ -4,7 +4,10 @@ import 'dotenv/config'
 import jwt from 'jsonwebtoken'
 import mongoose from "mongoose"
 import cloudinary from 'cloudinary'
-var app = express()
+import cors from   'cors'
+const app = express()
+
+app.use(cors()) 
 
 //internal dependencies
 import authRouter from "./routes/auth.js"
@@ -48,7 +51,6 @@ import swaggerUi from 'swagger-ui-express';
 
 // }).catch(error => console.error('Failed to load module:', error));
 
-var app = express();
 
 // Swagger definition
 const swaggerDefinition = {
@@ -93,6 +95,7 @@ app.use(json())
  * @swagger
  * /signup:
  *  post:
+ *   
  *      summary: Signs up a new user
  *      description: Creates a new user account with a username, email, and password. Returns a success message if the account is created successfully.
  *      requestBody:
@@ -225,7 +228,114 @@ app.use(json())
  */
 app.use('/',authRouter)
 
-
+/**
+ * @swagger
+ * /hotel/{hotelId}:
+ *   put:
+ *     summary: Updates hotel properties by admin
+ *     tags: [Hotel]
+ *     parameters:
+ *       - in: path
+ *         name: hotelId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The hotel ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               hotelName:
+ *                 type: string
+ *                 description: Name of the hotel
+ *               hotelVisibility:
+ *                 type: boolean
+ *                 description: Visibility status of the hotel
+ *               hotelPhotos:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: URLs of hotel photos
+ *               hotelPhoneNumber:
+ *                 type: string
+ *                 description: Contact phone number for the hotel
+ *               hotelLocation:
+ *                 type: string
+ *                 description: Physical location of the hotel
+ *               hotelAmenities:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: List of amenities available at the hotel
+ *     responses:
+ *       200:
+ *         description: Hotel updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 hotel:
+ *                   $ref: '#/components/schemas/Hotel'
+ *       400:
+ *         description: hotelId is missing
+ *       403:
+ *         description: Unauthorized user
+ *       404:
+ *         description: Hotel not found
+ *       500:
+ *         description: Internal server error
+ *     security:
+ *       - bearerAuth: []
+ */
+/**
+ * @swagger
+ * /hotel:
+ *   post:
+ *     summary: Adds a new hotel by admin
+ *     tags: [Hotel]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               hotelName:
+ *                 type: string
+ *                 description: Name of the hotel
+ *               hotelAddress:
+ *                 type: string
+ *                 description: Physical address of the hotel
+ *               roomTypes:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: Array of room types available in the hotel
+ *     responses:
+ *       201:
+ *         description: Hotel added successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 hotel:
+ *                   $ref: '#/components/schemas/Hotel'
+ *       403:
+ *         description: Unauthorized user
+ *       500:
+ *         description: Internal server error
+ *     security:
+ *       - bearerAuth: []
+ */
 app.use('/',hotelRouter)
 
 
@@ -260,7 +370,6 @@ app.use('/',roomRouter)
  *      '404':
  *        description: User profile not found.
  */
-
 /**
  * @swagger
  * /profileUpdate:
@@ -306,17 +415,99 @@ app.use('/',roomRouter)
  *      '500':
  *        description: Internal Server Error. Something went wrong on the server.
  */
-
-//profile route
 app.use('/',profileRouter)
+
 
 //Wallet route
 app.use('/',walletRouter)
 
-//checkout Router
+/** 
+ * @swagger
+ * /checkout:
+ *   post:
+ *     summary: Creates a new booking
+ *     description: >
+ *       Handles the creation of a new booking, ensuring the user is logged in, the input dates are valid, the required fields are provided, and the room is available for the given dates.
+ *     tags: [Booking]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               checkinDate:
+ *                 type: string
+ *                 format: date
+ *                 description: Check-in date for the booking
+ *               checkoutDate:
+ *                 type: string
+ *                 format: date
+ *                 description: Checkout date for the booking
+ *               paymentDetails:
+ *                 type: object
+ *                 properties:
+ *                   method:
+ *                     type: string
+ *                     description: Payment method
+ *                   amount:
+ *                     type: number
+ *                     description: Amount paid
+ *                 description: Payment details for the booking
+ *               hotelId:
+ *                 type: string
+ *                 description: ID of the hotel for the booking
+ *     responses:
+ *       200:
+ *         description: Booking successfully created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 booking:
+ *                   $ref: '#/components/schemas/Booking'
+ *       400:
+ *         description: Missing required booking details or check-in date is not before checkout date
+ *       403:
+ *         description: Unauthorized Your role is not allowed to make bookings
+ *       404:
+ *         description: No available rooms for the selected dates or room not found
+ *       500:
+ *         description: Internal server error
+ *     security:
+ *       - bearerAuth: []
+ */
 app.use('/',checkoutRouter)
 
-//booking Router
+/**Booking Router
+ * 
+ * @swagger
+ * /booking:
+ *   get:
+ *     summary: Fetches booking details
+ *     description: >
+ *       Retrieves booking details. If the requester is a user, only bookings made by the user are shown.
+ *       If the requester is an admin, all bookings managed by the admin are shown.
+ *     tags: [Booking]
+ *     responses:
+ *       200:
+ *         description: A list of bookings
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Booking'
+ *       403:
+ *         description: Unauthorized access
+ *       500:
+ *         description: An error occurred while fetching booking details
+ *     security:
+ *       - bearerAuth: []
+ */
 app.use('/',bookingRouter)
 
 //review router
