@@ -41,7 +41,7 @@ import swaggerUi from 'swagger-ui-express';
 //     };
 //     // Use the .default property since swaggerJSDoc is a CommonJS module
 //     const swaggerSpec = swaggerJSDoc.default(options);
-
+    
 //     //one to set up Swagger UI with the swaggerSpec definitions and 
 //     // one to serve it to the /docs endpoint.
 //     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -86,7 +86,6 @@ app.use(json())
 // .then(result=>{
 //   console.log(result);
 // })
-
 
 
 
@@ -231,6 +230,99 @@ app.use('/', authRouter)
 app.use('/', hotelRouter)
 
 // room route
+/**
+ * @swagger
+ * /room/hotel/{hotelId}/room:
+ *  post:
+ *    summary: Add a room to a hotel
+ *    description: Add a new room to the specified hotel.
+ *    parameters:
+ *      - in: path
+ *        name: hotelId
+ *        description: The ID of the hotel to add the room to.
+ *        required: true
+ *        schema:
+ *          type: string
+ *      - in: body
+ *        name: room
+ *        description: The room object to add.
+ *        required: true
+ *        schema:
+ *          type: object
+ *          required:
+ *            - roomNumber
+ *            - roomType
+ *            - roomDesc
+ *            - roomPrice
+ *            - roomPhotos
+ *          properties:
+ *            roomNumber:
+ *              type: string
+ *              description: The room number.
+ *            roomType:
+ *              type: string
+ *              description: The type of the room.
+ *            roomDesc:
+ *              type: string
+ *              description: The description of the room.
+ *            roomPrice:
+ *              type: number
+ *              description: The price of the room.
+ *            roomPhotos:
+ *              type: array
+ *              description: An array of photo URLs for the room.
+ *              items:
+ *                type: string
+ *    responses:
+ *      201:
+ *        description: Room added successfully.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  description: Success message.
+ *                  example: "Room added successfully"
+ *                room:
+ *                  $ref: '#/components/schemas/Room'
+ *      400:
+ *        description: Bad Request. Missing required fields.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  description: Error message indicating missing required fields.
+ *                  example: "Missing required fields."
+ *      404:
+ *        description: Not Found. Hotel not found.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  description: Error message indicating hotel not found.
+ *                  example: "Hotel not found."
+ *      500:
+ *        description: Internal Server Error. Something went wrong on the server.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  description: Error message explaining the reason for the server error.
+ *                  example: "Internal Server Error"
+ */
+
+
 app.use('/', roomRouter)
 
 
@@ -313,6 +405,123 @@ app.use('/', roomRouter)
 app.use('/', profileRouter)
 
 //Wallet route
+/**
+ * @swagger
+ * /wallet:
+ *  get:
+ *    summary: Retrieves wallet information
+ *    description: Retrieves wallet information for the authenticated user. If the user is an admin, it retrieves wallet information for all users except the admin.
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *      200:
+ *        description: Successful retrieval of wallet information.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                wallet:
+ *                  type: number
+ *                  description: The wallet amount of the user.
+ *                  example: 1000
+ *      401:
+ *        description: Unauthorized access.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: Unauthorized access
+ *      404:
+ *        description: User or users not found.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: User not found
+ *      500:
+ *        description: Internal Server Error. Something went wrong on the server.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: An error occurred while retrieving the user
+ */
+/**
+ * @swagger
+ * /addMoney:
+ *  put:
+ *    summary: Adds money to a user's wallet
+ *    description: Adds money to a user's wallet by specifying the user's ID and the amount to add. Only admins can perform this action.
+ *    security:
+ *      - bearerAuth: []
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            required:
+ *              - userId
+ *              - amountToAdd
+ *            properties:
+ *              userId:
+ *                type: string
+ *                description: The ID of the user to add money to.
+ *                example: "609cf72c9864e620ec51344a"
+ *              amountToAdd:
+ *                type: number
+ *                description: The amount of money to add to the user's wallet.
+ *                example: 100
+ *    responses:
+ *      200:
+ *        description: Successfully added money to the user's wallet.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  description: Success message indicating the amount added to the user's wallet.
+ *                  example: "Successfully added $100 to user's account"
+ *                userId:
+ *                  type: string
+ *                  description: The ID of the user whose wallet was updated.
+ *                  example: "609cf72c9864e620ec51344a"
+ *                newWalletAmount:
+ *                  type: number
+ *                  description: The updated wallet amount of the user.
+ *                  example: 500
+ *      400:
+ *        description: Invalid amount specified.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: "Invalid amount specified"
+ *      403:
+ *        description: Unauthorized. Only admins can perform this action.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: "Unauthorized: Only admins can perform this action"
+ *      404:
+ *        description: User not found.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: "User not found"
+ *      500:
+ *        description: Internal Server Error. Something went wrong on the server.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: "An error occurred while updating the user account"
+ */
 app.use('/', walletRouter)
 
 //checkout Router
@@ -320,7 +529,6 @@ app.use('/', checkoutRouter)
 
 //booking Router
 app.use('/', bookingRouter)
-
 
 /**
  * @swagger
@@ -365,7 +573,114 @@ app.use('/', bookingRouter)
 app.use('/', reviewRouter)
 
 // search route
-app.use('/', searchRouter)
+/**
+ * @swagger
+ * /hotels/top-rated:
+ *  get:
+ *    summary: Retrieves top-rated hotels
+ *    description: Retrieves the top 10 rated hotels based on user reviews.
+ *    responses:
+ *      200:
+ *        description: Successfully retrieved top-rated hotels.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Hotel'
+ *      500:
+ *        description: Internal Server Error. Something went wrong on the server.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  description: Error message explaining the reason for the server error.
+ *                  example: "Internal server error"
+ * 
+ */
+/**
+ * @swagger
+ * /hotels:
+ *  get:
+ *    summary: Retrieves hotels based on search criteria
+ *    description: Retrieves hotels based on the provided search criteria such as location, check-in date, and optional parameters like check-out date, number of guests, and sorting options.
+ *    parameters:
+ *      - in: query
+ *        name: searchLocation
+ *        required: true
+ *        description: The location to search for hotels.
+ *        schema:
+ *          type: string
+ *      - in: query
+ *        name: checkInDate
+ *        required: true
+ *        description: The check-in date in YYYY-MM-DD format.
+ *        schema:
+ *          type: string
+ *          format: date
+ *      - in: query
+ *        name: checkOutDate
+ *        description: The optional check-out date in YYYY-MM-DD format. Defaults to the day after check-in date if not provided.
+ *        schema:
+ *          type: string
+ *          format: date
+ *      - in: query
+ *        name: noOfGuest
+ *        description: The optional number of guests. Defaults to 1 if not provided.
+ *        schema:
+ *          type: integer
+ *          minimum: 1
+ *      - in: query
+ *        name: sortPrice
+ *        description: Sort hotels by price. Values can be 'low' or 'high'.
+ *        schema:
+ *          type: string
+ *          enum: [low, high]
+ *      - in: query
+ *        name: sortRating
+ *        description: Sort hotels by rating. Values can be 'top'.
+ *        schema:
+ *          type: string
+ *          enum: [top]
+ *    responses:
+ *      200:
+ *        description: Successfully retrieved hotels based on the search criteria.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Hotel'
+ *      422:
+ *        description: Unprocessable Entity. Please enter required fields.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  description: Error message indicating missing required fields.
+ *                  example: "Please enter required fields"
+ *      500:
+ *        description: Internal Server Error. Something went wrong on the server.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  description: Error message explaining the reason for the server error.
+ *                  example: "Internal server error"
+ */
+
+
+
+app.use('/',searchRouter)
 
 /**connect to mongodb
  *  */
