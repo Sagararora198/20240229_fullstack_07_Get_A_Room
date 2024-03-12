@@ -8,6 +8,48 @@ const walletRouter = express.Router()
 //getting the user's wallet amount by either user or admin 
 //admin can see all other user wallet amount whereas the user
 // can only see it's own wallet amount 
+/**
+ * @swagger
+ * /wallet:
+ *  get:
+ *    summary: Retrieves wallet information
+ *    description: Retrieves wallet information for the authenticated user. If the user is an admin, it retrieves wallet information for all users except the admin.
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *      200:
+ *        description: Successful retrieval of wallet information.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                wallet:
+ *                  type: number
+ *                  description: The wallet amount of the user.
+ *                  example: 1000
+ *      401:
+ *        description: Unauthorized access.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: Unauthorized access
+ *      404:
+ *        description: User or users not found.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: User not found
+ *      500:
+ *        description: Internal Server Error. Something went wrong on the server.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: An error occurred while retrieving the user
+ */
 walletRouter.get('/wallet', requireLogin, async (req, res) => {
   const { user } = req;
   //all available roles present 
@@ -54,6 +96,82 @@ walletRouter.get('/wallet', requireLogin, async (req, res) => {
 
 //adding amount to the specified user
 //This can only be done by the admin 
+
+/**
+ * @swagger
+ * /addMoney:
+ *  put:
+ *    summary: Adds money to a user's wallet
+ *    description: Adds money to a user's wallet by specifying the user's ID and the amount to add. Only admins can perform this action.
+ *    security:
+ *      - bearerAuth: []
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            required:
+ *              - userId
+ *              - amountToAdd
+ *            properties:
+ *              userId:
+ *                type: string
+ *                description: The ID of the user to add money to.
+ *                example: "609cf72c9864e620ec51344a"
+ *              amountToAdd:
+ *                type: number
+ *                description: The amount of money to add to the user's wallet.
+ *                example: 100
+ *    responses:
+ *      200:
+ *        description: Successfully added money to the user's wallet.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  description: Success message indicating the amount added to the user's wallet.
+ *                  example: "Successfully added $100 to user's account"
+ *                userId:
+ *                  type: string
+ *                  description: The ID of the user whose wallet was updated.
+ *                  example: "609cf72c9864e620ec51344a"
+ *                newWalletAmount:
+ *                  type: number
+ *                  description: The updated wallet amount of the user.
+ *                  example: 500
+ *      400:
+ *        description: Invalid amount specified.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: "Invalid amount specified"
+ *      403:
+ *        description: Unauthorized. Only admins can perform this action.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: "Unauthorized: Only admins can perform this action"
+ *      404:
+ *        description: User not found.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: "User not found"
+ *      500:
+ *        description: Internal Server Error. Something went wrong on the server.
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: string
+ *              example: "An error occurred while updating the user account"
+ */
 walletRouter.put('/addMoney', requireLogin, async (req, res) => {
   const { user } = req; // The admin user making the request
   const { userId, amountToAdd } = req.body; // Extract userId and amountToAdd from the request body

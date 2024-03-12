@@ -14,6 +14,71 @@ const hotelRouter = express.Router();
 
 
 // API to update hotel properties by admin
+/**
+ * @swagger
+ * /hotels/{hotelId}:
+ *   put:
+ *     summary: Updates hotel properties by admin
+ *     tags: [Hotel]
+ *     parameters:
+ *       - in: path
+ *         name: hotelId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The hotel ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               hotelName:
+ *                 type: string
+ *                 description: Name of the hotel
+ *               hotelVisibility:
+ *                 type: boolean
+ *                 description: Visibility status of the hotel
+ *               hotelPhotos:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: URLs of hotel photos
+ *               hotelPhoneNumber:
+ *                 type: string
+ *                 description: Contact phone number for the hotel
+ *               hotelLocation:
+ *                 type: string
+ *                 description: Physical location of the hotel
+ *               hotelAmenities:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: List of amenities available at the hotel
+ *     responses:
+ *       200:
+ *         description: Hotel updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 hotel:
+ *                   $ref: '#/components/schemas/Hotel'
+ *       400:
+ *         description: hotelId is missing
+ *       403:
+ *         description: Unauthorized user
+ *       404:
+ *         description: Hotel not found
+ *       500:
+ *         description: Internal server error
+ *     security:
+ *       - bearerAuth: []
+ */
 hotelRouter.put('/hotel/:hotelId', requireLogin, async (req, res) => {
     const { hotelId } = req.params;
     const { hotelName, hotelVisibility, hotelPhotos, hotelPhoneNumber, hotelLocation, hotelAmenities } = req.body;
@@ -52,6 +117,49 @@ hotelRouter.put('/hotel/:hotelId', requireLogin, async (req, res) => {
 });
 
 //API to post hotel by admin 
+/**
+ * @swagger
+ * /hotels:
+ *   post:
+ *     summary: Adds a new hotel by admin
+ *     tags: [Hotel]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               hotelName:
+ *                 type: string
+ *                 description: Name of the hotel
+ *               hotelAddress:
+ *                 type: string
+ *                 description: Physical address of the hotel
+ *               roomTypes:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: Array of room types available in the hotel
+ *     responses:
+ *       201:
+ *         description: Hotel added successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 hotel:
+ *                   $ref: '#/components/schemas/Hotel'
+ *       403:
+ *         description: Unauthorized user
+ *       500:
+ *         description: Internal server error
+ *     security:
+ *       - bearerAuth: []
+ */
 hotelRouter.post('/hotel', async (req, res) => {
     const { hotelName, hotelAddress, roomTypes } = req.body; // Assuming roomTypes is an array of strings
     //checking if user is admin
@@ -86,7 +194,6 @@ hotelRouter.post('/hotel', async (req, res) => {
 });
 
 //API to delete hotel by admin
-
 hotelRouter.delete('/hotel/:hotelId', requireLogin, async (req, res) => {
     // Extract the hotelId from the request parameters
     const { hotelId } = req.params;

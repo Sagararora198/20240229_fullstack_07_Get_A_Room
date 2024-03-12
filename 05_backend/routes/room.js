@@ -12,6 +12,98 @@ import { roles } from "../dependencies/constants/userConstants.js";
 
 const roomRouter = express.Router();
 
+/**
+ * @swagger
+ * /room/hotel/{hotelId}/room:
+ *  post:
+ *    summary: Add a room to a hotel
+ *    description: Add a new room to the specified hotel.
+ *    tags: [Hotel]
+ *    parameters:
+ *      - in: path
+ *        name: hotelId
+ *        description: The ID of the hotel to add the room to.
+ *        required: true
+ *        schema:
+ *          type: string
+ *      - in: body
+ *        name: room
+ *        description: The room object to add.
+ *        required: true
+ *        schema:
+ *          type: object
+ *          required:
+ *            - roomNumber
+ *            - roomType
+ *            - roomDesc
+ *            - roomPrice
+ *            - roomPhotos
+ *          properties:
+ *            roomNumber:
+ *              type: string
+ *              description: The room number.
+ *            roomType:
+ *              type: string
+ *              description: The type of the room.
+ *            roomDesc:
+ *              type: string
+ *              description: The description of the room.
+ *            roomPrice:
+ *              type: number
+ *              description: The price of the room.
+ *            roomPhotos:
+ *              type: array
+ *              description: An array of photo URLs for the room.
+ *              items:
+ *                type: string
+ *    responses:
+ *      201:
+ *        description: Room added successfully.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  description: Success message.
+ *                  example: "Room added successfully"
+ *                room:
+ *                  $ref: '#/components/schemas/Room'
+ *      400:
+ *        description: Bad Request. Missing required fields.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  description: Error message indicating missing required fields.
+ *                  example: "Missing required fields."
+ *      404:
+ *        description: Not Found. Hotel not found.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  description: Error message indicating hotel not found.
+ *                  example: "Hotel not found."
+ *      500:
+ *        description: Internal Server Error. Something went wrong on the server.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  description: Error message explaining the reason for the server error.
+ *                  example: "Internal Server Error"
+ */
 roomRouter.post("/hotel/:hotelId/room", async (req, res) => {
     // Extract hotelId from the URL parameters
     const { hotelId } = req.params;

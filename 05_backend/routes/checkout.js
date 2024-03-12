@@ -18,6 +18,65 @@ app.use(express.json()); // Use express.json() middleware to parse JSON bodies
 app.use(express.json()); // This line is crucial
 
 
+/** 
+ * @swagger
+ * /checkout:
+ *   post:
+ *     summary: Creates a new booking
+ *     description: >
+ *       Handles the creation of a new booking, ensuring the user is logged in, the input dates are valid, the required fields are provided, and the room is available for the given dates.
+ *     tags: [Booking]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               checkinDate:
+ *                 type: string
+ *                 format: date
+ *                 description: Check-in date for the booking
+ *               checkoutDate:
+ *                 type: string
+ *                 format: date
+ *                 description: Checkout date for the booking
+ *               paymentDetails:
+ *                 type: object
+ *                 properties:
+ *                   method:
+ *                     type: string
+ *                     description: Payment method
+ *                   amount:
+ *                     type: number
+ *                     description: Amount paid
+ *                 description: Payment details for the booking
+ *               hotelId:
+ *                 type: string
+ *                 description: ID of the hotel for the booking
+ *     responses:
+ *       200:
+ *         description: Booking successfully created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 booking:
+ *                   $ref: '#/components/schemas/Booking'
+ *       400:
+ *         description: Missing required booking details or check-in date is not before checkout date
+ *       403:
+ *         description: Unauthorized Your role is not allowed to make bookings
+ *       404:
+ *         description: No available rooms for the selected dates or room not found
+ *       500:
+ *         description: Internal server error
+ *     security:
+ *       - bearerAuth: []
+ */
   checkoutRouter.post('/checkout', requireLogin, async (req, res) => {  
     const { checkinDate, checkoutDate, paymentDetails, hotelId } = req.body;
     const { user } = req;

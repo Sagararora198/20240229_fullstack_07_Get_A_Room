@@ -12,6 +12,32 @@ const bookingRouter = express.Router()
  * If it is user then only his/her booked hotel will be shown 
  * If it is admin then all the booked hotel that he/she manages will be shown 
 */
+/**Booking Router
+ * 
+ * @swagger
+ * /booking:
+ *   get:
+ *     summary: Fetches booking details
+ *     description: >
+ *       Retrieves booking details. If the requester is a user, only bookings made by the user are shown.
+ *       If the requester is an admin, all bookings managed by the admin are shown.
+ *     tags: [Booking]
+ *     responses:
+ *       200:
+ *         description: A list of bookings
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Booking'
+ *       403:
+ *         description: Unauthorized access
+ *       500:
+ *         description: An error occurred while fetching booking details
+ *     security:
+ *       - bearerAuth: []
+ */
 bookingRouter.get('/booking',requireLogin,async(req,res)=>{
   const {user}=req;
   console.log(user);

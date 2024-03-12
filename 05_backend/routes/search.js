@@ -7,6 +7,35 @@ import Reviews from "../models/Reviews.js";
 const searchRouter = express.Router();
 
 // New route to get hotels with top ratings
+/**
+ * @swagger
+ * /hotels/top-rated:
+ *  get:
+ *    summary: Retrieves top-rated hotels
+ *    description: Retrieves the top 10 rated hotels based on user reviews.
+ *    tags: [Hotel]
+ *    responses:
+ *      200:
+ *        description: Successfully retrieved top-rated hotels.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Hotel'
+ *      500:
+ *        description: Internal Server Error. Something went wrong on the server.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  description: Error message explaining the reason for the server error.
+ *                  example: "Internal server error"
+ * 
+ */
 searchRouter.get('/hotels/top-rated', async (req, res) => {
   try {
     //to return only the top 10 rated hotels
@@ -30,6 +59,84 @@ searchRouter.get('/hotels/top-rated', async (req, res) => {
   }
 });
 
+
+/**
+ * @swagger
+ * /hotels:
+ *  get:
+ *    summary: Retrieves hotels based on search criteria
+ *    description: Retrieves hotels based on the provided search criteria such as location, check-in date, and optional parameters like check-out date, number of guests, and sorting options.
+ *    tags: [Hotel]
+ *    parameters:
+ *      - in: query
+ *        name: searchLocation
+ *        required: true
+ *        description: The location to search for hotels.
+ *        schema:
+ *          type: string
+ *      - in: query
+ *        name: checkInDate
+ *        required: true
+ *        description: The check-in date in YYYY-MM-DD format.
+ *        schema:
+ *          type: string
+ *          format: date
+ *      - in: query
+ *        name: checkOutDate
+ *        description: The optional check-out date in YYYY-MM-DD format. Defaults to the day after check-in date if not provided.
+ *        schema:
+ *          type: string
+ *          format: date
+ *      - in: query
+ *        name: noOfGuest
+ *        description: The optional number of guests. Defaults to 1 if not provided.
+ *        schema:
+ *          type: integer
+ *          minimum: 1
+ *      - in: query
+ *        name: sortPrice
+ *        description: Sort hotels by price. Values can be 'low' or 'high'.
+ *        schema:
+ *          type: string
+ *          enum: [low, high]
+ *      - in: query
+ *        name: sortRating
+ *        description: Sort hotels by rating. Values can be 'top'.
+ *        schema:
+ *          type: string
+ *          enum: [top]
+ *    responses:
+ *      200:
+ *        description: Successfully retrieved hotels based on the search criteria.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Hotel'
+ *      422:
+ *        description: Unprocessable Entity. Please enter required fields.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  description: Error message indicating missing required fields.
+ *                  example: "Please enter required fields"
+ *      500:
+ *        description: Internal Server Error. Something went wrong on the server.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  description: Error message explaining the reason for the server error.
+ *                  example: "Internal server error"
+ */
 searchRouter.get('/hotels', async (req, res) => {
   // Required params
   const location = req.query.searchLocation;
