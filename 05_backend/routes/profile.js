@@ -24,10 +24,12 @@ profileRouter.get('/profile', requireLogin, async (req, res) => {
     // Check if the user is an admin
     if (user.role === roles.ADMIN) {
         const userdata = await Users.findById(user._id);
+        console.log("User Data:" + userdata);
         return res.status(200).json({ message: "Profile accessed successfully by Admin", userdata });
     } else {
         const userdata = await Users.findById(user._id);
-        return res.status(200).json({ message: "Profile accessed successfully by Non-admin", user });
+        console.log("User Data:" + userdata);
+        return res.status(200).json({ message: "Profile accessed successfully by Non-admin", userdata });
     }
 });
 

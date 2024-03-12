@@ -4,10 +4,10 @@ import 'dotenv/config'
 import jwt from 'jsonwebtoken'
 import mongoose from "mongoose"
 import cloudinary from 'cloudinary'
-import cors from   'cors'
+import cors from 'cors'
 const app = express()
 
-app.use(cors()) 
+app.use(cors())
 
 //internal dependencies
 import authRouter from "./routes/auth.js"
@@ -44,7 +44,7 @@ import swaggerUi from 'swagger-ui-express';
 //     };
 //     // Use the .default property since swaggerJSDoc is a CommonJS module
 //     const swaggerSpec = swaggerJSDoc.default(options);
-    
+
 //     //one to set up Swagger UI with the swaggerSpec definitions and 
 //     // one to serve it to the /docs endpoint.
 //     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -61,7 +61,16 @@ const swaggerDefinition = {
     },
     servers: [{
         url: "http://localhost:3000/"
-    }]
+    }],
+    components: {
+        securitySchemes: {
+            bearerAuth: {
+                type: 'http',
+                scheme: 'bearer',
+                bearerFormat: 'JWT',
+            },
+        },
+    },
 };
 
 // Options for the swagger docs
@@ -95,7 +104,6 @@ app.use(json())
  * @swagger
  * /signup:
  *  post:
- *   
  *      summary: Signs up a new user
  *      description: Creates a new user account with a username, email, and password. Returns a success message if the account is created successfully.
  *      requestBody:
@@ -226,7 +234,7 @@ app.use(json())
  *                                  description: Error message explaining the reason for the server error.
  *                                  example: "Internal Server Error"
  */
-app.use('/',authRouter)
+app.use('/', authRouter)
 
 /**
  * @swagger
@@ -336,7 +344,7 @@ app.use('/',authRouter)
  *     security:
  *       - bearerAuth: []
  */
-app.use('/',hotelRouter)
+app.use('/', hotelRouter)
 
 
 app.use('/', authRouter)
@@ -442,6 +450,7 @@ app.use('/', roomRouter)
 
 
 
+
 /**
  * @swagger
  * /profile:
@@ -469,6 +478,8 @@ app.use('/', roomRouter)
  *      '404':
  *        description: User profile not found.
  */
+
+
 /**
  * @swagger
  * /profileUpdate:
@@ -491,7 +502,7 @@ app.use('/', roomRouter)
  *                type: string
  *                description: Location information of the user.
  *              phoneNumber:
- *                type: string
+ *                type: number
  *                description: Phone number of the user.
  *    responses:
  *      '200':
@@ -514,7 +525,7 @@ app.use('/', roomRouter)
  *      '500':
  *        description: Internal Server Error. Something went wrong on the server.
  */
-app.use('/',profileRouter)
+app.use('/', profileRouter)
 
 
 //Wallet route
@@ -696,7 +707,7 @@ app.use('/', walletRouter)
  *     security:
  *       - bearerAuth: []
  */
-app.use('/',checkoutRouter)
+app.use('/', checkoutRouter)
 
 /**Booking Router
  * 
@@ -724,7 +735,7 @@ app.use('/',checkoutRouter)
  *     security:
  *       - bearerAuth: []
  */
-app.use('/',bookingRouter)
+app.use('/', bookingRouter)
 
 
 
@@ -754,6 +765,7 @@ app.use('/',bookingRouter)
  *             rating:
  *               type: number
  *               description: The rating for the hotel (0-5)
+ *               example: 1
  *             review:
  *               type: string
  *               description: The review content
@@ -875,7 +887,7 @@ app.use('/', reviewRouter)
  *                  description: Error message explaining the reason for the server error.
  *                  example: "Internal server error"
  */
-app.use('/',searchRouter)
+app.use('/', searchRouter)
 
 /**connect to mongodb
  *  */

@@ -16,6 +16,9 @@ reviewRouter.post('/reviews',requireLogin, async (req, res) => {
     const { rating, review } = req.body;
     const {user} = req; 
 
+
+    console.log("rating"+rating);
+
     // Validate rating parameter
     if (rating === undefined || rating < 0 || rating > 5) {
         return res.status(400).json({ error: "Invalid rating. Rating must be between 0 and 5." });
