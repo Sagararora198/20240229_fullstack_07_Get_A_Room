@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../layout/navbar/navbar.component';
 import { FooterComponent } from '../layout/footer/footer.component';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-hotel-description',
   standalone: true,
@@ -9,6 +11,9 @@ import { FooterComponent } from '../layout/footer/footer.component';
   styleUrl: './hotel-description.component.css'
 })
 export class HotelDescriptionComponent {
+
+  
+
   hotelDesc:{hotelName:String,hotelDesc:String,hotelImages:{image:String}[]}=
     {
       hotelName:"Pride Inn",
@@ -19,7 +24,8 @@ export class HotelDescriptionComponent {
         {image:"../assets/public/featherheart.svg"},
       ]
     }
-  
+
+
     roomTypes:{roomType:String,roomGuest:Number,roomBathroom:Number,roomParking:Number,roomPet:Number}[]=[
       {
         roomType:"Super Delux Suites",

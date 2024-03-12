@@ -1,5 +1,6 @@
 import { Component, Output ,EventEmitter} from '@angular/core';
 import { NgModel,FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-search-component',
@@ -20,6 +21,9 @@ export class SearchComponentComponent {
       checkoutDate:this.checkoutDate
     }
     this.userPreference.emit(userPreferenceObject)
+
+    
+
   }
 
 
