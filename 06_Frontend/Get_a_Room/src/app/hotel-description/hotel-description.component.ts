@@ -33,24 +33,11 @@ export class HotelDescriptionComponent implements OnInit {
         .subscribe((hotel: any) => {
           this.hotel = hotel;
           console.log("hotel name :"+hotel.hotelName);
-          
           console.log(this.hotel); // Print all data in the console
         });
     }
   }
 
-
-  
-  hotelDesc: { hotelName: String, hotelDesc: String, hotelImages: { image: String }[] } =
-    {
-      hotelName: "umesh",
-      hotelDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      hotelImages: [
-        { image: "../assets/public/featherheart.svg" },
-        { image: "../assets/public/featherheart.svg" },
-        { image: "../assets/public/featherheart.svg" },
-      ]
-    }
 
   roomTypes: { roomType: String, roomGuest: Number, roomBathroom: Number, roomParking: Number, roomPet: Number }[] = [
     {
