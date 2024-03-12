@@ -18,12 +18,12 @@ export function setupSwagger(app) {
                     type: 'http',
                     scheme: 'bearer',
                     bearerFormat: 'JWT',
-                },
-            },
+                }
+            }
         },
         security: [{
-            bearerAuth: [],
-        }],
+            bearerAuth: []
+        }]
     };
 
     // Options for the swagger docs
