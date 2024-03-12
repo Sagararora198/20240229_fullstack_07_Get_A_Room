@@ -224,11 +224,10 @@ app.use(json())
  *                                  example: "Internal Server Error"
  */
 
-app.use('/',authRouter)
+app.use('/', authRouter)
 
 // hotel route
-app.use('/',hotelRouter)
-
+app.use('/', hotelRouter)
 
 // room route
 /**
@@ -323,11 +322,89 @@ app.use('/',hotelRouter)
  *                  example: "Internal Server Error"
  */
 
-app.use('/',roomRouter)
+
+app.use('/', roomRouter)
+
+
+
+/**
+ * @swagger
+ * /profile:
+ *  get:
+ *    summary: Get user profile
+ *    description: Retrieve the profile of the currently logged-in user.
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *      '200':
+ *        description: User profile retrieved successfully.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  description: Success message.
+ *                user:
+ *                  type: object
+ *                  description: User profile data.
+ *      '401':
+ *        description: Unauthorized. User must be logged in.
+ *      '404':
+ *        description: User profile not found.
+ */
+
+/**
+ * @swagger
+ * /profileUpdate:
+ *  post:
+ *    summary: Update user profile
+ *    description: Update the profile information of the currently logged-in user.
+ *    security:
+ *      - bearerAuth: []
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            properties:
+ *              about:
+ *                type: string
+ *                description: About information of the user.
+ *              location:
+ *                type: string
+ *                description: Location information of the user.
+ *              phoneNumber:
+ *                type: string
+ *                description: Phone number of the user.
+ *    responses:
+ *      '200':
+ *        description: User profile updated successfully.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  description: Success message.
+ *                user:
+ *                  type: object
+ *                  description: Updated user profile data.
+ *      '401':
+ *        description: Unauthorized. User must be logged in.
+ *      '404':
+ *        description: User profile not found.
+ *      '500':
+ *        description: Internal Server Error. Something went wrong on the server.
+ */
 
 //profile route
-app.use('/',profileRouter)
+app.use('/', profileRouter)
 
+//Wallet route
 /**
  * @swagger
  * /wallet:
@@ -445,18 +522,55 @@ app.use('/',profileRouter)
  *              type: string
  *              example: "An error occurred while updating the user account"
  */
-
-
-app.use('/',walletRouter)
+app.use('/', walletRouter)
 
 //checkout Router
-app.use('/',checkoutRouter)
+app.use('/', checkoutRouter)
 
 //booking Router
-app.use('/',bookingRouter)
+app.use('/', bookingRouter)
+
+/**
+ * @swagger
+ * /reviews:
+ *   post:
+ *     summary: Add a new review for a hotel
+ *     tags: [Reviews]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: hotelId
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The ID of the hotel being reviewed
+ *       - in: body
+ *         name: review
+ *         description: Review details
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             rating:
+ *               type: number
+ *               description: The rating for the hotel (0-5)
+ *             review:
+ *               type: string
+ *               description: The review content
+ *     responses:
+ *       '200':
+ *         description: Review added successfully
+ *       '400':
+ *         description: Invalid rating provided
+ *       '404':
+ *         description: Hotel not found
+ *       '500':
+ *         description: Internal server error
+ */
 
 //review router
-app.use('/',reviewRouter)
+app.use('/', reviewRouter)
 
 // search route
 /**
@@ -572,10 +686,10 @@ app.use('/',searchRouter)
  *  */
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        console.log("connected");
+        console.log("🚀 Connected to Database Successfully 🚀");
         app.listen(process.env.PORT, () => {
-            console.log("Listining on " + process.env.PORT);
-         })
+            console.log("🚀 Server is running 🚀 Listening on " + process.env.PORT);
+        })
     })
 
 
