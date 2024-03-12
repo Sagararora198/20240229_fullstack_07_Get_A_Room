@@ -19,9 +19,6 @@
             <div class="frame-wrapper11">
                 @for (user of Users; track user.username;let index=$index) {
                     <div class="walletContainer  ">
-
-                    
-
                     <div class="user user-1 frame-child27">{{user.username}}</div>
                     <div class="walletMoney div26">{{user.tempWalletMoney!==undefined?user.tempWalletMoney:user.userWalletMoney}}</div>
                     <div class="footer-background1 add-minus-icon" (click)="incrementMoney(index)">
@@ -37,7 +34,7 @@
                     </div>
                 </div>
                 }
-                
+
             </div>
         </div>
     </section>

@@ -13,47 +13,31 @@ import { roles } from "../dependencies/constants/userConstants.js";
 /**
  * @swagger
  * /profile:
- *   get:
- *     summary: Retrieve user profile
- *     description: Allows users to retrieve their profile information. Admins can access all user profiles, while non-admins can only access their own.
- *     security:
- *       - bearerAuth: []
- *     responses:
- *       200:
- *         description: Profile accessed successfully. Returns user data.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   description: Success message indicating the profile was accessed.
- *                 userdata:
- *                   $ref: '#/components/schemas/User'
- *       404:
- *         description: User profile not found.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   description: Error message indicating the user profile could not be found.
- *       401:
- *         description: Unauthorized. Token not provided or invalid.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   description: Error message indicating the request is unauthorized.
- *     tags:
- *       - Profile
+ *  get:
+ *    summary: Get user profile
+ *    description: Retrieve the profile of the currently logged-in user.
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *      '200':
+ *        description: User profile retrieved successfully.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  description: Success message.
+ *                user:
+ *                  type: object
+ *                  description: User profile data.
+ *      '401':
+ *        description: Unauthorized. User must be logged in.
+ *      '404':
+ *        description: User profile not found.
  */
+
 profileRouter.get('/profile', requireLogin, async (req, res) => {
     // Extract user object from request
     const { user } = req;
@@ -68,13 +52,14 @@ profileRouter.get('/profile', requireLogin, async (req, res) => {
     // Check if the user is an admin
     if (user.role === roles.ADMIN) {
         const userdata = await Users.findById(user._id);
+        console.log("User Data:" + userdata);
         return res.status(200).json({ message: "Profile accessed successfully by Admin", userdata });
     } else {
         const userdata = await Users.findById(user._id);
+        console.log("User Data:" + userdata);
         return res.status(200).json({ message: "Profile accessed successfully by Non-admin", userdata });
     }
 });
-
 
 
 /**
@@ -99,7 +84,7 @@ profileRouter.get('/profile', requireLogin, async (req, res) => {
  *                type: string
  *                description: Location information of the user.
  *              phoneNumber:
- *                type: string
+ *                type: number
  *                description: Phone number of the user.
  *    responses:
  *      '200':
@@ -121,8 +106,6 @@ profileRouter.get('/profile', requireLogin, async (req, res) => {
  *        description: User profile not found.
  *      '500':
  *        description: Internal Server Error. Something went wrong on the server.
- *    tags:
- *       - Profile
  */
 profileRouter.post('/profileUpdate', requireLogin, (req, res) => {
     const { user } = req;
