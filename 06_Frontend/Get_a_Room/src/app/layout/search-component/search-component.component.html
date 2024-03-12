@@ -7,8 +7,7 @@
       <div class="search-bar-child"></div>
       <div class="location-frames">
         <div class="location">Location</div>
-        <input type="text" [(ngModel)]="city" class="which-city-do inputbox" placeholder="Which city do you prefer?" >
-
+        <input type="text" [(ngModel)]="city" class="which-city-do inputbox" placeholder="Which city do you prefer?">
       </div>
       <div class="add-dates-frame">
         <div class="guests-frame">
@@ -18,7 +17,6 @@
           <div class="round-search">
             <div class="check-in">Check In</div>
             <input type="date" class="add-dates inputbox" placeholder="Add Dates" [(ngModel)]="checkinDate">
-
           </div>
         </div>
         <div class="round-search-frame">
@@ -27,30 +25,26 @@
           </div>
           <div class="guests-and-dates-frame">
             <div class="check-out-guests-panel">
-              <div class="check-out">
-                <p class="check-out1">Check Out</p>
+              <div class="check-out-guests-panel">
+                <div class="check-out">
+                  <p class="check-out1">Check Out</p>
+                </div>
+                <input type="date" class="add-dates1 inputbox" autocomplete="off" [(ngModel)]="checkoutDate" [min]="checkinDate" (change)="checkDates()">
+                <p *ngIf="dateError" class="error-message">Check-out date must be after check-in date</p>
               </div>
-
-                <input type="date" class="add-dates1 inputbox"  autocomplete="off" [(ngModel)]="checkoutDate">
-
-
+            
             </div>
             <div class="round-search-results-frame1">
               <div class="round-search-results-frame-child"></div>
             </div>
-             <div class="check-out-guests-panel1">
+            <div class="check-out-guests-panel1">
               <div class="guests">Guests</div>
               <input type="number" class="add-guests inputbox" placeholder="Add Guests" min="1">
-              <!-- <div class="add-guests">Add Guests</div> -->
             </div>
           </div>
-          <img
-          (click)="onSearch()"
-            class="round-search-icon"
-            loading="lazy"
-            alt=""
-            src="../../../assets/public/roundsearch.svg"
-          />
+          <button [disabled]="!city || !checkinDate || !checkoutDate" (click)="onSearch()" class="search-button">
+            <img class="round-search-icon" loading="lazy" alt="" src="../../../assets/public/roundsearch.svg">
+          </button>
         </div>
       </div>
     </div>
