@@ -10,14 +10,55 @@ import requireLogin from "../middleware/requireLogin.js";
 
 const reviewRouter = express.Router();
 
+
 //API to add reviews by authorized users only
-reviewRouter.post('/reviews',requireLogin, async (req, res) => {
+
+/**
+ * @swagger
+ * /reviews:
+ *   post:
+ *     summary: Add a new review for a hotel
+ *     tags: [Reviews]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: hotelId
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The ID of the hotel being reviewed
+ *       - in: body
+ *         name: review
+ *         description: Review details
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             rating:
+ *               type: number
+ *               description: The rating for the hotel (0-5)
+ *               example: 1
+ *             review:
+ *               type: string
+ *               description: The review content
+ *     responses:
+ *       '200':
+ *         description: Review added successfully
+ *       '400':
+ *         description: Invalid rating provided
+ *       '404':
+ *         description: Hotel not found
+ *       '500':
+ *         description: Internal server error
+ */
+reviewRouter.post('/reviews', requireLogin, async (req, res) => {
     const { hotelId } = req.query; // Assuming hotelId is passed as a query parameter
     const { rating, review } = req.body;
-    const {user} = req; 
+    const { user } = req;
 
 
-    console.log("rating"+rating);
+    console.log("rating" + rating);
 
     // Validate rating parameter
     if (rating === undefined || rating < 0 || rating > 5) {

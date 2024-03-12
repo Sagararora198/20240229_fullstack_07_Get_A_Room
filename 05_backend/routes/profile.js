@@ -9,6 +9,35 @@ import requireLogin from "../middleware/requireLogin.js";
 import { roles } from "../dependencies/constants/userConstants.js";
 
 // Define the route handler for GET /profile endpoint
+
+/**
+ * @swagger
+ * /profile:
+ *  get:
+ *    summary: Get user profile
+ *    description: Retrieve the profile of the currently logged-in user.
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *      '200':
+ *        description: User profile retrieved successfully.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  description: Success message.
+ *                user:
+ *                  type: object
+ *                  description: User profile data.
+ *      '401':
+ *        description: Unauthorized. User must be logged in.
+ *      '404':
+ *        description: User profile not found.
+ */
+
 profileRouter.get('/profile', requireLogin, async (req, res) => {
     // Extract user object from request
     const { user } = req;
@@ -34,6 +63,51 @@ profileRouter.get('/profile', requireLogin, async (req, res) => {
 });
 
 
+/**
+ * @swagger
+ * /profileUpdate:
+ *  post:
+ *    summary: Update user profile
+ *    description: Update the profile information of the currently logged-in user.
+ *    security:
+ *      - bearerAuth: []
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            properties:
+ *              about:
+ *                type: string
+ *                description: About information of the user.
+ *              location:
+ *                type: string
+ *                description: Location information of the user.
+ *              phoneNumber:
+ *                type: number
+ *                description: Phone number of the user.
+ *    responses:
+ *      '200':
+ *        description: User profile updated successfully.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  description: Success message.
+ *                user:
+ *                  type: object
+ *                  description: Updated user profile data.
+ *      '401':
+ *        description: Unauthorized. User must be logged in.
+ *      '404':
+ *        description: User profile not found.
+ *      '500':
+ *        description: Internal Server Error. Something went wrong on the server.
+ */
 profileRouter.post('/profileUpdate', requireLogin, (req, res) => {
     const { user } = req;
     if (!user) {
