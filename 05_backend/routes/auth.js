@@ -3,9 +3,9 @@ import  express  from "express";
 import 'dotenv/config'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
-//To create Swagger UI page for your API's
 
 const authRouter = express.Router()
+//To create Swagger UI page for your API's
 
 //internal dependencies(Model,Validators)
 import Users from "../models/User.js";
@@ -22,7 +22,7 @@ authRouter.post('/signup', async (req, res) => {
     //validation of the user if correct password,email and username is typed 
     const validations = signupValidation(userdata)
     if(validations.error){
-        return res.send(400).json(validations)
+        return res.status(400).json(validations)
     }
     
     try {
