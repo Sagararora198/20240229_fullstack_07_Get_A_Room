@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../behaiviour-service.service';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,14 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   email:string=''
   password:string = ''
+
+
+    constructor(
+      private route: ActivatedRoute,
+      private http: HttpClient,
+      private router: Router,
+      private authService: AuthService
+    ) { }
 
 
 /** visibility of email
@@ -56,12 +65,12 @@ export class LoginComponent implements OnInit {
     return undefined;
   }
   /** To validate password field
- *
- * @param {String} email input password
- * @returns {String|undefined} error string or undefined
- */
-  validatePassword(password: string): string | undefined {
-    // Check if the password is at least 8 characters long
+   *
+   * @param {String} email input password
+   * @returns {String|undefined} error string or undefined
+  */
+ validatePassword(password: string): string | undefined {
+   // Check if the password is at least 8 characters long
     if (password.length < 8) {
       return 'Password must be at least 8 characters long';
     }
@@ -167,12 +176,6 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(
-    private route: ActivatedRoute,
-    private http: HttpClient,
-    private router: Router // Inject Router here
-  ) { }
-
 
   //This is the function call to the ApI
   //It will generate an API and store it in the local storage
@@ -188,6 +191,8 @@ export class LoginComponent implements OnInit {
           // Handle the response, such as storing the JWT token or redirecting the user
            // Store the JWT token in local storage
              localStorage.setItem('jwtToken', response.token);
+              //after sucessfull login
+             this.authService.logIn();
              this.router.navigate(['/']);
         },
         error: (error) => {

@@ -37,6 +37,7 @@ export const routes: Routes = [
   { path: 'bookings', component: AdminbookingsComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'confirmation', component: ConfirmationComponent },
+  {path:'AddNewHotelComponent',component:AddNewHotelComponent},
   { path: 'addNewHotelProperty1', component: AddNewHotelRoomproperty1Component },
   { path: 'hoteladdedsuccess', component: HotelAddedSuccessComponent },
   { path: 'notification', component: NotificationsComponent },

@@ -15,7 +15,8 @@
 .plus-1-icon {
   width: 71px;
   height: 71px;
-  position: absolute;
+  position:fixed;
+  padding-bottom:50px ;
   margin: 0 !important;
   right: 105px;
   bottom: 464px;
