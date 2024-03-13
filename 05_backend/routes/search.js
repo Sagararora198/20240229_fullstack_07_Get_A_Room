@@ -45,6 +45,7 @@ searchRouter.get('/hotels/top-rated', async (req, res) => {
 
     // Find the corresponding hotels for the extracted hotelIds
     // Using the $in operator to find all hotels whose _id is in the hotelIds array
+    console.log(hotelIds);
     const topRatedHotels = await Hotels.find({
       '_id': { $in: hotelIds }
     });
@@ -137,70 +138,119 @@ searchRouter.get('/hotels/top-rated', async (req, res) => {
  *                  description: Error message explaining the reason for the server error.
  *                  example: "Internal server error"
  */
+// searchRouter.get('/hotels', async (req, res) => {
+//   try {
+//     // Required params
+//     const location = req.query.searchLocation;
+//     const checkinDate = req.query.checkInDate;
+
+//     // Optional params with default values
+//     let checkoutDate = req.query.checkOutDate;
+//     let guestNo = req.query.noOfGuest || 1; // Default guest number is 1
+
+//     // Validate required fields
+//     if (!location || !checkinDate) {
+//       console.error('Missing required fields:', req.query);
+//       return res.status(422).json({ error: "Please enter required fields" });
+//     }
+
+//     // Calculate default checkoutDate as one day after checkinDate if not provided
+//     if (!checkoutDate) {
+//       const checkinDateObj = new Date(checkinDate);
+//       const defaultCheckoutDateObj = new Date(checkinDateObj.setDate(checkinDateObj.getDate() + 1));
+//       checkoutDate = defaultCheckoutDateObj.toISOString().split('T')[0]; // Format to YYYY-MM-DD
+//     }
+
+//     // Basic query with required parameters
+//     let query = {
+//       hotelAddress: location,
+//     };
+
+//     // Adjusted optional parameters in the query
+//     if (checkoutDate) {
+//       query.checkoutDate = { $lte: new Date(checkoutDate) };
+//     }
+//     if (guestNo) {
+//       query.maxGuests = { $gte: guestNo };
+//     }
+
+//     // Find hotels based on query
+//     let hotels = await Hotels.find(query);
+
+//     // Optional sorting
+//     const price = req.query.sortPrice;
+//     const rating = req.query.sortRating;
+//     if (price) {
+//       hotels = hotels.sort((a, b) => price === 'low' ? a.price - b.price : b.price - a.price);
+//     }
+//     if (rating) {
+//       // Extract hotel IDs from the hotels array
+//       const hotelIds = hotels.map(hotel => hotel._id);
+
+//       // Find the top-rated reviews for these hotels
+//       const topRatedReviews = await Reviews.find({
+//         reviewedTo: { $in: hotelIds }
+//       }).sort({ rating: -1 }).limit(10);
+
+//       // Extract hotelIds from the top-rated reviews
+//       const topRatedHotelIds = topRatedReviews.map(review => review.reviewedTo);
+
+//       // Filter the original hotels array to include only those hotels that have top-rated reviews
+//       hotels = hotels.filter(hotel => topRatedHotelIds.includes(hotel._id));
+//     }
+
+//     // Log API response
+//     console.log('API Response:', hotels);
+//     res.json(hotels);
+//   } catch (error) {
+//     console.error('Internal server error:', error);
+//     res.status(500).json({ error: "Internal server error" });
+//   }
+// });
+
 searchRouter.get('/hotels', async (req, res) => {
-  // Required params
-  const location = req.query.searchLocation;
-  const checkinDate = req.query.checkInDate;
-
-  // Optional params with default values
-  let checkoutDate = req.query.checkOutDate;
-  let guestNo = req.query.noOfGuest || 1; // Default guest number is 1
-
-  if (!location || !checkinDate) {
-    return res.status(422).json({ error: "Please enter required fields" });
-  }
-
-  // Calculate default checkoutDate as one day after checkinDate if not provided
-  if (!checkoutDate) {
-    const checkinDateObj = new Date(checkinDate);
-    const defaultCheckoutDateObj = new Date(checkinDateObj.setDate(checkinDateObj.getDate() + 1));
-    checkoutDate = defaultCheckoutDateObj.toISOString().split('T')[0]; // Format to YYYY-MM-DD
-  }
-
   try {
-    // Basic query with required parameters
-    let query = {
-      hotelAddress: location,
-    };
-
-    // Adjusted optional parameters in the query
-    if (checkoutDate) {
-      query.checkoutDate = { $lte: new Date(checkoutDate) };
-    }
-    if (guestNo) {
-      query.maxGuests = { $gte: guestNo };
+    console.log("Search hotels API called.");
+    let { searchLocation, checkInDate, checkOutDate, noOfGuests } = req.query;
+    
+    // If checkInDate is not provided, return a 400 Bad Request error
+    if (!checkInDate) {
+      console.log("checkInDate is required.");
+      return res.status(400).json({ message: 'checkInDate is required' });
     }
 
-    // Find hotels based on query
-    let hotels = await Hotels.find({ hotelAddress: location });
-
-    // Optional sorting
-    const price = req.query.sortPrice;
-    const rating = req.query.sortRating;
-    if (price) {
-      hotels = hotels.sort((a, b) => price === 'low' ? a.price - b.price : b.price - a.price);
+    // If checkOutDate is not provided, set it to one day after checkInDate
+    if (!checkOutDate) {
+      console.log("checkOutDate is not provided, setting it to one day after checkInDate.");
+      const nextDay = new Date(checkInDate);
+      nextDay.setDate(nextDay.getDate() + 1);
+      checkOutDate = nextDay.toISOString().split('T')[0];
     }
-    if (rating) { 
-      // Extract hotel IDs from the hotels array
-      const hotelIds = hotels.map(hotel => hotel._id);
 
-      // Find the top-rated reviews for these hotels
-      const topRatedReviews = await Reviews.find({
-        reviewedTo: { $in: hotelIds }
-      }).sort({ rating: -1 }).limit(10);
-
-      // Extract hotelIds from the top-rated reviews
-      const topRatedHotelIds = topRatedReviews.map(review => review.reviewedTo);
-
-      // Filter the original hotels array to include only those hotels that have top-rated reviews
-      hotels = hotels.filter(hotel => topRatedHotelIds.includes(hotel._id));
+    // If noOfGuests is not provided, set it to 1
+    if (!noOfGuests) {
+      console.log("noOfGuests is not provided, setting it to 1.");
+      noOfGuests = 1;
     }
+    
+    // Using regular expression to perform a case-insensitive search
+    console.log("Searching hotels based on parameters.");
+    const hotels = await Hotels.find({
+      hotelAddress: { $regex: new RegExp(searchLocation, 'i') },
+      // Example: You can include additional conditions based on check-in/out dates and guests
+      // Example: checkInDate and checkOutDate are assumed to be in ISO format (YYYY-MM-DD)
+      // Example: noOfGuests is assumed to be a number
+      // Example: Add your conditions here based on your schema structure
+    });
+    
+    console.log("Returning search results.");
     res.json(hotels);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal server error" });
+    console.error("Error occurred while searching hotels:", error);
+    res.status(500).json({ message: 'Server Error' });
   }
 });
+
 
 searchRouter.get('/hotel/rooms', async (req, res) => {
   const { hotelName, hotelId } = req.query;

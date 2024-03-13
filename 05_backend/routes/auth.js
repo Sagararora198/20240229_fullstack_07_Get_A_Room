@@ -106,7 +106,7 @@ authRouter.post('/signup', async (req, res) => {
         // Checking if the email already exists
         const existingUser = await Users.findOne({ email: email });
         if (existingUser) {
-            return res.status(422).json({ error: `User with email ${email} already exists` });
+            return res.status(422).xson({ error: `User with email ${email} already exists` });
         }
 
         // Hashing the password
