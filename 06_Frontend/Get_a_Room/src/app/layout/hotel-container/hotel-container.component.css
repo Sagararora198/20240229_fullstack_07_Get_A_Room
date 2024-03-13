@@ -7,6 +7,7 @@
     overflow: hidden;
     flex-shrink: 0;
     display: none;
+
   }
   .latest-property-1-inner {
     align-self: stretch;
@@ -17,6 +18,7 @@
     padding: 0 var(--padding-lgi);
   }
   .five-stars-parent {
+
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -41,8 +43,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
 }
 .check-in-frame-parent {
+  
     width: 258px;
     flex: 1;
     align-items: flex-start;
@@ -53,7 +57,7 @@
     flex: 1;
     position: relative;
     border-radius: 50%;
-    background-color: var(--color-silver);
+    background-color: var(--color-silver);  
     z-index: 1;
   }
   .add-dates-frame1 {
@@ -77,5 +81,6 @@
   font-size: var(--font-size-smi);
   font-weight: 500;
   color: var(--color-darkgray);
+  
   margin-top: -3px;
 }
