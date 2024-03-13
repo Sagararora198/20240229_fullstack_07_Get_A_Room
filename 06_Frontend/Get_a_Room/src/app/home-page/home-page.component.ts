@@ -36,6 +36,7 @@ export class HomePageComponent {
   });
 
 
+  }
   
   TopRatedHotels:{hotelName:String,hotelAddress:String,hotelPricerange:String}[]=[]
 
