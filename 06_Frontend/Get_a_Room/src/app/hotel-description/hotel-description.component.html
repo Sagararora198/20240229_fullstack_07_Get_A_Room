@@ -6,8 +6,9 @@
             <div class="frame-wrapper">
                 <div class="hpr-text-parent">
                     <div class="hpr-text">
-                        <h3 class="hotel-description">Hotel Description</h3>
-                        <div class="lorem-ipsum-dolor1">
+                        <h3 class="hotel-description"><b style="color: black;">Hotel Amenities:</b>
+                            {{hotel?.hotelAmenities}}</h3>
+                        <div class="lorem-ipsum-dolor1"><b style="color: black;">Address :</b>
                             {{hotel?.hotelAddress}}
                         </div>
                     </div>
@@ -19,16 +20,11 @@
         <div class="footer-bg-vector">
             <div class="logo-text">
                 <div class="initial-options-frame1">
-
-
                     <div class="property-col-image">
                         <div *ngFor="let photo of hotel?.hotelPhotos | keyvalue" style="margin-bottom: 10px;">
                             <img [src]="photo.value" [alt]="photo.key" style="max-width: 100%; height: auto;">
                         </div>
-
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -39,61 +35,23 @@
                 <h3 class="room-types">Room Types</h3>
             </div>
             <div class="slider-indicators">
-                <!-- @for (type of roomTypes; track $index) { -->
-
-                <div class="property-frame-1" id="propertyFrame1" *ngFor="let room of fetchedRooms">
+                <div class="property-frame-1" id="propertyFrame1" *ngFor="let room of fetchedRooms; let i = index">
                     <div class="property-large">
-                        <div class="property-col"></div>
-                        <!-- <div class="vector">
-
-                            <div class="property-image"></div>
-                            <img class="featherheart-icon" loading="lazy" alt=""
-                                src="../assets/public/featherheart.svg" />
-
-
-
-                            <div class="apple-store">
-                                <img class="slider-indicators-icon" loading="lazy" alt=""
-                                    src="../assets/public/slider-indicators.svg" />
-                            </div>
-                        </div> -->
-
-                        <img class="vector" src= {{room.roomPhotos}}>
+                        <img class="vector" src={{room.roomPhotos}}>
                         <div class="hotel-type-indicator">
                             <div class="super-deluxe-suites-parent">
-                                <b class="super-deluxe-suites"></b>
+                                <b>{{roomDatas[i]?.roomType}}</b>
                                 <div class="bedroom-type-frame">
-                                    <div class="vector-frame-parent">
-                                        <div class="vector-frame">
-                                            <img class="bed-icon" loading="lazy" alt=""
-                                                src="../assets/public/bed.svg" />
-                                        </div>
-                                        <div class="div">4</div>
-                                    </div>
-                                    <div class="transportation-icon-frame">
-                                        <img class="vector-icon" loading="lazy" alt=""
-                                            src="../assets/public/vector.svg" />
-
-                                        <div class="div1">{{ room.roomPrice }}</div>
-                                    </div>
                                     <div class="car-icon-frame">
+                                        <div class="div2"><b style="color: black;">Price : </b>{{room.roomPrice}}</div>
                                         <img class="car-icon" loading="lazy" alt=""
                                             src="../assets/public/car-icon.svg" />
-
-                                        <div class="div2">2</div>
-                                    </div>
-                                    <div class="pet-icon-frame">
-                                        <img class="pet-icon" loading="lazy" alt=""
-                                            src="../assets/public/pet-icon.svg" />
-
-                                        <div class="div3">0</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- } -->
             </div>
         </div>
     </section>
