@@ -118,24 +118,24 @@ roomRouter.post("/hotel/:hotelId/room", async (req, res) => {
         // Check if the hotel exists
         const hotel = await Hotels.findById(hotelId);
         if (!hotel) {
-          return res.status(404).json({ error: "Hotel not found." });
+            return res.status(404).json({ error: "Hotel not found." });
         }
         // console.log(hotel object - ${hotel});
         // Step 2: Extract roomId references from the hotel document
         const roomIds = hotel.rooms.map(room => room._id);
         // console.log(room ids - ${roomIds});
-    
+
         // Step 3: Find room types in the RoomId collection
         const roomTypes = await RoomId.find({ '_id': { $in: roomIds } });
         // console.log(room types ${roomTypes})
-        
+
         const matchingRoomType = roomTypes.find(room => room.roomType === roomType);
         const room = new Rooms({
-            roomNumber:roomNumber,
-            roomType:matchingRoomType._id,
-            roomDesc:roomDesc,
-            roomPrice:roomPrice,
-            roomPhotos:roomPhotos
+            roomNumber: roomNumber,
+            roomType: matchingRoomType_id, //_id{removed} if need add in future
+            roomDesc: roomDesc,
+            roomPrice: roomPrice,
+            roomPhotos: roomPhotos
 
         })
 
@@ -145,7 +145,7 @@ roomRouter.post("/hotel/:hotelId/room", async (req, res) => {
         // const rooms = await Promise.all(roomTypes.map(async (roomType) => {
         //     return await Rooms.find({ roomType: roomType._id });
         //   }));
-    
+
 
         // Create a new Room document
         // const room = new Rooms({
@@ -163,5 +163,82 @@ roomRouter.post("/hotel/:hotelId/room", async (req, res) => {
         res.status(500).json({ error: "Internal server error" });
     }
 });
+
+
+//search by roomId
+
+// roomRouter.get('/room/:roomId', async (req, res) => {
+//     const { roomId } = req.params;
+
+//     try {
+//         // Find the room by room ID
+//         const room = await Rooms.findById(roomId);
+//         if (!room) {
+//             return res.status(404).json({ error: "Room not found." });
+//         }
+
+//         // If the room is found, send it as a response
+//         res.json(room);
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ error: "Internal server error" });
+//     }
+// });
+
+
+//search by roomType single
+
+// roomRouter.get('/rooms/by-type/:roomTypeId', async (req, res) => {
+//     const { roomTypeId } = req.params;
+
+//     console.log("id"+req.params.roomTypeId);
+
+//     try {
+//         // Find rooms by room type ID
+//         const rooms = await Rooms.find({ roomType: roomTypeId });
+//         if (!rooms || rooms.length === 0) {
+//             return res.status(404).json({ error: "Rooms not found for the given room type ID." });
+//         }
+
+//         // If rooms are found, send them as a response
+//         res.json(rooms);
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ error: "Internal server error" });
+//     }
+// });
+
+
+//search by roomtype multiple
+
+roomRouter.get('/rooms/by-types', async (req, res) => {
+    const { roomTypeIds } = req.query;
+
+    console.log("room type1:"+typeof(roomTypeIds));
+
+    try {
+        // Convert roomTypeIds to an array
+        const roomTypeIdsArray = roomTypeIds.split(',');
+
+        console.log("room type2:" + typeof (roomTypeIdsArray));
+
+        // Find rooms by room type IDs
+        const rooms = await Rooms.find({ roomType: { $in: roomTypeIdsArray } });
+
+        // If no rooms are found, return an empty array
+        if (!rooms || rooms.length === 0) {
+            return res.status(404).json({ error: "No rooms found for the provided room type IDs." });
+        }
+
+        // If rooms are found, send them as a response
+        res.json(rooms);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+
+
 
 export default roomRouter;

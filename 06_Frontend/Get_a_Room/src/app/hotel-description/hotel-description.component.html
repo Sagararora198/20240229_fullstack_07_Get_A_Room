@@ -2,13 +2,13 @@
 <div class="search">
     <section class="background-frame">
         <div class="hotel-name-parent">
-            <h2 class="hotel-name">{{hotel.hotelName}}</h2>
+            <h2 class="hotel-name">{{hotel?.hotelName}}</h2>
             <div class="frame-wrapper">
                 <div class="hpr-text-parent">
                     <div class="hpr-text">
                         <h3 class="hotel-description">Hotel Description</h3>
                         <div class="lorem-ipsum-dolor1">
-                            {{hotel.hotelAddress}}
+                            {{hotel?.hotelAddress}}
                         </div>
                     </div>
                 </div>
@@ -19,15 +19,15 @@
         <div class="footer-bg-vector">
             <div class="logo-text">
                 <div class="initial-options-frame1">
-                    @for (image of hotelDesc.hotelImages; track $index) {
+
 
                     <div class="property-col-image">
-                        <img [src]="image.image" alt="image" />
-                        <div class="image-image">
-                            <div class="image-2">Image </div>
+                        <div *ngFor="let photo of hotel?.hotelPhotos | keyvalue" style="margin-bottom: 10px;">
+                            <img [src]="photo.value" [alt]="photo.key" style="max-width: 100%; height: auto;">
                         </div>
+
                     </div>
-                    }
+
 
                 </div>
             </div>
@@ -39,24 +39,29 @@
                 <h3 class="room-types">Room Types</h3>
             </div>
             <div class="slider-indicators">
-                @for (type of roomTypes; track $index) {
+                <!-- @for (type of roomTypes; track $index) { -->
 
-                <div class="property-frame-1" id="propertyFrame1">
+                <div class="property-frame-1" id="propertyFrame1" *ngFor="let room of fetchedRooms">
                     <div class="property-large">
                         <div class="property-col"></div>
-                        <div class="vector">
+                        <!-- <div class="vector">
+
                             <div class="property-image"></div>
                             <img class="featherheart-icon" loading="lazy" alt=""
                                 src="../assets/public/featherheart.svg" />
+
+
 
                             <div class="apple-store">
                                 <img class="slider-indicators-icon" loading="lazy" alt=""
                                     src="../assets/public/slider-indicators.svg" />
                             </div>
-                        </div>
+                        </div> -->
+
+                        <img class="vector" src= {{room.roomPhotos}}>
                         <div class="hotel-type-indicator">
                             <div class="super-deluxe-suites-parent">
-                                <b class="super-deluxe-suites">Super Deluxe Suites</b>
+                                <b class="super-deluxe-suites"></b>
                                 <div class="bedroom-type-frame">
                                     <div class="vector-frame-parent">
                                         <div class="vector-frame">
@@ -69,7 +74,7 @@
                                         <img class="vector-icon" loading="lazy" alt=""
                                             src="../assets/public/vector.svg" />
 
-                                        <div class="div1">1</div>
+                                        <div class="div1">{{ room.roomPrice }}</div>
                                     </div>
                                     <div class="car-icon-frame">
                                         <img class="car-icon" loading="lazy" alt=""
@@ -88,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-                }
+                <!-- } -->
             </div>
         </div>
     </section>
