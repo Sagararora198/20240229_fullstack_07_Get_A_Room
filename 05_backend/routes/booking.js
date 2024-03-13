@@ -1,5 +1,5 @@
 //external dependencies
-import  express,{ Router }  from "express";
+import express, { Router } from "express";
 import 'dotenv/config'
 import mongoose from "mongoose"
 //internal dependencies
@@ -38,27 +38,27 @@ const bookingRouter = express.Router()
  *     security:
  *       - bearerAuth: []
  */
-bookingRouter.get('/booking',requireLogin,async(req,res)=>{
-  const {user}=req;
+bookingRouter.get('/booking', requireLogin, async (req, res) => {
+  const { user } = req;
   console.log(user);
   //checking all possible roles present 
-  const availableRoles=Object.values(roles)
+  const availableRoles = Object.values(roles)
   console.log(availableRoles);
   // whether the user is any one of them
-  if(availableRoles.includes(user.role)){
+  if (availableRoles.includes(user.role)) {
     try {
       let bookings;
-      if (user.role=== roles.ADMIN) {
+      if (user.role === roles.ADMIN) {
         // Fetch all bookings for admin
         bookings = await Bookings.find({});
       } else if (user.role === roles.USER) {
         // Fetch bookings only for this user
         bookings = await Bookings.find({ userId: user._id });
       }
-       else {
+      else {
         return res.status(403).json({ message: 'Unauthorized access' });
       }
-        
+
       res.json(bookings);
     } catch (error) {
       console.error(error);
