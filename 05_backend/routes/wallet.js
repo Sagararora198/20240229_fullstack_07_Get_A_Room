@@ -113,13 +113,13 @@ walletRouter.get('/wallet', requireLogin, async (req, res) => {
  *            type: object
  *            required:
  *              - userId
- *              - amountToAdd
+ *              - changeamount
  *            properties:
  *              userId:
  *                type: string
  *                description: The ID of the user to add money to.
  *                example: "609cf72c9864e620ec51344a"
- *              amountToAdd:
+ *              changeamount:
  *                type: number
  *                description: The amount of money to add to the user's wallet.
  *                example: 100
@@ -174,14 +174,14 @@ walletRouter.get('/wallet', requireLogin, async (req, res) => {
  */
 walletRouter.put('/addMoney', requireLogin, async (req, res) => {
   const { user } = req; // The admin user making the request
-  const { userId, amountToAdd } = req.body; // Extract userId and amountToAdd from the request body
+  const { userId, changeamount } = req.body; // Extract userId and changeamount from the request body
 
   // First, check if the logged-in user is an admin
   if (user.role !== roles.ADMIN) {
     return res.status(403).send('Unauthorized: Only admins can perform this action');
   }
-  // Check if the amountToAdd is a valid number and greater than 0
-  if (!amountToAdd || isNaN(amountToAdd) || amountToAdd <= 0) {
+  // Check if the changeamount is a valid number and greater than 0
+  if (!changeamount || isNaN(changeamount) || changeamount <= 0) {
     return res.status(400).send('Invalid amount specified');
   }
   
@@ -194,13 +194,13 @@ walletRouter.put('/addMoney', requireLogin, async (req, res) => {
     }
 
     // Assuming the user object has a 'wallet' property that stores the amount
-    targetUser.wallet += amountToAdd; // Add the specified amount to the user's wallet
+    targetUser.wallet = changeamount; // Add the specified amount to the user's wallet
 
     await targetUser.save(); // Save the updated user document
 
     // Send a success response
     return res.status(200).json({
-      message: `Successfully added $${amountToAdd} to user's account`,
+      message: `Successfully changed ${changeamount} to user's account`,
       userId: targetUser._id,
       newWalletAmount: targetUser.wallet
     });

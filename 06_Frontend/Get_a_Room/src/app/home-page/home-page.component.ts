@@ -5,15 +5,17 @@ import { SearchComponentComponent } from '../layout/search-component/search-comp
 import { HotelContainerComponent } from '../layout/hotel-container/hotel-container.component';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
+import { Router, RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [NavbarComponent,FooterComponent,SearchComponentComponent,HotelContainerComponent],
+  imports: [NavbarComponent,FooterComponent,SearchComponentComponent,HotelContainerComponent,RouterModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router: Router) {
   }
 
   onSearch(searchParams: any): void {
@@ -28,33 +30,36 @@ export class HomePageComponent {
 
   this.http.get(url).subscribe((response) => {
     console.log('API Response:', response);
+    this.router.navigate(['/properties'],{
+      queryParams: { data: JSON.stringify(response) }
+    });
   });
+
 
   }
 
+  TopRatedHotels:{hotelName:String,hotelAddress:String,hotelPricerange:String}[]=[]
 
-  TopRatedHotels:{hotelName:String,hotelAddress:String,hotelPricerange:String}[]=[
-    {
-      hotelName:"Pride In",
-      hotelAddress:"Hitech city , Hyderabad",
-      hotelPricerange:""
-    },
-    {
-      hotelName:"Pride In",
-      hotelAddress:"Hitech city , Hyderabad",
-      hotelPricerange:""
-    },
-    {
-      hotelName:"Pride In",
-      hotelAddress:"Hitech city , Hyderabad",
-      hotelPricerange:""
-    },
-    {
-      hotelName:"Pride In",
-      hotelAddress:"Hitech city , Hyderabad",
-      hotelPricerange:""
-    },
-  ]
+  ngOnInit(): void {
+    this.fetchTopRatedHotels();
+  }
 
+  fetchTopRatedHotels(): void {
+    this.http.get<any[]>('http://localhost:3000/hotels/top-rated').subscribe(
+      (response) => {
+        // Process the response and assign it to your TopRatedHotels array
+        this.TopRatedHotels = response.map(hotel => {
+          return {
+            hotelName: hotel.hotelName,
+            hotelAddress: hotel.hotelAddress,
+            hotelPricerange: '' // Since hotelPricerange is not provided in the API response, you may need to adjust this accordingly
+          };
+        });
+      },
+      (error) => {
+        console.error('Error fetching top rated hotels:', error);
+      }
+    );
+  }
 
 }
