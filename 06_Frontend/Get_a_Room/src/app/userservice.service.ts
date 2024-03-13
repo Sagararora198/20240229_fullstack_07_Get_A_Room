@@ -10,7 +10,8 @@ import { AsyncLocalStorage } from 'async_hooks';
 })
 
 export class UserService {
-  private apiUrl = 'http://localhost:3000/wallet'; // Replace with your actual API URL
+  private apiUrl = 'http://localhost:3000'; // The Api for get method of the wallet
+
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +21,22 @@ export class UserService {
         'Authorization': `Bearer ${token}`
       })
     };
-    return this.http.get(this.apiUrl, httpOptions);
+    return this.http.get(`${this.apiUrl}/wallet`, httpOptions);
   }
+
+  updateWallet(userId: string, amountToAdd: number,token:string): Observable<any> {
+    // Adjusting the body to match the provided structure
+    const body = {
+      "userId": userId,
+      "amountToAdd": amountToAdd
+    };
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    return this.http.put('http://localhost:3000/addMoney', body,httpOptions);
+  }
+
 }
 

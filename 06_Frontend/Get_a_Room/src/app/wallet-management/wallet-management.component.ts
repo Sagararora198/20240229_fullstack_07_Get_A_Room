@@ -19,14 +19,16 @@ import { CommonModule } from '@angular/common';
 
 
 export class WalletManagementComponent implements OnInit {
-  // Users: any[] = [];
-  Users:{name:String,wallet:number,tempWalletMoney?:number}[]=[]
+  // defining the user
+  Users:{_id:string,name:string,wallet:number,tempWalletMoney:number}[]=[]
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.loadUserData();
   }
+
+  //getting the user's Name and wallet amount
   loadUserData(): void {
     const token = localStorage.getItem('jwtToken'); // Assuming the token is stored with this key
     if (token) {
@@ -45,7 +47,7 @@ export class WalletManagementComponent implements OnInit {
   }
 
 
-  
+
 
       //   {
       //     username:"User 1",
@@ -57,36 +59,73 @@ export class WalletManagementComponent implements OnInit {
       //   },
       // ]
 
-      trackByUsername(index: number, user: any): string {
-        return user ? user.username : null;
+      // trackByUsername(index: number, user: any): string {
+      //   return user ? user.username : null;
+      // }
+
+      incrementMoney(index: number): void {
+        const user = this.Users[index];
+        if (!user) {
+          console.error('User not found at index', index);
+          return;
+        }
+
+        // If tempWalletMoney is undefined, initialize it with the current wallet amount
+        if (user.tempWalletMoney === undefined) {
+          user.tempWalletMoney = user.wallet;
+        }
+
+        // Increment tempWalletMoney by a fixed amount, e.g., 100
+        user.tempWalletMoney += 100;
+
+        // Optionally, you can also update the user's data on the server or in local storage here
       }
 
-    incrementMoney(userIndex: number): void {
-      if (this.Users[userIndex].tempWalletMoney === undefined) {
-      this.Users[userIndex].tempWalletMoney = this.Users[userIndex].wallet;
-    }
-    this.Users[userIndex].tempWalletMoney! += 100; // Increment by 100
+      decrementMoney(index: number): void {
+        const user = this.Users[index];
+        if (!user) {
+          console.error('User not found at index', index);
+          return;
+        }
+
+        // If tempWalletMoney is undefined, initialize it with the current wallet amount
+        if (user.tempWalletMoney === undefined) {
+          user.tempWalletMoney = user.wallet;
+        }
+
+        // Decrement tempWalletMoney by a fixed amount, e.g., 100
+        user.tempWalletMoney -= 100;
+
+        // Optionally, you can also update the user's data on the server or in local storage here
+      }
+
+addMoneyToUserWallet(index: number): void {
+  const token = localStorage.getItem('jwtToken'); // Assuming the token is stored with this key
+
+  if (!token) {
+    console.error('JWT token not found in local storage.');
+    return;
   }
 
-  decrementMoney(userIndex: number): void {
-    if (this.Users[userIndex].tempWalletMoney === undefined) {
-      this.Users[userIndex].tempWalletMoney = this.Users[userIndex].wallet;
-    }
-    if(this.Users[userIndex].tempWalletMoney!<=0){
-      this.Users[userIndex].tempWalletMoney! = 0
-    }
-    else{
-      this.Users[userIndex].tempWalletMoney! -= 100; // Decrement by 100 or any other value you prefer
-    }
+  const user = this.Users[index];
+  if (!user) {
+    console.error('User not found at index', index);
+    return;
   }
+  console.log(user.tempWalletMoney)
 
-  saveMoney(userIndex: number): void {
-    if (this.Users[userIndex].tempWalletMoney !== undefined) {
-      this.Users[userIndex].wallet = this.Users[userIndex].tempWalletMoney!;
-      delete this.Users[userIndex].tempWalletMoney; // Clean up the temporary state
+  // Assuming the userId is stored in user.id and amountToAdd is the amount you want to add
+  this.userService.updateWallet(user._id, user.tempWalletMoney, token).subscribe({
+    next: () => {
+      console.log('Amount added successfully');
+      // You might want to refresh the user data here to reflect the updated wallet amount
+      this.loadUserData();
+    },
+    error: (error) => {
+      console.error('Error adding amount to wallet', error);
     }
-  }
-
+  });
+}
   }
 
 
