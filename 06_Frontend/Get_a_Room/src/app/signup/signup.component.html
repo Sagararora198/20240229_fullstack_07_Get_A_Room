@@ -22,10 +22,10 @@
           <span class="error passwordError"  [ngStyle]="{'display':passwordErrorVisibility?'':'none'}" >{{passwordErrorMessage}}</span>
           <div class="already-have-account-text">
                 <span class="already-have-an">Already have an account?</span>&nbsp;
-                <span class="login2">Login</span>
+                <button><span class="login2" (click)="navToLogin()">Login</span></button>
           </div>
           <div class="login-frame">
-            <button class="continue-text-parent" [disabled]="submitDisabled">
+            <button class="continue-text-parent" [disabled]="submitDisabled" (click)="storeUserCred()">
               <b class="continue" id="continueText">Continue</b>
             </button>
           </div>

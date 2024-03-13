@@ -226,6 +226,7 @@
     flex-direction: column;
     align-items: center;
     gap: 35px 0;
+    padding-top: 50px;
     text-align: left;
     font-size: var(--font-size-lg);
     color: var(--color-darkslategray);
@@ -2263,4 +2264,3 @@
       gap: 92px 0;
     }
   }
-  
