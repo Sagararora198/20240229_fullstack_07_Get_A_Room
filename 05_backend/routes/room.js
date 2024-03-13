@@ -104,11 +104,16 @@ const roomRouter = express.Router();
  *                  description: Error message explaining the reason for the server error.
  *                  example: "Internal Server Error"
  */
-roomRouter.post("/hotel/:hotelId/room", async (req, res) => {
+roomRouter.post("/hotel/:hotelId/room",requireLogin, async (req, res) => {
     // Extract hotelId from the URL parameters
     const { hotelId } = req.params;
     const { roomNumber, roomType, roomDesc, roomPrice, roomPhotos } = req.body;
+    
 
+    if (user.role !== roles.ADMIN) {
+        return res.status(403).send('Unauthorized: Only admins can perform this action');
+      }
+      
     // Validate required fields
     if (!hotelId || !roomNumber || !roomType || !roomDesc || !roomPrice || !roomPhotos) {
         return res.status(400).json({ error: "Missing required fields." });
