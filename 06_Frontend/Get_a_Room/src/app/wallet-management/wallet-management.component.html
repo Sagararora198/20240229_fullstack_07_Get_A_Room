@@ -17,27 +17,26 @@
                 </div>
             </div>
             <div class="frame-wrapper11">
-                @for (user of Users; track user.username;let index=$index) {
-                    <div class="walletContainer  ">
-
-                    
-
-                    <div class="user user-1 frame-child27">{{user.username}}</div>
-                    <div class="walletMoney div26">{{user.tempWalletMoney!==undefined?user.tempWalletMoney:user.userWalletMoney}}</div>
-                    <div class="footer-background1 add-minus-icon" (click)="incrementMoney(index)">
-                        <img class="add-1-icon"  loading="lazy" alt="" src="../assets/public/add-1@2x.png" />
-                    </div>
-                    <div class="play-store-logo1 add-minus-icon" (click)="decrementMoney(index)">
-                        <img class="minus-1-icon" loading="lazy" alt="" src="../assets/public/minus-1@2x.png" />
-                    </div>
-                    <div class="logo-frame5" >
-                        <div class="contact-info-frame2">
-                            <h3 class="save1">Save</h3>
-                        </div>
-                    </div>
+              <div *ngFor="let user of Users; let index = index" class="walletContainer">
+                  <div class="user user-1 frame-child27">
+                      {{user.name}}
+                  </div>
+                <div class="walletMoney div26">{{ user.tempWalletMoney !== undefined ? user.tempWalletMoney : user.wallet }}</div>
+                <div class="footer-background1 add-minus-icon" (click)="incrementMoney(index)">
+                    <img class="add-1-icon" loading="lazy" alt="" src="../assets/public/add-1@2x.png" />
                 </div>
-                }
-                
+
+                <div class="play-store-logo1 add-minus-icon" (click)="decrementMoney(index)">
+                  <img class="minus-1-icon" loading="lazy" alt="" src="../assets/public/minus-1@2x.png" />
+                </div>
+                <!-- Assuming you will implement a method to handle saving the updated wallet money -->
+                <div class="logo-frame5" (click)="saveMoney(index)">
+                  <div class="contact-info-frame2">
+                    <h3 class="save1">Save</h3>
+                  </div>
+                </div>
+              </div>
+
             </div>
         </div>
     </section>

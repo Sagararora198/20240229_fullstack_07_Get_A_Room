@@ -5,6 +5,7 @@ import Users from '../models/User.js'
 //Require Function to Login
 const requireLogin = (req,res,next)=>{
     const{authorization} = req.headers
+    
     if(!authorization){
         res.status(401).json({error:"you are not logged in"})
     }

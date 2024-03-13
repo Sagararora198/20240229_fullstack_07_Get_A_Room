@@ -5,15 +5,15 @@
     <div class="divider"></div>
     <div class="input-container">
       <div class="email-label">Email</div>
-      <input type="text" class="email-field" placeholder="Example@gmail.com" (blur)="handleEmailBlur($event)" (onchange)="handelOnchange($event)" (focus)="onEmailFocus()">
+      <input type="text" class="email-field" [(ngModel)]="email" placeholder="Example@gmail.com" (blur)="handleEmailBlur($event)" (onchange)="handelOnchange($event)" (focus)="onEmailFocus()">
       <span [ngStyle]="{'visibility':emailErrorVisible?'':'hidden'}" class="error_msg">{{emailError[0] && emailError[0].errorMsg}}</span>
       <div class="password-label">Password</div>
-      <input type="password" class="password-field" (blur)="handlePasswordBlur($event)" (focus)="onPasswordFocus()" (input)="handelPasswordChange($event)">
+      <input type="password" class="password-field" [(ngModel)]="password" (blur)="handlePasswordBlur($event)" (focus)="onPasswordFocus()" (input)="handelPasswordChange($event)">
       <span [ngStyle]="{'visibility':passwordErrorVisible?'':'hidden'}" class="error_msg">{{passwordError[0]&&passwordError[0].errorMsg}}</span>
 
       <span class="forgot-password">Forgot password?</span>
     </div>
-    <button class="login-button" [disabled]="submitDisabled" (mouseenter)="handelOnmouseenter()">Continue</button>
+    <button class="login-button" [disabled]="submitDisabled" (mouseenter)="handelOnmouseenter()"  (click)="fetchjwt()" >Continue</button>
     <div class="signup-text">
       Don't have an account? <a href="#">Sign Up</a>
     </div>

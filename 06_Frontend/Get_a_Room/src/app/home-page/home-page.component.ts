@@ -17,7 +17,7 @@ import { Router, RouterModule } from '@angular/router';
 export class HomePageComponent {
   constructor(private http: HttpClient,private router: Router) {
   }
-  
+
   onSearch(searchParams: any): void {
     if (!searchParams.city || !searchParams.checkinDate || !searchParams.checkoutDate) {
       console.error('Missing search parameters');
@@ -35,8 +35,6 @@ export class HomePageComponent {
     });
   });
 
-   
-  }
 
   
   TopRatedHotels:{hotelName:String,hotelAddress:String,hotelPricerange:String}[]=[]
@@ -62,5 +60,7 @@ export class HomePageComponent {
       }
     );
   }
+
+
 
 }

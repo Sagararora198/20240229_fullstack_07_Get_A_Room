@@ -12,35 +12,40 @@ import requireLogin from "../middleware/requireLogin.js";
 const reviewRouter = express.Router();
 
 //API to add reviews by authorized users only
-
 /**
  * @swagger
  * /reviews:
  *   post:
- *     summary: Add a new review for a hotel
- *     tags: [Reviews]
+ *     summary: Add a review for a hotel
+ *     description: Allows authenticated users to add a review for a specific hotel by providing a rating and review text.
  *     security:
  *       - bearerAuth: []
  *     parameters:
  *       - in: query
  *         name: hotelId
+ *         required: true
  *         schema:
  *           type: string
- *         required: true
- *         description: The ID of the hotel being reviewed
- *       - in: body
- *         name: review
- *         description: Review details
- *         required: true
- *         schema:
- *           type: object
- *           properties:
- *             rating:
- *               type: number
- *               description: The rating for the hotel (0-5)
- *             review:
- *               type: string
- *               description: The review content
+ *         description: The unique identifier of the hotel to review
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - rating
+ *               - review
+ *             properties:
+ *               rating:
+ *                 type: integer
+ *                 format: int32
+ *                 description: Rating given to the hotel, must be between 0 and 5.
+ *                 example: 4
+ *               review:
+ *                 type: string
+ *                 description: The review text.
+ *                 example: "Great experience, will definitely come back!"
  *     responses:
  *       '200':
  *         description: Review added successfully

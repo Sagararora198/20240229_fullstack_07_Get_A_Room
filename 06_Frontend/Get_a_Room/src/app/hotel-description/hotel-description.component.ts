@@ -47,6 +47,12 @@ export class HotelDescriptionComponent implements OnInit {
 
   }
 
+  // showRoomDetails() {
+  //   // Your functionality goes here
+  //   console.log('Room details clicked');
+  //   // For example, navigate to another view, display a modal, fetch data, etc.
+  // }
+
 
   //getting data of rooms
   getRoomsByTypes(roomTypeIds: string): void {
