@@ -11,28 +11,25 @@ import { Router } from '@angular/router';
 })
 export class SearchComponentComponent {
   constructor(private router: Router) { }
-  city:string = ''
-  checkinDate:Date = new Date()
-  checkoutDate:Date|null = null
-  @Output() userPreference = new EventEmitter<any>()
-  @Output() searchParameters: EventEmitter<any> = new EventEmitter();
-  onSearch(){
-    const userPreferenceObject:{city:string,checkinDate:Date,checkoutDate:Date|null} = {
-      city:this.city,
-      checkinDate:this.checkinDate,
-      checkoutDate:this.checkoutDate
-    }
-    this.userPreference.emit(userPreferenceObject);
+  city: string = '';
+  checkinDate: Date = new Date();
+  checkoutDate: Date | null = null;
+
+  @Output() searchParameters: EventEmitter<any> = new EventEmitter<any>();
+
+  onSearch(): void {
     const searchParams = {
-      searchLocation: this.city,
-      checkInDate: this.checkinDate,
-      checkOutDate: this.checkoutDate
+      city: this.city,
+      checkinDate: this.checkinDate,
+      checkoutDate: this.checkoutDate
     };
+
     this.searchParameters.emit(searchParams);
     this.router.navigate(['/properties']);
   }
 
   dateError: boolean = false;
+
   checkDates(): void {
     if (this.checkinDate && this.checkoutDate && this.checkoutDate <= this.checkinDate) {
       this.dateError = true;
@@ -40,6 +37,5 @@ export class SearchComponentComponent {
       this.dateError = false;
     }
   }
-
-
 }
+
