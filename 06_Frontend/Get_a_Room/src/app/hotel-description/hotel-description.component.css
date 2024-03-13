@@ -84,13 +84,14 @@
 }
 
 .hotel-name {
-  width: 356px;
+  margin-top: 10px;
+  width: 500px;
   height: 35px;
-  flex-shrink: 0;
+  /* flex-shrink: 0; */
 }
 
 .hotel-description {
-  width: 363px;
+  width: 800px;
 }
 
 .lorem-ipsum-dolor1 {

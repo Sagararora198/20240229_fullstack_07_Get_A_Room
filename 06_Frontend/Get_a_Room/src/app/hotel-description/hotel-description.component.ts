@@ -19,6 +19,7 @@ export class HotelDescriptionComponent implements OnInit {
   hotel: any; // Define the type of your hotel data
   roomTypes: any[] = []; // Array to store room types
   fetchedRooms: any[] = []; // Array to store fetched rooms
+  roomDatas: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -27,7 +28,6 @@ export class HotelDescriptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHotelDetails();
-
   }
   getHotelDetails(): void {
     const hotelId = this.route.snapshot.paramMap.get('id');
@@ -35,8 +35,8 @@ export class HotelDescriptionComponent implements OnInit {
       this.http.get(`http://localhost:3000/hotel/find/${hotelId}`)
         .subscribe((hotel: any) => {
           this.hotel = hotel;
-          console.log("hotel room :" + hotel.rooms);
-          console.log(this.hotel); // Print all data in the console
+          // console.log("hotel room :" + hotel.rooms);
+          // console.log(this.hotel); // Print all data in the console
 
           this.getRoomsByTypes(hotel.rooms);
 
@@ -57,19 +57,22 @@ export class HotelDescriptionComponent implements OnInit {
   //getting data of rooms
   getRoomsByTypes(roomTypeIds: string): void {
 
-    console.log("print room type:" + roomTypeIds);
+    // console.log("print room type:" + roomTypeIds);
 
     this.http.get(`http://localhost:3000/rooms/by-types?roomTypeIds=${roomTypeIds}`)
       .subscribe((rooms: any) => {
-        console.log("Rooms by types:", rooms);
+        // console.log("Rooms by types:", rooms);
         this.fetchedRooms = rooms; // Assign fetched rooms to a variable
 
         // Access and log all properties of each room
         if (rooms && rooms.length > 0) {
           rooms.forEach((room: any) => {
-            console.log("Room ID:", room._id);
-            console.log("Room Type:", room.roomType);
-            console.log("Other properties if any:", room); // Log all properties
+
+            // console.log("Room ID:", room._id);
+            // console.log("Room Type:", room.roomType);
+            // console.log("Other properties if any:", room); // Log all properties
+            this.getRoomData(room.roomType);
+
           });
         } else {
           console.log("No rooms found for the provided room type IDs.");
@@ -83,29 +86,21 @@ export class HotelDescriptionComponent implements OnInit {
   }
 
 
+  //single fetch
 
+  getRoomData(roomId: string): any {
+    this.http.get(`http://localhost:3000/room/${roomId}`).subscribe(
+      (data: any) => {
+        if (Array.isArray(data)) {
+          this.roomDatas = data;
+        } else {
+          // Handle the case where a single object is received
+          this.roomDatas.push(data);
+        }
+        // console.log("yeh single" + data.roomType);
 
-  // roomTypes: { roomType: String, roomGuest: Number, roomBathroom: Number, roomParking: Number, roomPet: Number }[] = [
-  //   {
-  //     roomType: "Super Delux Suites",
-  //     roomGuest: 4,
-  //     roomBathroom: 1,
-  //     roomParking: 2,
-  //     roomPet: 0
-  //   },
-  //   {
-  //     roomType: "Delux Suites",
-  //     roomGuest: 4,
-  //     roomBathroom: 1,
-  //     roomParking: 2,
-  //     roomPet: 0
-  //   },
-  //   {
-  //     roomType: "Normal Suites",
-  //     roomGuest: 4,
-  //     roomBathroom: 1,
-  //     roomParking: 2,
-  //     roomPet: 0
-  //   },
-  // ]
+      }
+    );
+  }
+
 }

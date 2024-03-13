@@ -37,7 +37,7 @@ export class HomePageComponent {
 
 
   }
-
+  
   TopRatedHotels:{hotelName:String,hotelAddress:String,hotelPricerange:String}[]=[]
 
   ngOnInit(): void {
@@ -61,5 +61,7 @@ export class HomePageComponent {
       }
     );
   }
+
+
 
 }
