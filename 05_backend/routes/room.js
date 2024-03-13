@@ -167,23 +167,23 @@ roomRouter.post("/hotel/:hotelId/room", async (req, res) => {
 
 //search by roomId
 
-// roomRouter.get('/room/:roomId', async (req, res) => {
-//     const { roomId } = req.params;
+roomRouter.get('/room/:roomId', async (req, res) => {
+    const { roomId } = req.params;
 
-//     try {
-//         // Find the room by room ID
-//         const room = await Rooms.findById(roomId);
-//         if (!room) {
-//             return res.status(404).json({ error: "Room not found." });
-//         }
+    try {
+        // Find the room by room ID
+        const room = await RoomId.findById(roomId);
+        if (!room) {
+            return res.status(404).json({ error: "Room not found." });
+        }
 
-//         // If the room is found, send it as a response
-//         res.json(room);
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ error: "Internal server error" });
-//     }
-// });
+        // If the room is found, send it as a response
+        res.json(room);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
 
 
 //search by roomType single
@@ -214,13 +214,13 @@ roomRouter.post("/hotel/:hotelId/room", async (req, res) => {
 roomRouter.get('/rooms/by-types', async (req, res) => {
     const { roomTypeIds } = req.query;
 
-    console.log("room type1:"+typeof(roomTypeIds));
+    // console.log("room type1:" + typeof (roomTypeIds));
 
     try {
         // Convert roomTypeIds to an array
         const roomTypeIdsArray = roomTypeIds.split(',');
 
-        console.log("room type2:" + typeof (roomTypeIdsArray));
+        // console.log("room type2:" + typeof (roomTypeIdsArray));
 
         // Find rooms by room type IDs
         const rooms = await Rooms.find({ roomType: { $in: roomTypeIdsArray } });
