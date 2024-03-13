@@ -9,6 +9,7 @@ import Rooms from "../models/rooms.js"; // Assuming this is your Room model
 import RoomId from "../models/roomId.js";
 import requireLogin from "../middleware/requireLogin.js";
 import { roles } from "../dependencies/constants/userConstants.js";
+import Hotel from "../models/Hotel.js";
 
 const hotelRouter = express.Router();
 
@@ -116,7 +117,7 @@ hotelRouter.put('/hotel/:hotelId', requireLogin, async (req, res) => {
     }
 });
 
-//API to post hotel by admin 
+//API to post hotel by admin
 /**
  * @swagger
  * /hotels:
@@ -160,38 +161,49 @@ hotelRouter.put('/hotel/:hotelId', requireLogin, async (req, res) => {
  *     security:
  *       - bearerAuth: []
  */
-hotelRouter.post('/hotel', async (req, res) => {
-    const { hotelName, hotelAddress, roomTypes } = req.body; // Assuming roomTypes is an array of strings
-    //checking if user is admin
-    // if (user.role == roles.USER) {
-    //     return res.status(403).json({ error: "Unauthorized user" })
-    // }
-    // else if (user.role == roles.ADMIN) {
+
+hotelRouter.post('/hotel', requireLogin, async (req, res) => {
+    const { hotelName, hotelAddress, phoneNumber, roomTypes, hotelPhotos, hotelAmenities, managedBy } = req.body;
+
+    const { user } = req;
+
+    if (user.role == roles.USER) {
+        return res.status(403).json({ error: "Unauthorized user" })
+    }
+
+    else if (user.role == roles.ADMIN) {
+
     try {
-        // Process each room type
+        // Process each room type and save roomIds
         const roomIds = await Promise.all(roomTypes.map(async (type) => {
             const room = new RoomId({ roomType: type });
+            console.log("room"+room);
             await room.save();
             return room._id; // Collect the ID of the newly created RoomId document
         }));
 
-        // Create a new hotel with references to the created RoomId documents
-        const hotel = new Hotels({
+        // Create a new hotel instance
+        const newHotel = new Hotel({
             hotelName,
             hotelAddress,
-            rooms: roomIds// Map each roomId to the expected format
+            phoneNumber,
+            rooms : roomIds,
+            hotelPhotos,
+            hotelAmenities,
+            managedBy,
         });
 
-        await hotel.save();
+        // Save the hotel to the database
+        const savedHotel = await newHotel.save();
 
-        res.status(201).json({ message: "Hotel added successfully", hotel });
-    }
-    catch (error) {
+        res.status(201).json({ message: "Hotel added successfully", savedHotel });
+    } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Internal server error" });
     }
-    // }
+    }
 });
+
 
 //API to delete hotel by admin
 hotelRouter.delete('/hotel/:hotelId', requireLogin, async (req, res) => {

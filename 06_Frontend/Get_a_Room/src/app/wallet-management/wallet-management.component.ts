@@ -5,55 +5,70 @@ import { UserService } from '../userservice.service';
 import { ActivatedRoute } from '@angular/router';
 // import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+// import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+
 
 @Component({
   selector: 'app-wallet-management',
   standalone: true,
-  imports: [HttpClientModule,CommonModule],
+  imports: [CommonModule],
   templateUrl: './wallet-management.component.html',
   styleUrl: './wallet-management.component.css'
 })
+
+
 export class WalletManagementComponent implements OnInit {
-  Users: {username: string, userWalletMoney: number, tempWalletMoney?: number}[] = [];
+  // Users: any[] = [];
+  Users:{name:String,wallet:number,tempWalletMoney?:number}[]=[]
 
-      constructor(
-        private route: ActivatedRoute,
-        private userService: UserService,
-        private http: HttpClient,) { }
+  constructor(private userService: UserService) { }
 
-      ngOnInit() {
-        this.fetchUsers();
+  ngOnInit(): void {
+    this.loadUserData();
+  }
+  loadUserData(): void {
+    const token = localStorage.getItem('jwtToken'); // Assuming the token is stored with this key
+    if (token) {
+      this.userService.getUsers(token).subscribe({
+        next: (data) => {
+          this.Users = data;
+          console.log("DATA ",this.Users);
+        },
+        error: (error) => {
+          console.error('There was an error!', error);
+        }
+      });
+    } else {
+      console.error('JWT token not found in local storage.');
+    }
+  }
+
+
+      //   {
+      //     username:"User 1",
+      //     userWalletMoney:1000
+      //   },
+      //   {
+      //     username:"User 2",
+      //     userWalletMoney:500
+      //   },
+      // ]
+
+      trackByUsername(index: number, user: any): string {
+        return user ? user.username : null;
       }
 
-      fetchUsers(): void {
-        this.userService.getUsers().subscribe({
-          next: (data) => {
-            this.Users = data;
-            console.log(this.Users);
-
-          },
-          error: (error) => {
-            console.error('There was an error!', error);
-          }
-        });
-      }
-
-  incrementMoney(userIndex: number): void {
-    if (this.Users[userIndex].tempWalletMoney === undefined) {
-      this.Users[userIndex].tempWalletMoney = this.Users[userIndex].userWalletMoney;
+    incrementMoney(userIndex: number): void {
+      if (this.Users[userIndex].tempWalletMoney === undefined) {
+      this.Users[userIndex].tempWalletMoney = this.Users[userIndex].wallet;
     }
     this.Users[userIndex].tempWalletMoney! += 100; // Increment by 100
   }
 
   decrementMoney(userIndex: number): void {
     if (this.Users[userIndex].tempWalletMoney === undefined) {
-      this.Users[userIndex].tempWalletMoney = this.Users[userIndex].userWalletMoney;
+      this.Users[userIndex].tempWalletMoney = this.Users[userIndex].wallet;
     }
     if(this.Users[userIndex].tempWalletMoney!<=0){
       this.Users[userIndex].tempWalletMoney! = 0
@@ -63,24 +78,14 @@ export class WalletManagementComponent implements OnInit {
     }
   }
 
+  saveMoney(userIndex: number): void {
+    if (this.Users[userIndex].tempWalletMoney !== undefined) {
+      this.Users[userIndex].wallet = this.Users[userIndex].tempWalletMoney!;
+      delete this.Users[userIndex].tempWalletMoney; // Clean up the temporary state
+    }
+  }
+
   }
 
 
 
-  // Users:{username:String,userWalletMoney:number,tempWalletMoney?:number}[]=[
-  //   {
-  //     username:"User 1",
-  //     userWalletMoney:1000
-  //   },
-  //   {
-  //     username:"User 2",
-  //     userWalletMoney:500
-  //   },
-  // ]
-
-  // saveMoney(userIndex: number): void {
-  //   if (this.Users[userIndex].tempWalletMoney !== undefined) {
-  //     this.Users[userIndex].userWalletMoney = this.Users[userIndex].tempWalletMoney!;
-  //     delete this.Users[userIndex].tempWalletMoney; // Clean up the temporary state
-  //   }
-  // }

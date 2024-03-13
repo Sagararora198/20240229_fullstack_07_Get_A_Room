@@ -19,15 +19,14 @@
         <div class="footer-bg-vector">
             <div class="logo-text">
                 <div class="initial-options-frame1">
-                    @for (image of hotelDesc.hotelImages; track $index) {
+
 
                     <div class="property-col-image">
-                        <img [src]="image.image" alt="image" />
-                        <div class="image-image">
-                            <div class="image-2">Image </div>
+                        <div *ngFor="let photo of hotel.hotelPhotos | keyvalue">
+                            <img [src]="photo.value" [alt]="photo.key" style="margin-bottom: 10px;">
                         </div>
                     </div>
-                    }
+
 
                 </div>
             </div>

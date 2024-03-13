@@ -270,7 +270,7 @@
 
 .image-image {
   width: 298px;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   padding: 0 var(--padding-10xs) 0 0;
   box-sizing: border-box;
@@ -278,11 +278,12 @@
 
 .property-col-image {
   flex: 1;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 34px 0;
+  gap: 10px;
   min-width: 248px;
   max-width: 100%;
+
 }
 
 .property-col-image3 {
