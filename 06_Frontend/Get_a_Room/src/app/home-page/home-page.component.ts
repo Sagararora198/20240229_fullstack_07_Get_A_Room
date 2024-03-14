@@ -35,10 +35,9 @@ export class HomePageComponent {
     });
   });
 
-
   }
   
-  TopRatedHotels:{hotelName:String,hotelAddress:String,hotelPricerange:String}[]=[]
+  TopRatedHotels:{hotelName:String,hotelAddress:String,hotelPricerange:String,hotelPhoto:String}[]=[]
 
   ngOnInit(): void {
     this.fetchTopRatedHotels();
@@ -48,11 +47,16 @@ export class HomePageComponent {
     this.http.get<any[]>('http://localhost:3000/hotels/top-rated').subscribe(
       (response) => {
         // Process the response and assign it to your TopRatedHotels array
+        // console.log(response[0]['hotelPhotos']['photo1']);
+        
         this.TopRatedHotels = response.map(hotel => {
+          console.log(hotel.hotelPhotos['photo1']);
+          
           return {
             hotelName: hotel.hotelName,
             hotelAddress: hotel.hotelAddress,
-            hotelPricerange: '' // Since hotelPricerange is not provided in the API response, you may need to adjust this accordingly
+            hotelPricerange: '',
+            hotelPhoto:hotel.hotelPhotos['photo1'],
           };
         });
       },

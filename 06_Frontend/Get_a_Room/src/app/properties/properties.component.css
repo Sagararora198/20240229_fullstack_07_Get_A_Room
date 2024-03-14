@@ -18,17 +18,21 @@
   margin: auto;
   margin-top: 40px;
   margin-bottom: 40px;
+ 
 }
 .types-and-filters-parent {
   flex: 1;
   flex-direction: column;
-  gap: 31px 0;
+  
+  /* gap: 31px 0; */
 }
 .filter-btn,
 .types-and-filters {
+  /* background-color: red; */
   display: flex;
+  height: 50px;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
   box-sizing: border-box;
 }
 .filter-btn {
@@ -61,9 +65,10 @@
   font-size: var(--font-size-xs);
   color: var(--color-darkslategray);
   font-family: var(--font-montserrat);
-  padding-bottom: 200px;
+  /* padding-bottom: 80px; */
 }
 .latest-property-frame {
+ 
   align-self: stretch;
   display: grid;
   flex-direction: row;
@@ -252,4 +257,39 @@
   .logo7 {
     font-size: var(--font-size-11xl);
   }
+}
+.hidden {
+  display: none;
+}
+.filterList{
+  display: flex;
+}
+
+.filter{
+  margin-left:20px;
+  margin-right: 20px;
+}
+.filter button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 150px;
+  height: 35px;
+}
+
+.filter button.selected {
+  background-color: #FE4472;
+  color: white;
+}
+.filterList {
+  list-style-type: none; /* Remove bullet points */
+  /* background-color: red */
+}
+
+.filterList .filter {
+  margin-top: 10px;
+  margin-bottom: 10px; /* Add some spacing between items */
 }

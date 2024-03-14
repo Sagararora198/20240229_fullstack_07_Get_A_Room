@@ -13,11 +13,17 @@
 }
 
 .banners {
+  background-image: url("../../assets/public/banner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
   align-self: stretch;
   background-color: var(--color-whitesmoke-100);
   flex-direction: column;
   align-items: center;
-  padding: var(--padding-6xs) var(--padding-55xl) var(--padding-57xl) var(--padding-57xl);
+  padding: var(--padding-6xs) var(--padding-55xl) var(--padding-57xl)
+    var(--padding-57xl);
   gap: 93px 0;
   text-align: left;
   font-size: var(--font-size-16xl);
@@ -159,9 +165,6 @@
   .latest-property-frame {
     justify-content: center;
     grid-template-columns: repeat(2, minmax(209px, 363px));
-
-
-
   }
 
   .logo1 {
@@ -177,7 +180,8 @@
 
   .banners {
     gap: 93px 0;
-    padding: var(--padding-xl) var(--padding-18xl) var(--padding-30xl) var(--padding-19xl);
+    padding: var(--padding-xl) var(--padding-18xl) var(--padding-30xl)
+      var(--padding-19xl);
     box-sizing: border-box;
   }
 
@@ -237,7 +241,6 @@
   .top-rated-properties-frame-parent {
     gap: 64px 0;
     margin: auto;
-
   }
 
   .logo1 {
@@ -248,3 +251,5 @@
     gap: 88px 0;
   }
 }
+
+

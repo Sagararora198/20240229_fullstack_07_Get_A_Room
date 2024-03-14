@@ -11,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [NavbarComponent,FooterComponent, SearchComponentComponent,HotelContainerComponent,CommonModule],
   templateUrl: './properties.component.html',
-  styleUrl: './properties.component.css'
+  styleUrl: './properties.component.css',
+  
 })
 export class PropertiesComponent {
   receivedData: any;
@@ -38,5 +39,23 @@ export class PropertiesComponent {
       };
       this.searchedHotels.push(newHotel);
     });
+  }
+
+  showFilters = false;
+
+  toggleFilters() {
+    this.showFilters = !this.showFilters;
+  }
+  selectedOption: string | null = null;
+
+  selectOption(option: string) {
+    this.selectedOption = option;
+  }
+
+  runFunction1() {
+    this.searchedHotels.sort((a, b) => a.hotelName.localeCompare(b.hotelName));
+  }
+  runFunction2() {
+    this.searchedHotels.sort((a, b) => b.hotelName.localeCompare(a.hotelName));
   }
 }

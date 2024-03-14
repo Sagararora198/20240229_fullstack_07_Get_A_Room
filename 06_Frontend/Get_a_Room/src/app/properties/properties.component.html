@@ -3,17 +3,37 @@
 <section class="properties-inner">
   <div class="types-and-filters-parent">
     <header class="types-and-filters">
-     <app-search-component></app-search-component>
-      <button class="filter-btn">
-        <div class="filter-btn-child"></div>
-        <img class="filter-icon" alt="" src="../../../assets/public/filtericon.svg" />
+     <!-- <app-search-component></app-search-component> -->
 
-        <div class="filters">Filters</div>
-      </button>
+     
+     <div class="filter-options" [ngClass]="{'hidden': !showFilters}">
+      <!-- Your filter options here -->
+      <ul class="filterList">
+        <li class="filter">
+          <button (click)="selectOption('option1'); runFunction1()" [class.selected]="selectedOption === 'option1' " >Name Asc</button>
+        
+        </li>
+        <li class="filter">
+          <button (click)="selectOption('option2');runFunction2()" [class.selected]="selectedOption === 'option2'">Name Desc</button>
+        </li>
+        <li class="filter">
+          <button (click)="selectOption('option3')" [class.selected]="selectedOption === 'option3'">Option 3</button>
+        </li>
+      </ul>
+      
+      
+    </div>
+     <button class="filter-btn" (click)="toggleFilters()">
+      <div class="filter-btn-child"></div>
+      <img class="filter-icon" alt="" src="../../../assets/public/filtericon.svg" /> 
+      <div class="filters">Filters</div>
+      
+    </button>
+
     </header>
     <div class="latest-property-frame">
       <ng-container *ngFor="let hotel of searchedHotels; let i = index">
-        <app-hotel-container class="latest-property-{{ i + 1 }}" [Hotel]="hotel"></app-hotel-container>
+        <app-hotel-container class="latest-property-{{ 1 }}" [Hotel]="hotel"></app-hotel-container>
       </ng-container>
     </div>
     
