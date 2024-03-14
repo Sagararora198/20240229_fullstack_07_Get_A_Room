@@ -11,7 +11,7 @@ import { timer, Subscription } from 'rxjs';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NgStyle,FormsModule],
+  imports: [NgStyle, FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
     ) { }
 
 
-/** visibility of email
- */
+  /** visibility of email
+   */
   emailErrorVisible: boolean = false;
   /**visibility of password
    */
@@ -39,17 +39,17 @@ export class LoginComponent implements OnInit {
   submitDisabled: boolean = true;
   /**email error message
    */
-  emailError: { errorMsg: string }[] = [{errorMsg:""}];
+  emailError: { errorMsg: string }[] = [{ errorMsg: "" }];
   /**password error message
    */
-  passwordError: { errorMsg: string }[] = [{errorMsg:""}];
+  passwordError: { errorMsg: string }[] = [{ errorMsg: "" }];
 
 
-/** To validate email field
- *
- * @param {String} email input email
- * @returns {String|undefined} error string or undefined
- */
+  /** To validate email field
+   *
+   * @param {String} email input email
+   * @returns {String|undefined} error string or undefined
+   */
   validateEmail(email: string): string | undefined {
     if (!email) {
       return 'Email is required';
@@ -111,7 +111,7 @@ export class LoginComponent implements OnInit {
     const error = this.validateEmail(email);
     this.emailError = error ? [{ errorMsg: error }] : [];
     // if error then make error visible
-    if(this.emailError.length>0){
+    if (this.emailError.length > 0) {
       this.emailErrorVisible = true
     }
 
@@ -120,21 +120,21 @@ export class LoginComponent implements OnInit {
   /** make errormessage disabled on focus
    *
    */
-  onEmailFocus(){
-    this.emailErrorVisible=false
+  onEmailFocus() {
+    this.emailErrorVisible = false
 
 
   }
-/**To handel onblue event and show error if required on password
- *
- * @param {event}
- */
+  /**To handel onblue event and show error if required on password
+   *
+   * @param {event}
+   */
   handlePasswordBlur(event: any) {
     const password = event.target.value;
     const error = this.validatePassword(password);
     this.passwordError = error ? [{ errorMsg: error }] : [];
-    if(this.passwordError.length>0){
-      this.passwordErrorVisible=true
+    if (this.passwordError.length > 0) {
+      this.passwordErrorVisible = true
 
 
     }
@@ -144,27 +144,27 @@ export class LoginComponent implements OnInit {
    *
    *
    */
-  onPasswordFocus(){
-    this.passwordErrorVisible=false
+  onPasswordFocus() {
+    this.passwordErrorVisible = false
   }
 
 
-  handelOnchange(event:any){}
-  handelOnmouseenter(){}
- /**to handel submit button visibility and make error msg disabled
-  *
-  * @param {event }
-  */
-  handelPasswordChange(event:any){
+  handelOnchange(event: any) { }
+  handelOnmouseenter() { }
+  /**to handel submit button visibility and make error msg disabled
+   *
+   * @param {event }
+   */
+  handelPasswordChange(event: any) {
     this.passwordErrorVisible = false
     const password = event.target.value
 
 
     const error = this.validatePassword(password)
 
-    if(typeof error=='undefined'){
-      if(this.emailErrorVisible==false){
-      this.submitDisabled=false;
+    if (typeof error == 'undefined') {
+      if (this.emailErrorVisible == false) {
+        this.submitDisabled = false;
       }
 
 
@@ -178,7 +178,7 @@ export class LoginComponent implements OnInit {
 
   //This is the function call to the ApI
   //It will generate an API and store it in the local storage
-  fetchjwt(){
+  fetchjwt() {
     const loginData = {
       email: this.email,
       password: this.password

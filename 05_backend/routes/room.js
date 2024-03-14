@@ -104,16 +104,21 @@ const roomRouter = express.Router();
  *                  description: Error message explaining the reason for the server error.
  *                  example: "Internal Server Error"
  */
-roomRouter.post("/hotel/:hotelId/room",requireLogin, async (req, res) => {
+roomRouter.post("/hotel/:hotelId/room", requireLogin, async (req, res) => {
     // Extract hotelId from the URL parameters
     const { hotelId } = req.params;
     const { roomNumber, roomType, roomDesc, roomPrice, roomPhotos } = req.body;
-    
 
+    // Check if the user role is Admin
+    const { user } = req;
+    if (!user) {
+        return res.status(401).json({ error: "JWT token is missing." });
+    }
     if (user.role !== roles.ADMIN) {
-        return res.status(403).send('Unauthorized: Only admins can perform this action');
-      }
-      
+        return res.status(403).json({ error: "Access forbidden. Admin access required." });
+    }
+
+
     // Validate required fields
     if (!hotelId || !roomNumber || !roomType || !roomDesc || !roomPrice || !roomPhotos) {
         return res.status(400).json({ error: "Missing required fields." });
@@ -137,7 +142,7 @@ roomRouter.post("/hotel/:hotelId/room",requireLogin, async (req, res) => {
         const matchingRoomType = roomTypes.find(room => room.roomType === roomType);
         const room = new Rooms({
             roomNumber: roomNumber,
-            roomType: matchingRoomType_id, //_id{removed} if need add in future
+            roomType: matchingRoomType._id, //_id{removed} if need add in future
             roomDesc: roomDesc,
             roomPrice: roomPrice,
             roomPhotos: roomPhotos
@@ -232,7 +237,7 @@ roomRouter.get('/rooms/by-types', async (req, res) => {
 
         // If no rooms are found, return an empty array
         if (!rooms || rooms.length === 0) {
-            return res.status(404).json({ error: "No rooms found for the provided room type IDs." });
+            return res.status(201).json({ error: "No rooms found for the provided room type IDs." });
         }
 
         // If rooms are found, send them as a response
