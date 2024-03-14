@@ -5,28 +5,30 @@
     <div style="margin-bottom: 20px;">
         <h2 style="margin-bottom: 10px;">Add Room</h2>
         <form>
-            <div style="margin-bottom: 10px;">
-                <label for="roomNumber">Room Number:</label>
-                <input type="text" id="roomNumber" name="roomNumber" required style="width: 100%;">
-            </div>
+          <div style="margin-bottom: 10px;">
+            <label for="roomNumber">Hotel Name</label>
+            <input type="text" id="roomNumber"  [(ngModel)]="hotelName" name="roomNumber" required style="width: 100%;">
+          </div>
             <div style="margin-bottom: 10px;">
                 <label for="roomType">Room Type:</label>
-                <input type="text" id="roomType" name="roomType" required style="width: 100%;">
+                <input type="text" id="roomType"[(ngModel)]="roomType" name="roomType" required style="width: 100%;">
             </div>
             <div style="margin-bottom: 10px;">
-                <label for="roomDesc">Room Description:</label>
-                <textarea id="roomDesc" name="roomDesc" required style="width: 100%;"></textarea>
+                <label for="roomDesc">Managed By</label>
+                <textarea id="roomDesc" name="roomDesc"  [(ngModel)]="managedBy" required style="width: 100%;"></textarea>
             </div>
-            <div style="margin-bottom: 10px;">
-                <label for="roomPrice">Room Price:</label>
-                <input type="number" id="roomPrice" name="roomPrice" required style="width: 100%;">
-            </div>
+
             <div style="margin-bottom: 10px;">
                 <label for="roomPrice">Room photos:</label>
-                <input type="number" id="roomPrice" name="roomPrice" required style="width: 100%;">
+                <input type="text" id="roomPrice" name="roomPrice"  [(ngModel)]="hotelPhotos" required style="width: 100%;">
             </div>
+            <div style="margin-bottom: 10px;">
+              <label for="roomPrice">Room Amenties</label>
+              <input type="text" id="roomPrice" name="roomPrice"   [(ngModel)]="hotelAmenities" required style="width: 100%;">
+          </div>
             <button type="submit"
-                style="background-color: #007bff; color: white; padding: 8px 20px; border: none; border-radius: 4px; cursor: pointer;">Add
+                style="background-color: #007bff; color: white; padding: 8px 20px; border: none; border-radius: 4px; cursor: pointer;"
+                (click)="addRoom()">Add
                 Room</button>
         </form>
     </div>
