@@ -14,5 +14,9 @@ export class AddNewHotelComponent {
 hotelDesc:{hotelName:string,phonenumber:string}[]=[]
 hotelName="Pride Inn"
 
+phoneNumber:string="+91 7387066313"
+
+roomType:string=""
+address:string=""
 
 }

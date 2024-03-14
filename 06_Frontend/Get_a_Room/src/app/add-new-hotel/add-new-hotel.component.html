@@ -21,7 +21,7 @@
         <b class="address2">Address</b>
         <div class="near-madhapur-bus-container">
           <p class="near-madhapur-bus">
-            <input type="text"  class="input-area" placeholder="Address">
+            <input type="text"  class="input-area" [(ngModel)]="address"placeholder="Address">
           </p>
         </div>
       </div>
@@ -33,11 +33,12 @@
     <div class="social-media-links-frame1">
       <div class="social-media-links-frame-child"></div>
       <b class="phone-number1">Phone Number</b>
+      <div class="contact-info-frame1"><input type="text" class="input-area" [(ngModel)]="phoneNumber" placeholder="+91 XXXXXXXXX"></div>
     </div>
     <div class="social-media-links-frame2">
       <div class="social-media-links-frame-item"></div>
       <b class="rooms-type">Rooms Type</b>
-      <div class="super-deluxe"><input type="text"  class="input-area" placeholder="ex: Super Deluxe "></div>
+      <div class="super-deluxe"><input type="text"  class="input-area" [(ngModel)]="roomType" placeholder="ex: Super Deluxe "></div>
     </div>
   </div>
   <div class="find-hotel-frame">
