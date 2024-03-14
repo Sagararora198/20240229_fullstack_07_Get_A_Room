@@ -1,0 +1,104 @@
+<div style="   height: 40px;"></div>
+
+<section class="frame-parent">
+    <div class="identity-verification-text-wrapper">
+        <div class="identity-verification-text">
+            <div class="rectangle-parent">
+                <div class="frame-child"></div>
+                <div class="user-avatar-frame">
+                    <div class="upload-photo-text">
+                        <img class="carbonuser-avatar-filled-icon" loading="lazy" alt=""
+                            src="../../assets/public/carbonuseravatarfilled.svg" />
+
+                        <div class="upload-a-photo-wrapper">
+                            <div class="upload-a-photo">Upload a Photo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-and-location-frames">
+                    <b class="identity-verification">Identity Verification</b>
+                    <div class="lorem-ipsum-dolor">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                        do eiusmod tempor.
+                    </div>
+                </div>
+                <div class="about-location-phone-number-fr-parent">
+                    <div class="about-location-phone-number-fr">
+                        <h3 class="john-doe">{{userData?.name}}</h3>
+                        <div class="photo-input">
+                            <div class="email-confirmed">{{userData?.email}}</div>
+                            <div class="identity-verification1">
+                                <img class="akar-iconscheck" loading="lazy" alt=""
+                                    src="../../assets/public/akariconscheck.svg" />
+
+                                <img class="akar-iconscheck1" loading="lazy" alt=""
+                                    src="../../assets/public/akariconscheck.svg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uiltimes-frame">
+                        <div class="mobile-confirmed">{{userData?.phoneNumber}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-frame">
+                <form class="footer-frame">
+                    <div class="hello-john-doe-text-joined-in">
+                        <h2 class="hello-john-doe">Hello, {{userData?.name}}</h2>
+                        <div class="save-button">
+                            <div class="joined-in-2021">Joined in 2021</div>
+                        </div>
+                    </div>
+                    <div class="about-section">
+                        <div class="location-section">
+                            <div class="about">About</div>
+
+                            <input class="frame-item joined-date" type="text" [value]="userData?.about" />
+
+                        </div>
+                    </div>
+                    <div class="about-section1">
+                        <div class="location-parent">
+                            <div class="location">Location</div>
+                            <input class="frame-item" type="text" [value]="userData?.location" />
+                            <!-- <input class="frame-item" type="text" [(ngModel)]="userData.location" /> -->
+                        </div>
+                    </div>
+                    <div class="about-section2">
+                        <div class="phone-number-parent">
+                            <div class="phone-number">Phone number</div>
+                            <input class="frame-inner" type="text" [value]="userData?.phoneNumber" />
+                        </div>
+                    </div>
+                    <div class="cancel-button-frame">
+                        <div class="save-button-text">
+                            <div class="input-frame">
+                                <div class="all-the-required">
+                                    All the required user information can be added here...
+                                </div>
+                            </div>
+                            <div class="footer-b-g-vector">
+                                <div class="social-media-links-frame">
+                                    <div class="contact-info-text">
+                                        <img class="uiltimes-icon" loading="lazy" alt=""
+                                            src="../../assets/public/uiltimes.svg" />
+
+                                        <div class="cancel-wrapper">
+                                            <b class="cancel">Cancel</b>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="button">
+                                    <div class="button-frame1" id="buttonFrame"></div>
+                                    <b class="save">Save</b>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="   height: 20px;"></div>

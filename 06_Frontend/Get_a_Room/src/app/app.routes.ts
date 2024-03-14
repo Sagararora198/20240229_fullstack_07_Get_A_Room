@@ -22,6 +22,7 @@ import { HotelAddedSuccessComponent } from './hotel-added-success/hotel-added-su
 import { NotificationsComponent } from './notifications/notifications.component';
 import { AddNewHotelRoomproperty2Component } from './add-new-hotel-roomproperty2/add-new-hotel-roomproperty2.component';
 import { AddNewHotelRoomproperty3Component } from './add-new-hotel-roomproperty3/add-new-hotel-roomproperty3.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -37,11 +38,13 @@ export const routes: Routes = [
   { path: 'bookings', component: AdminbookingsComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'confirmation', component: ConfirmationComponent },
+  {path:'AddNewHotelComponent',component:AddNewHotelComponent},
   { path: 'addNewHotelProperty1', component: AddNewHotelRoomproperty1Component },
   { path: 'hoteladdedsuccess', component: HotelAddedSuccessComponent },
   { path: 'notification', component: NotificationsComponent },
   { path: 'addNewHotelProperty2', component: AddNewHotelRoomproperty2Component },
   { path: 'addNewHotelProperty3', component: AddNewHotelRoomproperty3Component },
+  { path: 'userdetails', component: UserDetailsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

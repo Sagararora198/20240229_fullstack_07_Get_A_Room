@@ -14,14 +14,14 @@
         />
 
         <b class="hotel-name2">Hotel Name</b>
-        <div class="hotel-pride-inn">Hotel Pride Inn</div>
+        <div class="hotel-pride-inn"><input type="text" class="input-area" [(ngModel)]="hotelName" placeholder=" hotel Name"></div>
       </div>
       <div class="super-deluxe-frame1">
         <div class="super-deluxe-frame-item"></div>
         <b class="address2">Address</b>
         <div class="near-madhapur-bus-container">
           <p class="near-madhapur-bus">
-            Near Madhapur Bus Stand , Hyderabad
+            <input type="text"  class="input-area" placeholder="Address">
           </p>
         </div>
       </div>
@@ -33,27 +33,20 @@
     <div class="social-media-links-frame1">
       <div class="social-media-links-frame-child"></div>
       <b class="phone-number1">Phone Number</b>
-      <div class="contact-info-frame1">+91 7387066313</div>
     </div>
     <div class="social-media-links-frame2">
       <div class="social-media-links-frame-item"></div>
       <b class="rooms-type">Rooms Type</b>
-      <div class="super-deluxe">Super DeLuxe</div>
+      <div class="super-deluxe"><input type="text"  class="input-area" placeholder="ex: Super Deluxe "></div>
     </div>
   </div>
   <div class="find-hotel-frame">
-    <textarea
+    <input
       class="choose-file"
-      placeholder="Add Images"
+      placeholder="Add Images url"
       rows="{5}"
       cols="{10}"
     >
-    </textarea>
-    <div class="choose-a-file-or-drag-drop-i-wrapper">
-      <div class="choose-a-file">
-        Choose a file or drag & drop it here
-      </div>
-    </div>
   </div>
 </div>
 <div class="footer11">

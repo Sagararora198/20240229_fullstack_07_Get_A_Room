@@ -61,7 +61,6 @@ profileRouter.get('/profile', requireLogin, async (req, res) => {
     }
 });
 
-
 /**
  * @swagger
  * /profileUpdate:

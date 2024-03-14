@@ -18,10 +18,12 @@
             </div>
             <div class="frame-wrapper11">
               <div *ngFor="let user of Users; let index = index" class="walletContainer">
-                  <div class="user user-1 frame-child27">
-                      {{user.name}}
+                  <div class="user user-1 frame-child27" style="height: 60px;">
+                      <h3 style="margin-bottom: 5px;
+                      margin-top: 5px;
+                      margin-left: 50px;">{{user.name}}</h3>
                   </div>
-                <div class="walletMoney div26">{{ user.tempWalletMoney !== undefined ? user.tempWalletMoney : user.wallet }}</div>
+               <div class="walletMoney div26">{{ user.tempWalletMoney !== undefined ? user.tempWalletMoney : user.wallet }}</div>
                 <div class="footer-background1 add-minus-icon" (click)="incrementMoney(index)">
                     <img class="add-1-icon" loading="lazy" alt="" src="../assets/public/add-1@2x.png" />
                 </div>
@@ -30,9 +32,9 @@
                   <img class="minus-1-icon" loading="lazy" alt="" src="../assets/public/minus-1@2x.png" />
                 </div>
                 <!-- Assuming you will implement a method to handle saving the updated wallet money -->
-                <div class="logo-frame5" (click)="saveMoney(index)">
+                <div class="logo-frame5" (click)="addMoneyToUserWallet(index)">
                   <div class="contact-info-frame2">
-                    <h3 class="save1">Save</h3>
+                    <button class="save-button"><h3 class="save1">Save</h3></button>
                   </div>
                 </div>
               </div>

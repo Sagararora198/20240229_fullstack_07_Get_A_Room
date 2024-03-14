@@ -2,8 +2,8 @@
 
     <section class="input-frame3">
         <!-- <div class="verification-text"> -->
-            <app-profile-verification class="verification-text"></app-profile-verification>
-            <!-- <div class="verification-text-child"></div>
+        <app-profile-verification class="verification-text"></app-profile-verification>
+        <!-- <div class="verification-text-child"></div>
             <div class="identity-text">
                 <div class="avatar-frame">
                     <img class="carbonuser-avatar-filled-icon2" loading="lazy" alt=""
@@ -24,9 +24,9 @@
             <div class="wallet-frame">
                 <div class="currency-symbol">
                     <div class="bordered-button2">
-                        <h1 class="hello-john-doe3">Hello, John Doe</h1>
+                        <h1 class="hello-john-doe3">Hello, {{userData?.name}}</h1>
                         <div class="carbon-avatar">
-                            <button class="bordered-btn6">
+                            <button class="bordered-btn6" (click)="editProfile()">
                                 <div class="bordered-btn-child1"></div>
                                 <div class="edit-profile1">Edit Profile</div>
                             </button>
@@ -38,7 +38,7 @@
                         </div>
                         <button class="bordered-btn7">
                             <div class="bordered-btn-child2"></div>
-                            <div class="div23">{{walletMoney}}</div>
+                            <div class="div23">₹ {{userData?.wallet}}</div>
                         </button>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     @for (booking of upcomingBookings; track $index) {
-                        <app-bookingsbox class="pride-inn-frame" [booking]="booking"></app-bookingsbox>
+                    <app-bookingsbox class="pride-inn-frame" [booking]="booking"></app-bookingsbox>
                     }
 
                 </div>
