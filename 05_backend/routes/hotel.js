@@ -276,18 +276,24 @@ hotelRouter.delete('/hotel/:hotelId', requireLogin, async (req, res) => {
  *     security:
  *       - bearerAuth: []
  */
-hotelRouter.get('/hotel/find/:hotelId', async (req, res) => {
+hotelRouter.get('/hotel/find/:hotelId?', async (req, res) => {
     const { hotelId } = req.params;
 
     try {
-        // Find the hotel by ID
-        const hotel = await Hotels.findById(hotelId);
+        if (hotelId) {
+            // Find the hotel by ID
+            const hotel = await Hotels.findById(hotelId);
 
-        if (!hotel) {
-            return res.status(404).json({ error: "Hotel not found." });
+            if (!hotel) {
+                return res.status(404).json({ error: "Hotel not found." });
+            }
+
+            res.json(hotel); // Return the found hotel
+        } else {
+            // If no hotelId is provided, return all hotels
+            const hotels = await Hotels.find();
+            res.json(hotels); // Return all hotels
         }
-
-        res.json(hotel); // Return the hotel
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Internal server error" });

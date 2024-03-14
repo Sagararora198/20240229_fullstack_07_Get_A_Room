@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../behaiviour-service.service';
+import { timer, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -19,9 +21,16 @@ export class LoginComponent implements OnInit {
   isLoggedIn: boolean = false; // Add this property
 
 
+    constructor(
+      private route: ActivatedRoute,
+      private http: HttpClient,
+      private router: Router,
+      private authService: AuthService
+    ) { }
 
-  /** visibility of email
-   */
+
+/** visibility of email
+ */  
   emailErrorVisible: boolean = false;
   /**visibility of password
    */
@@ -58,12 +67,12 @@ export class LoginComponent implements OnInit {
     return undefined;
   }
   /** To validate password field
- *
- * @param {String} email input password
- * @returns {String|undefined} error string or undefined
- */
-  validatePassword(password: string): string | undefined {
-    // Check if the password is at least 8 characters long
+   *
+   * @param {String} email input password
+   * @returns {String|undefined} error string or undefined
+  */
+ validatePassword(password: string): string | undefined {
+   // Check if the password is at least 8 characters long
     if (password.length < 8) {
       return 'Password must be at least 8 characters long';
     }
@@ -168,14 +177,6 @@ export class LoginComponent implements OnInit {
   }
 
 
-
-  constructor(
-    private route: ActivatedRoute,
-    private http: HttpClient,
-    private router: Router // Inject Router here
-  ) { }
-
-
   //This is the function call to the ApI
   //It will generate an API and store it in the local storage
   fetchjwt() {
@@ -184,23 +185,21 @@ export class LoginComponent implements OnInit {
       password: this.password
     };
     console.log(loginData);
-    this.http.post('http://localhost:3000/signin', loginData).subscribe({
-      next: (response: any) => {
-        console.log('JWT Token:', response.token);
-        // Handle the response, such as storing the JWT token or redirecting the user
-        // Store the JWT token in local storage
-        localStorage.setItem('jwtToken', response.token);
 
-        this.isLoggedIn = true; // Set isLoggedIn to true upon successful login
-        this.router.navigate(['/']);
-      },
-      error: (error) => {
-        console.error('Error:', error);
-        // Handle any errors, such as displaying a message to the user
-      }
-    })
+      this.http.post('http://localhost:3000/signin',loginData).subscribe({
+        next: (response: any) => {
+          console.log('JWT Token:', response.token);
+          // Handle the response, such as storing the JWT token or redirecting the user
+           // Store the JWT token in local storage
+             localStorage.setItem('jwtToken', response.token);
+              //after sucessfull login
+             this.authService.logIn();
+             this.router.navigate(['/']);
+        },
+        error: (error) => {
+          console.error('Error:', error);
+          // Handle any errors, such as displaying a message to the user
+        }
+      })
   }
-
-
 }
-

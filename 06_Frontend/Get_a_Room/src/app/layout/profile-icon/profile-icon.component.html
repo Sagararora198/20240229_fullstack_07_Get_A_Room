@@ -5,11 +5,20 @@ alt=""
 src="../../../assets/public/initialoptions.svg  "
 id="initialOptions"
 /> -->
-@if (profileVisibility) {
+<!-- Assuming this is part of navbar.component.html -->
+<div *ngIf="profileVisibility" class="profileContainer">
+  
+  <!-- Show these options if the user is signed up -->
+  <ng-container *ngIf="isSignedUp; else notSignedUpOptions">
+    <div class="options">Profile</div>
+    <div class="options">Settings</div>
+    <div class="options" (click)="Logout()"><button>Logout</button></div>
+  </ng-container>
 
-<div class="profileContainer" >
-    <div class="options">Sign Up</div>
-    <div class="options">Login</div>
+  <!-- Template for users who are not signed up -->
+  <ng-template #notSignedUpOptions>
+    <div class="options" (click)="SignUp()">Sign Up</div>
+    <div class="options" (click)="Login()">Login</div>
     <div class="options">Help Center</div>
+  </ng-template>
 </div>
-}

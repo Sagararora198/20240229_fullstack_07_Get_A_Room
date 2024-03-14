@@ -94,7 +94,6 @@
 }
 .frame-child27 {
   width: 192px;
-  height: 100%;
   position: absolute;
   margin: 0 !important;
   top: 0;
@@ -102,6 +101,10 @@
   left: 0;
   border-radius: var(--br-5xs);
   background-color: var(--color-whitesmoke-100);
+  padding-top: 10px;
+  padding-bottom: 0px;
+  align-items: center;
+  height: 40px;
 }
 .user-1 {
   width: 233px;
@@ -690,6 +693,25 @@
   gap: 300px 0;
   letter-spacing: normal;
 }
+/*Save button*/
+.save-button {
+  border: none;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Courier New;
+  color: #4f3d4f;
+  font-size: 15px;
+  background: #f25c8e;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.save-button:hover {
+  background: #ff3366;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 2025px) {
   .footer-b-g-filler,
   .footer-background-vector {
