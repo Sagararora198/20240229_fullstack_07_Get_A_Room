@@ -16,9 +16,8 @@ import { timer, Subscription } from 'rxjs';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-  email: string = ''
-  password: string = ''
-  isLoggedIn: boolean = false; // Add this property
+  email:string=''
+  password:string = ''
 
 
     constructor(
@@ -29,8 +28,8 @@ export class LoginComponent implements OnInit {
     ) { }
 
 
-/** visibility of email
- */  
+  /** visibility of email
+   */
   emailErrorVisible: boolean = false;
   /**visibility of password
    */
@@ -185,7 +184,6 @@ export class LoginComponent implements OnInit {
       password: this.password
     };
     console.log(loginData);
-
       this.http.post('http://localhost:3000/signin',loginData).subscribe({
         next: (response: any) => {
           console.log('JWT Token:', response.token);
