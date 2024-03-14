@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../behaiviour-service.service';
+import { timer, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -175,8 +176,6 @@ export class LoginComponent implements OnInit {
   }
 
 
-
-
   //This is the function call to the ApI
   //It will generate an API and store it in the local storage
   fetchjwt(){
@@ -201,7 +200,4 @@ export class LoginComponent implements OnInit {
         }
       })
   }
-
-
 }
-

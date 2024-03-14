@@ -11,13 +11,13 @@ id="initialOptions"
   <ng-container *ngIf="isSignedUp; else notSignedUpOptions">
     <div class="options">Profile</div>
     <div class="options">Settings</div>
-    <div class="options">Logout</div>
+    <div class="options" (click)="Logout()"><button>Logout</button></div>
   </ng-container>
 
   <!-- Template for users who are not signed up -->
   <ng-template #notSignedUpOptions>
-    <div class="options">Sign Up</div>
-    <div class="options">Login</div>
+    <div class="options" (click)="SignUp()">Sign Up</div>
+    <div class="options" (click)="Login()">Login</div>
     <div class="options">Help Center</div>
   </ng-template>
 </div>
