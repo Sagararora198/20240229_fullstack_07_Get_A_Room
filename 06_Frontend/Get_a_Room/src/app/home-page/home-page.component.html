@@ -1,9 +1,8 @@
-
 <section class="banners">
   <div class="first-frame">
     <h1 class="banner">S T A Y</h1>
   </div>
-  <app-search-component (searchParameters)="onSearch($event)" ></app-search-component>
+  <app-search-component (searchParameters)="onSearch($event)"></app-search-component>
 </section>
 
 <section class="top-rated-properties-frame-parent">
@@ -15,11 +14,11 @@
   </div>
   <div class="latest-property-frame">
     @for (Hotel of TopRatedHotels; track $index) {
-      <app-hotel-container class="latest-property-1" [Hotel]="Hotel">
-        
-       </app-hotel-container>
-       <img [src]="Hotel.hotelPhoto" alt="Hotel Photo">
+    <app-hotel-container class="latest-property-1" [Hotel]="Hotel">
+      <p>hello</p>
+      <!-- <img [src]="Hotel.hotelPhoto" alt="Hotel Photo" class="latest-property-1"> -->
+    </app-hotel-container>
+
     }
   </div>
 </section>
-

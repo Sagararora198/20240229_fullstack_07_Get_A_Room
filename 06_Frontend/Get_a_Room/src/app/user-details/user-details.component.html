@@ -18,8 +18,7 @@
                 <div class="about-and-location-frames">
                     <b class="identity-verification">Identity Verification</b>
                     <div class="lorem-ipsum-dolor">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                        do eiusmod tempor.
+                        {{userData?.about}}
                     </div>
                 </div>
                 <div class="about-location-phone-number-fr-parent">
@@ -53,21 +52,21 @@
                         <div class="location-section">
                             <div class="about">About</div>
 
-                            <input class="frame-item joined-date" type="text" [value]="userData?.about" />
+                            <input #aboutInput class="frame-item joined-date" type="text" [value]="userData?.about" />
 
                         </div>
                     </div>
                     <div class="about-section1">
                         <div class="location-parent">
                             <div class="location">Location</div>
-                            <input class="frame-item" type="text" [value]="userData?.location" />
+                            <input  #locationInput class="frame-item" type="text" [value]="userData?.location" />
                             <!-- <input class="frame-item" type="text" [(ngModel)]="userData.location" /> -->
                         </div>
                     </div>
                     <div class="about-section2">
                         <div class="phone-number-parent">
                             <div class="phone-number">Phone number</div>
-                            <input class="frame-inner" type="text" [value]="userData?.phoneNumber" />
+                            <input #phoneNumberInput class="frame-inner" type="text" [value]="userData?.phoneNumber" />
                         </div>
                     </div>
                     <div class="cancel-button-frame">
@@ -88,7 +87,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="button">
+                                <button class="button" (click)="save()">
                                     <div class="button-frame1" id="buttonFrame"></div>
                                     <b class="save">Save</b>
                                 </button>

@@ -1,0 +1,109 @@
+<div style="margin-top: 50px; margin-left: auto; margin-right: auto; width: 80%;">
+    <h1 style="text-align: center; margin-bottom: 30px;">Admin Panel</h1>
+
+    <!-- Add Room Form -->
+    <div style="margin-bottom: 20px;">
+        <h2 style="margin-bottom: 10px;">Add Room</h2>
+        <form>
+            <div style="margin-bottom: 10px;">
+                <label for="roomNumber">Room Number:</label>
+                <input type="text" id="roomNumber" name="roomNumber" required style="width: 100%;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="roomType">Room Type:</label>
+                <input type="text" id="roomType" name="roomType" required style="width: 100%;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="roomDesc">Room Description:</label>
+                <textarea id="roomDesc" name="roomDesc" required style="width: 100%;"></textarea>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="roomPrice">Room Price:</label>
+                <input type="number" id="roomPrice" name="roomPrice" required style="width: 100%;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="roomPrice">Room photos:</label>
+                <input type="number" id="roomPrice" name="roomPrice" required style="width: 100%;">
+            </div>
+            <button type="submit"
+                style="background-color: #007bff; color: white; padding: 8px 20px; border: none; border-radius: 4px; cursor: pointer;">Add
+                Room</button>
+        </form>
+    </div>
+
+    <!-- Update Room Form -->
+    <div style="margin-bottom: 20px;">
+        <h2 style="margin-bottom: 10px;">Update Room</h2>
+        <form>
+            <div style="margin-bottom: 10px;">
+                <label for="updateRoomNumber">Room Number:</label>
+                <input type="text" id="updateRoomNumber" name="updateRoomNumber" required style="width: 100%;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="updateRoomType">Room Type:</label>
+                <input type="text" id="updateRoomType" name="updateRoomType" required style="width: 100%;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="updateRoomDesc">Room Description:</label>
+                <textarea id="updateRoomDesc" name="updateRoomDesc" required style="width: 100%;"></textarea>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="updateRoomPrice">Room Price:</label>
+                <input type="number" id="updateRoomPrice" name="updateRoomPrice" required style="width: 100%;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="roomPrice">Room photos:</label>
+                <input type="number" id="roomPrice" name="roomPrice" required style="width: 100%;">
+            </div>
+            <button type="submit"
+                style="background-color: #007bff; color: white; padding: 8px 20px; border: none; border-radius: 4px; cursor: pointer;">Update
+                Room</button>
+        </form>
+    </div>
+
+    <!-- Fetch Room Form -->
+    <div style="margin-bottom: 20px;">
+        <h2 style="margin-bottom: 10px;">Fetch Room By ID</h2>
+        <form>
+            <div style="margin-bottom: 10px;">
+                <label for="fetchRoomId">Room ID:</label>
+                <input type="text" id="fetchRoomId" name="fetchRoomId" required style="width: 100%;">
+            </div>
+            <button type="submit"
+                style="background-color: #007bff; color: white; padding: 8px 20px; border: none; border-radius: 4px; cursor: pointer;">Fetch
+                Room</button>
+        </form>
+    </div>
+
+    <!-- Room List -->
+    <div>
+        <h2 style="margin-bottom: 10px;">Room List</h2>
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd; text-align: left;">
+                <thead>
+                    <tr>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Room Number</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Room Type</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Room Description</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Room Price</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Room list items will be dynamically added here -->
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd;">101</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">Single</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">A cozy single room with a view</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">$100</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">
+                            <button
+                                style="background-color: #dc3545; color: white; padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer;">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- Additional room list items will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -9,16 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-properties',
   standalone: true,
-  imports: [NavbarComponent,FooterComponent, SearchComponentComponent,HotelContainerComponent,CommonModule],
+  imports: [NavbarComponent, FooterComponent, SearchComponentComponent, HotelContainerComponent, CommonModule],
   templateUrl: './properties.component.html',
   styleUrl: './properties.component.css',
-  
+
 })
 export class PropertiesComponent {
   receivedData: any;
-  searchedHotels: { hotelName: string, hotelAddress: string, hotelPricerange: string }[] = [];
+  searchedHotels: { hotelName: string, hotelAddress: string, hotelPricerange: string, hotelPhoto: string }[] = [];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -32,10 +32,13 @@ export class PropertiesComponent {
 
   extractHotelData() {
     this.receivedData.forEach((hotel: any) => {
+      console.log("hey :", hotel.hotelPhotos['photo1']);
+
       const newHotel = {
         hotelName: hotel.hotelName,
         hotelAddress: hotel.hotelAddress,
-        hotelPricerange: '' // You need to decide how to get hotel price range
+        hotelPricerange: '',
+        hotelPhoto: hotel.hotelPhotos[0]
       };
       this.searchedHotels.push(newHotel);
     });
