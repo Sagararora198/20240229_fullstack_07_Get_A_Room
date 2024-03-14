@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css'
 })
@@ -23,6 +23,24 @@ export class CheckoutComponent {
     roomType:"asc",
     guests:2,
     amount:1000
+  }
+  firstName: string = '';
+  lastName: string = '';
+  streetName: string = '';
+  city: string = '';
+  country: string = '';
+  selectedCity: string = '';
+  zipcode: string = '';
+
+  onSubmit() {
+    console.log('Form Submitted!');
+    console.log('First Name:', this.firstName);
+    console.log('Last Name:', this.lastName);
+    console.log('Street Name:', this.streetName);
+    console.log('City:', this.city);
+    console.log('Country:', this.country);
+    console.log('Selected City:', this.selectedCity);
+    console.log('Zipcode:', this.zipcode);
   }
 
 }
