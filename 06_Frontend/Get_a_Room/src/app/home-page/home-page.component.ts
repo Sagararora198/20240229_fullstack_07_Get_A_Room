@@ -4,7 +4,6 @@ import { FooterComponent } from '../layout/footer/footer.component';
 import { SearchComponentComponent } from '../layout/search-component/search-component.component';
 import { HotelContainerComponent } from '../layout/hotel-container/hotel-container.component';
 import { HttpClient, HttpParams } from '@angular/common/http';
-
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
@@ -36,7 +35,7 @@ export class HomePageComponent {
   });
 
   }
-  
+
   TopRatedHotels:{hotelName:String,hotelAddress:String,hotelPricerange:String,hotelPhoto:String}[]=[]
 
   ngOnInit(): void {
@@ -48,10 +47,10 @@ export class HomePageComponent {
       (response) => {
         // Process the response and assign it to your TopRatedHotels array
         // console.log(response[0]['hotelPhotos']['photo1']);
-        
+
         this.TopRatedHotels = response.map(hotel => {
           console.log(hotel.hotelPhotos['photo1']);
-          
+
           return {
             hotelName: hotel.hotelName,
             hotelAddress: hotel.hotelAddress,

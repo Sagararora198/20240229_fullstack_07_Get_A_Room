@@ -21,7 +21,7 @@
         <b class="address2">Address</b>
         <div class="near-madhapur-bus-container">
           <p class="near-madhapur-bus">
-            <input type="text"  class="input-area" [(ngModel)]="address"placeholder="Address">
+            <input type="text"  class="input-area" [(ngModel)]="hotelAddress"placeholder="Address">
           </p>
         </div>
       </div>
@@ -51,9 +51,10 @@
   </div>
 </div>
 <div class="footer11">
-  <button class="button5">
+  <button class="button5" >
     <img class="button-inner" alt="" src="../public/rectangle-55.svg" />
+    <b class="next" (click)="handleButtonClick()">Next</b>
 
-    <b class="next">Next</b>
   </button>
+
 </div>
