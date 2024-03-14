@@ -212,7 +212,8 @@ authRouter.post('/signin', async (req, res) => {
         if (passwordMatch) {
             // Generating JWT token
             const token = jwt.sign({ _id: user._id, role: user.role }, process.env.SECRET_KEY);
-            return res.json({ token });
+            console.log(user);
+            return res.json({ token } );
         } else {
             return res.status(422).json({ error: "Invalid email or password" });
         }

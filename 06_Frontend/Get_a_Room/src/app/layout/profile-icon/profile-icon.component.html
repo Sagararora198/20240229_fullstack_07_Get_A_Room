@@ -7,6 +7,7 @@ id="initialOptions"
 /> -->
 <!-- Assuming this is part of navbar.component.html -->
 <div *ngIf="profileVisibility" class="profileContainer">
+  
   <!-- Show these options if the user is signed up -->
   <ng-container *ngIf="isSignedUp; else notSignedUpOptions">
     <div class="options">Profile</div>
