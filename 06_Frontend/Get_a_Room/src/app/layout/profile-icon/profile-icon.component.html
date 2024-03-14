@@ -10,7 +10,7 @@ id="initialOptions"
   
   <!-- Show these options if the user is signed up -->
   <ng-container *ngIf="isSignedUp; else notSignedUpOptions">
-    <div class="options">Profile</div>
+    <div class="options" (click)="NavigateProfile()">Profile</div>
     <div class="options">Settings</div>
     <div class="options" (click)="Logout()"><button>Logout</button></div>
   </ng-container>

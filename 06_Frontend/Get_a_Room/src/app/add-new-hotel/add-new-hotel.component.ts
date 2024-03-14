@@ -13,4 +13,6 @@ import { BrowserModule } from '@angular/platform-browser';
 export class AddNewHotelComponent {
 hotelDesc:{hotelName:string,phonenumber:string}[]=[]
 hotelName="Pride Inn"
+
+
 }

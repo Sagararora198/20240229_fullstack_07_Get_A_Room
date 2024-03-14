@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AuthService } from '../../behaiviour-service.service';
 import { Router } from '@angular/router';
 import { timer, Subscription } from 'rxjs';
@@ -56,6 +55,10 @@ export class ProfileIconComponent {
   //login Method
   SignUp():void{
   this.router.navigate(['/signup'])
+  }
+
+  NavigateProfile(){
+    this.router.navigate(['/profile'])
   }
 
   //LogOut method
