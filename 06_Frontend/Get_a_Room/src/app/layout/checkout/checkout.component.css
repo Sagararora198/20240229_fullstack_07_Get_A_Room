@@ -171,13 +171,14 @@
     position: relative;
   }
   .input-name {
-    width: 69px;
+    width: auto;
+    height: auto;
     border: 0;
     outline: 0;
     font-family: var(--paragraph-04);
     font-size: var(--paragraph-04-size);
     background-color: transparent;
-    height: 17px;
+    /* height: 17px; */
     letter-spacing: -0.3px;
     color: var(--colors-grey-grey-2);
     text-align: left;
@@ -204,13 +205,12 @@
     box-sizing: border-box;
   }
   .input-name1 {
-    width: 68px;
+
     border: 0;
     outline: 0;
     font-family: var(--paragraph-04);
     font-size: var(--paragraph-04-size);
     background-color: transparent;
-    height: 17px;
     position: relative;
     letter-spacing: -0.3px;
     color: var(--colors-grey-grey-2);
@@ -218,6 +218,8 @@
     display: flex;
     align-items: center;
     z-index: 1;
+    width: auto;
+    height: auto;
   }
   .input-frame1,
   .input1 {
@@ -268,6 +270,7 @@
     color: var(--colors-grey-grey-2);
     text-align: left;
     z-index: 1;
+    width: auto;
   }
   .input2 {
     align-self: stretch;
