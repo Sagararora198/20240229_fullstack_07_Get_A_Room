@@ -28,8 +28,6 @@ export class AdminRoomComponent {
   hotelDesc:{hotelName:string,phoneNumber:string,roomType:string,hotelAddress:string,hotelPhotos:string,hotelAmenities:string, managedBy:string}[]=[]
 
   addRoom(){
-    console.log("add Room CLikecd");
-
     const newHotelDesc = {
       hotelName: this.hotelName,
       phoneNumber: this.phoneNumber,
@@ -75,7 +73,6 @@ export class AdminRoomComponent {
   singleChecked: boolean = false;
   doubleChecked: boolean = false;
   suiteChecked: boolean = false;
-
   selectedRooms: string[] = [];
 
   addToSelectedRooms(roomType: string) {
@@ -92,4 +89,6 @@ export class AdminRoomComponent {
     }
     console.log('Selected Rooms:', this.selectedRooms);
   }
+
+
 }

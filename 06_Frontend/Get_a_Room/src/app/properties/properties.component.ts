@@ -5,7 +5,8 @@ import { SearchComponentComponent } from '../layout/search-component/search-comp
 import { HotelContainerComponent } from '../layout/hotel-container/hotel-container.component';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-
+import { Router } from '@angular/router';
+import { log } from 'console';
 @Component({
   selector: 'app-properties',
   standalone: true,
@@ -16,9 +17,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PropertiesComponent {
   receivedData: any;
-  searchedHotels: { hotelName: string, hotelAddress: string, hotelPricerange: string, hotelPhoto: string }[] = [];
+  searchedHotels: {_id:string , hotelName: string, hotelAddress: string, hotelPricerange: string, hotelPhoto: string }[] = [];
+  h_id:string="";
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -26,20 +29,23 @@ export class PropertiesComponent {
         this.receivedData = JSON.parse(params['data']);
         console.log("data in properties ", this.receivedData);
         this.extractHotelData();
+       
       }
     });
   }
 
   extractHotelData() {
     this.receivedData.forEach((hotel: any) => {
-      console.log("hey :", hotel.hotelPhotos['photo1']);
-
       const newHotel = {
+        _id:hotel._id,
         hotelName: hotel.hotelName,
         hotelAddress: hotel.hotelAddress,
         hotelPricerange: '',
         hotelPhoto: hotel.hotelPhotos[0]
       };
+      this.h_id=newHotel._id
+      console.log("HELELO ",this.h_id);
+      
       this.searchedHotels.push(newHotel);
     });
   }
@@ -61,4 +67,10 @@ export class PropertiesComponent {
   runFunction2() {
     this.searchedHotels.sort((a, b) => b.hotelName.localeCompare(a.hotelName));
   }
+
+  NavigateToHotel(hotelId: string) {
+    console.log("Clicked hotel ID: " + hotelId);
+    this.router.navigate([`/hoteldesc/${hotelId}`]);
+  }
+
 }
