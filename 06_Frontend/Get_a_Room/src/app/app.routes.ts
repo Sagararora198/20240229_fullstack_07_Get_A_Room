@@ -23,6 +23,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { AddNewHotelRoomproperty2Component } from './add-new-hotel-roomproperty2/add-new-hotel-roomproperty2.component';
 import { AddNewHotelRoomproperty3Component } from './add-new-hotel-roomproperty3/add-new-hotel-roomproperty3.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AdminRoomComponent } from './admin-room/admin-room.component';
 
 export const routes: Routes = [
@@ -46,7 +47,9 @@ export const routes: Routes = [
   { path: 'addNewHotelProperty2', component: AddNewHotelRoomproperty2Component },
   { path: 'addNewHotelProperty3', component: AddNewHotelRoomproperty3Component },
   { path: 'userdetails', component: UserDetailsComponent },
+  {path : 'adminPanel', component:AdminPanelComponent},
   { path:'adminroom',component:AdminRoomComponent},
+  { path:'adminbooking',component:AdminbookingsComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

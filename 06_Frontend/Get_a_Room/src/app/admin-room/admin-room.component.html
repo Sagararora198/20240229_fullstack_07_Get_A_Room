@@ -9,19 +9,47 @@
             <label for="roomNumber">Hotel Name</label>
             <input type="text" id="roomNumber"  [(ngModel)]="hotelName" name="roomNumber" required style="width: 100%;">
           </div>
-            <div style="margin-bottom: 10px;">
-                <label for="roomType">Room Type:</label>
-                <input type="text" id="roomType"[(ngModel)]="roomType" name="roomType" required style="width: 100%;">
+          <div style="margin-bottom: 10px;">
+            <label for="hotelAddress">Hotel Address</label>
+            <input type="text" id="hotelAddress" [(ngModel)]="hotelAddress" name="hotelAddress" required style="width: 100%;">
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" [(ngModel)]="phoneNumber" name="phoneNumber" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" style="width: 100%;">
+            
+        </div>
+          <div class="room-selection-container">
+            <label>Room Type:</label>
+            <div class="checkbox-row">
+              <div class="checkbox-item">
+                <input type="checkbox" id="single" [(ngModel)]="singleChecked" (change)="singleChecked ? addToSelectedRooms('Single') : removeFromSelectedRooms('Single')" name="single">
+                <label for="single">Single</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="double" [(ngModel)]="doubleChecked" (change)="doubleChecked ? addToSelectedRooms('Double') : removeFromSelectedRooms('Double')" name="double">
+                <label for="double">Double</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="suite" [(ngModel)]="suiteChecked" (change)="suiteChecked ? addToSelectedRooms('Suite') : removeFromSelectedRooms('Suite')" name="suite">
+                <label for="suite">Suite</label>
+              </div>
             </div>
+          </div>
+          
+        
+        
             <div style="margin-bottom: 10px;">
                 <label for="roomDesc">Managed By</label>
-                <textarea id="roomDesc" name="roomDesc"  [(ngModel)]="managedBy" required style="width: 100%;"></textarea>
+                <input id="roomDesc" name="roomDesc"  [(ngModel)]="managedBy" required style="width: 100%;">
             </div>
-
             <div style="margin-bottom: 10px;">
-                <label for="roomPrice">Room photos:</label>
-                <input type="text" id="roomPrice" name="roomPrice"  [(ngModel)]="hotelPhotos" required style="width: 100%;">
+                <label for="roomPhotos">Room photos URL:</label>
+                <input type="text" id="roomPhotos" name="roomPhotos" [(ngModel)]="newPhoto" required style="width: 100%;">
+                <br>
+                <br>
+                <button (click)="addPhoto()">Add Photo</button>
             </div>
+            
             <div style="margin-bottom: 10px;">
               <label for="roomPrice">Room Amenties</label>
               <input type="text" id="roomPrice" name="roomPrice"   [(ngModel)]="hotelAmenities" required style="width: 100%;">

@@ -33,13 +33,14 @@ export class AdminRoomComponent {
     const newHotelDesc = {
       hotelName: this.hotelName,
       phoneNumber: this.phoneNumber,
-      roomTypes: this.roomType,
+      roomTypes: this.selectedRooms,
       hotelAddress: this.hotelAddress,
-      hotelPhotos: this.hotelPhotos,
+      hotelPhotos: this.hotelPhotoss,
       hotelAmenities:this.hotelAmenities,
       managedBy:this.managedBy
     };
-
+    console.log("Data ",newHotelDesc);
+    
     const token = localStorage.getItem('jwtToken');
     if (token) {
       console.log(token);
@@ -54,5 +55,41 @@ export class AdminRoomComponent {
       })
     }
 
+  }
+
+  hotelPhotoss: { [key: string]: string } = {};
+
+  newPhoto: string = '';
+
+  addPhoto() {
+    if(!this.newPhoto){
+      console.log("Empty");
+      return;
+    }
+      const nextKey = 'photo' + (Object.keys(this.hotelPhotoss).length + 1);
+      this.hotelPhotoss[nextKey] = this.newPhoto;
+      this.newPhoto = '';
+      console.log(this.hotelPhotoss);
+      
+  }
+  singleChecked: boolean = false;
+  doubleChecked: boolean = false;
+  suiteChecked: boolean = false;
+
+  selectedRooms: string[] = [];
+
+  addToSelectedRooms(roomType: string) {
+    if (!this.selectedRooms.includes(roomType)) {
+      this.selectedRooms.push(roomType);
+    }
+    console.log('Selected Rooms:', this.selectedRooms);
+  }
+
+  removeFromSelectedRooms(roomType: string) {
+    const index = this.selectedRooms.indexOf(roomType);
+    if (index !== -1) {
+      this.selectedRooms.splice(index, 1);
+    }
+    console.log('Selected Rooms:', this.selectedRooms);
   }
 }
