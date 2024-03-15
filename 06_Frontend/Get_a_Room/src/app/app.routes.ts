@@ -36,7 +36,7 @@ export const routes: Routes = [
   { path: 'walletmanage', component: WalletManagementComponent },
   { path: 'profile', component: ProfileUserComponent },
   { path: 'manageHotel', component: ManageHotelComponent },
-  { path: 'bookings', component: AdminbookingsComponent },
+  { path: 'allBookings', component: AdminbookingsComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'confirmation', component: ConfirmationComponent },
   {path:'AddNewHotelComponent',component:AddNewHotelComponent},

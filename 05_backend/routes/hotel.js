@@ -166,10 +166,12 @@ hotelRouter.post('/hotel', requireLogin, async (req, res) => {
     const { hotelName, hotelAddress, phoneNumber, roomTypes, hotelPhotos, hotelAmenities, managedBy } = req.body;
 
     const { user } = req;
-
+    console.log(req.body);
+    
     if (user.role == roles.USER) {
         return res.status(403).json({ error: "Unauthorized user" })
     }
+
 
     else if (user.role == roles.ADMIN) {
 

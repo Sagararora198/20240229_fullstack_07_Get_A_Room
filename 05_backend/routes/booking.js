@@ -67,5 +67,23 @@ bookingRouter.get('/booking', requireLogin, async (req, res) => {
   }
 })
 
+
+// API endpoint to delete a booking
+bookingRouter.delete('/api/bookings/:id', async (req, res) => {
+  try {
+    const booking = await Bookings.findByIdAndDelete(req.params.id);
+
+    if (!booking) {
+      // If the booking with the specified ID does not exist, send a 404 response
+      return res.status(404).send({ message: 'Booking not found' });
+    }
+    // If the booking was found and deleted, send a success response
+    res.status(200).send({ message: 'Booking deleted successfully' });
+  } catch (error) {
+    // If there's an error in the process, send a 500 response
+    res.status(500).send({ message: error.message });
+  }
+});
+
 //export the api calls
 export default bookingRouter
