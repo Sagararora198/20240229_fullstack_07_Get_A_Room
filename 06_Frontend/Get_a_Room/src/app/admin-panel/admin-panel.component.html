@@ -1,0 +1,24 @@
+
+
+<!-- app.component.html -->
+<div class="container">
+    <div class="left-sidebar">
+      <ul>
+        <li><a (click)="showComponent('hotel')">Manage Hotel</a></li>
+        <li><a (click)="showComponent('wallet')">Wallet Management</a></li>
+      </ul>
+    </div>
+    <div class="remaining-page">
+      <div *ngIf="selectedComponent === 'hotel'">
+        <!-- Content for Manage Hotel component -->
+        <h2>Manage Hotel Component</h2>
+        <p>This is the content for the Manage Hotel component.</p>
+      </div>
+      <div *ngIf="selectedComponent === 'wallet'">
+        <!-- Content for Wallet Management component -->
+        <h2>Wallet Management Component</h2>
+        <p>This is the content for the Wallet Management component.</p>
+      </div>
+    </div>
+  </div>
+  

@@ -173,7 +173,7 @@ roomRouter.post("/hotel/:hotelId/room", requireLogin, async (req, res) => {
         res.status(500).json({ error: "Internal server error" });
     }
 });
-
+    
 
 //search by roomId
 
