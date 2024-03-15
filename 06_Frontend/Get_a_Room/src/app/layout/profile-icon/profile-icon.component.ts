@@ -1,8 +1,8 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { AuthService } from '../../behaiviour-service.service';
 import { Router } from '@angular/router';
 import { timer, Subscription } from 'rxjs';
+import { CommonModule } from '@angular/common';
 @Component({
 
   selector: 'app-profile-icon',

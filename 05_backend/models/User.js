@@ -9,46 +9,48 @@ import { emailValidator } from "../dependencies/validations/userValidations.js";
 
 
 const userSchema = new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
+    name: {
+        type: String,
+        required: true
     },
-    password:{
-        type:String,
-        required:true
+    password: {
+        type: String,
+        required: true
     },
-    email:{
-        type:String,
-        required:true,
-        validate:{
-            validator:emailValidator,
-            message:emailValidationMessage
+    email: {
+        type: String,
+        required: true,
+        validate: {
+            validator: emailValidator,
+            message: emailValidationMessage
         }
-            
+
     },
-    role:{
-        type:String,
-        enum:[roles.USER,roles.ADMIN],
-        default:roles.USER
+    role: {
+        type: String,
+        enum: [roles.USER, roles.ADMIN],
+        default: roles.USER
     },
-    phoneNumber:{
-        type:String,
-        required:false
+    phoneNumber: {
+        type: Number,
+        required: false,
+        maxLength: 10
     },
-    about:{
-        type:String,
-        required:false
+    about: {
+        type: String,
+        required: false,
+        maxLenght: 150
     },
-    location:{
-        type:String,
-        maxLenght:10
+    location: {
+        type: String,
+        maxLenght: 20
     },
-    wallet:{
-        type:Number,
-        min:1
+    wallet: {
+        type: Number,
+        min: 1
     },
-    location:{
-        type:String,
+    location: {
+        type: String,
         maxLength: 10
     },
     // wishlist:{
@@ -58,5 +60,5 @@ const userSchema = new mongoose.Schema({
     // }
 
 })
-const Users = mongoose.model('Users',userSchema)
+const Users = mongoose.model('Users', userSchema)
 export default Users

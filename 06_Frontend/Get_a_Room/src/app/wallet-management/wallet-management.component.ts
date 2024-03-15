@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 // import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 // import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
-
+import { AuthService } from '../behaiviour-service.service';
 
 
 @Component({
@@ -31,7 +31,7 @@ export class WalletManagementComponent implements OnInit {
   //getting the user's Name and wallet amount
   loadUserData(): void {
     const token = localStorage.getItem('jwtToken'); // Assuming the token is stored with this key
-    if (token) {
+    if (token ) {
       this.userService.getUsers(token).subscribe({
         next: (data) => {
           this.Users = data;

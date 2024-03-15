@@ -1,0 +1,25 @@
+.room-selection-container {
+    margin-bottom: 10px;
+}
+
+.checkbox-row {
+    display: flex;
+    justify-content: start;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 5px;
+    transform: scale(1.5);
+}
+
+/* Optional: Styling for label text */
+.checkbox-item label {
+    font-size: 16px;
+    font-weight: bold;
+}
