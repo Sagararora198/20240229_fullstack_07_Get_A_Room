@@ -14,80 +14,152 @@
           </div>
         </div>
       </div>
+
+      <!-- booking-form.component.html -->
       <div class="input-frame-container">
         <div class="default-frame">
-          <div class="checkbox-off-frame">
-            <div class="save-contact-info-text">
-              <h3 class="your-payment-details">Booking Information</h3>
-              <div class="horizontal-product-card">
-                <div class="input-address">
-                  <div class="main-header-frame3">
-                    <div class="input-frame1">
-                      <div class="input">
-                        <div class="initial-options-frame3"></div>
-                        <input class="input-name" placeholder="First Name" type="text" />
-                      </div>
-                      <div class="input1">
-                        <div class="group-frame1"></div>
-                        <input class="input-name1" placeholder="Last Name" type="text" />
-                      </div>
-                    </div>
-                    <div class="input2">
-                      <div class="rectangle1">
+          <div class="form-container">
+            <label style="margin-bottom: 30px;">Booking Information</label>
+            <form (ngSubmit)="onSubmit()">
+              <div class="form-group row">
+                <input type="text" placeholder="First Name" [(ngModel)]="firstName" name="firstName">
+                <input type="text" placeholder="Last Name" [(ngModel)]="lastName" name="lastName">
+              </div>
+              <div class="form-group">
+                <input type="text" id="address" placeholder="Location " [(ngModel)]="streetName" name="streetName">
+              </div>
+              <div class="form-group">
+                <input type="text" placeholder="Phone Number" [(ngModel)]="city" name="city">
+              </div>
+              <div class="form-group row">
+                <select [(ngModel)]="country" name="country">
+                  <option value="India" selected>India</option>
+                  <option value="USA">USA</option>
+                  <option value="China">China</option>
+                  <option value="Italy">Italy</option>
+                </select>
+                <select [(ngModel)]="selectedCity" name="selectedCity">
+                  <option value="Nagpur">Nagpur</option>
+                  <option value="Hyderabad" selected>Hyderabad</option>
+                  <option value="Jammu">Jammu</option>
+                  <option value="Kashmir">Kashmir</option>
+                </select>
+                <input type="text" placeholder="Zipcode" [(ngModel)]="zipcode" name="zipcode">
+              </div>
+              <div class="form-group">
+                <button type="submit">Confirm Booking</button>
+              </div>
+            </form>
+          </div>
 
+          <!-- GeneratedCode -->
+          <!-- <div class="checkbox-off-frame">
+              <div class="save-contact-info-text">
+                <h3 class="your-payment-details">Booking Information</h3>
+                <div class="horizontal-product-card">
+                  <div class="input-address">
+                    <div class="main-header-frame3">
+                      <div class="input-frame1" >
+                        <div class="input" >
+                          <input
+                            class="input-name"
+                            placeholder="First Name"
+                            type="text"
+                          />
+                          <div class="initial-options-frame3"></div>
+                        </div>
+                        <div class="input1">
+                          <div class="group-frame1"></div>
+                          <input
+                            class="input-name1"
+                            placeholder="Last Name"
+                            type="text"
+                          />
+                        </div>
                       </div>
-                      <input class="input-name2" placeholder="Address" type="text" />
-                    </div>
-                    <div class="input3">
-                      <div class="rectangle2"></div>
-                      <input class="input-name3" placeholder="Apartment, suite, etc (optional)" type="text" />
-                    </div>
-                    <div class="input4">
-                      <div class="rectangle3"></div>
-                      <input class="input-name4" placeholder="City" type="text" />
-                    </div>
-                    <div class="input-frame2">
-                      <div class="dropdown-input">
-                        <div class="rectangle4"></div>
-                        <div class="input-name5">Country</div>
-                        <img class="icons-chevron-down" alt="" src="../assets/public/-icons--chevron-down.svg" />
+                      <div class="input2">
+                        <div class="rectangle1"></div>
+                        <input
+                          class="input-name2"
+                          placeholder="Address"
+                          type="text"
+                        />
                       </div>
-                      <div class="dropdown-input1">
-                        <div class="rectangle5"></div>
-                        <div class="input-name6">City</div>
-                        <img class="icons-chevron-down1" alt="" src="../assets/public/-icons--chevron-down.svg" />
+                      <div class="input3">
+                        <div class="rectangle2"></div>
+                        <input
+                          class="input-name3"
+                          placeholder="Apartment, suite, etc (optional)"
+                          type="text"
+                        />
                       </div>
-                      <div class="input5">
-                        <div class="input-rectangle-frame"></div>
-                        <input class="input-name7" placeholder="Zipcode" type="text" />
+                      <div class="input4">
+                        <div class="rectangle3"></div>
+                        <input
+                          class="input-name4"
+                          placeholder="City"
+                          type="text"
+                        />
                       </div>
-                    </div>
-                    <div class="input6">
-                      <div class="rectangle6"></div>
-                      <input class="input-name8" placeholder="Optional" type="text" />
+                      <div class="input-frame2">
+                        <div class="dropdown-input">
+                          <div class="rectangle4"></div>
+                          <div class="input-name5">Country</div>
+
+                          <img
+                            class="icons-chevron-down"
+                            alt=""
+                            src="../assets/public/-icons--chevron-down.svg"
+                          />
+                        </div>
+                        <div class="dropdown-input1">
+                          <div class="rectangle5"></div>
+                          <div class="input-name6">City</div>
+                          <img
+                            class="icons-chevron-down1"
+                            alt=""
+                            src="../assets/public/-icons--chevron-down.svg"
+                          />
+                        </div>
+                        <div class="input5">
+                          <div class="input-rectangle-frame"></div>
+                          <input
+                            class="input-name7"
+                            placeholder="Zipcode"
+                            type="text"
+                          />
+                        </div>
+                      </div>
+                      <div class="input6">
+                        <div class="rectangle6"></div>
+                        <input
+                          class="input-name8"
+                          placeholder="Optional"
+                          type="text"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="chevron-down-icon">
-                  <div class="default-instance">
-                    <div class="save-contact-info-frame">
-                      <input class="default" type="checkbox" />
+                  <div class="chevron-down-icon">
+                    <div class="default-instance">
+                      <div class="save-contact-info-frame">
+                        <input class="default" type="checkbox" />
 
-                      <div class="save-contact-information">
-                        Save contact information
+                        <div class="save-contact-information">
+                          Save contact information
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="default1">
-                    <div class="button4">
-                      <button class="base" (click)="bookingdone()"></button>
-                      <div class="button-text">Confirm Booking</div>
+                    <div class="default1">
+                      <div class="button4">
+                        <button class="base"></button>
+                        <div class="button-text" onclick="console.log('hey');">Confirm Booking</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </div> -->
           <div class="your-detailsframe-parent">
             <div class="your-detailsframe">
               <h3 class="your-payment-details1">Booking Details</h3>
@@ -143,7 +215,7 @@
     </div>
   </section>
   <div class="blankframe">
-    <div class="div21">$99</div>
-    <div class="div22">$99</div>
+    <!-- <div class="div21">$99</div> -->
+    <!-- <div class="div22">$99</div> -->
   </div>
 </div>

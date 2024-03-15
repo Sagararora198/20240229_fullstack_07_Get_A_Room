@@ -1,54 +1,53 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ConfirmationComponent } from '../confirmation/confirmation.component';
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-
-
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [CommonModule,ConfirmationComponent],
+  imports: [FormsModule],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css'
 })
-export class CheckoutComponent implements OnInit {
-
-
-  constructor(
-    private route: ActivatedRoute,
-    private http: HttpClient,
-    private router: Router
-  ) { }
-
-
-  ngOnInit(): void {
-  
-  }
-
-  userData:{firstName:String,lastName:String,address:String,apartment:String,city:String,country:String,zipCode:Number}=
+export class CheckoutComponent {
+  userData: { firstName: String, lastName: String, address: String, apartment: String, city: String, country: String, zipCode: Number } =
     {
-      firstName:'as',
-      lastName:"as",
-      address:'asdcsdv',
-      apartment:"aytrh",
-      city:"Hyderabaad",
-      country:"India",
-      zipCode:123229
+      firstName: 'as',
+      lastName: "as",
+      address: 'asdcsdv',
+      apartment: "aytrh",
+      city: "Hyderabaad",
+      country: "India",
+      zipCode: 123229
     }
-  bookingDetails:{hotelName:String,roomType:String,guests:Number,amount:Number}={
-    hotelName:"as",
-    roomType:"asc",
-    guests:2,
-    amount:1000
+  bookingDetails: { hotelName: String, roomType: String, guests: Number, amount: Number } = {
+    hotelName: "as",
+    roomType: "asc",
+    guests: 2,
+    amount: 1000
   }
 
+  constructor ( private router : Router){}
 
-
-
-  bookingdone(){
+  bookingdone() {
     this.router.navigate(['/confirmation'])
+  }
+  firstName: string = '';
+  lastName: string = '';
+  streetName: string = '';
+  city: string = '';
+  country: string = '';
+  selectedCity: string = '';
+  zipcode: string = '';
+
+  onSubmit() {
+    console.log('Form Submitted!');
+    console.log('First Name:', this.firstName);
+    console.log('Last Name:', this.lastName);
+    console.log('Street Name:', this.streetName);
+    console.log('City:', this.city);
+    console.log('Country:', this.country);
+    console.log('Selected City:', this.selectedCity);
+    console.log('Zipcode:', this.zipcode);
   }
 
 }
