@@ -21,7 +21,10 @@ export class UserDetailsComponent implements OnInit {
 
   userData: any;
 
+
   constructor(private http: HttpClient) { }
+
+
 
   ngOnInit(): void {
     const token = localStorage.getItem('jwtToken');

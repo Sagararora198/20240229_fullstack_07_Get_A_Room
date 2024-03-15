@@ -21,8 +21,8 @@
             <div class="logo-text">
                 <div class="initial-options-frame1">
                     <div class="property-col-image">
-                        <div *ngFor="let photo of hotel?.hotelPhotos | keyvalue" style="margin-bottom: 10px;">
-                            <img [src]="photo.value" [alt]="photo.key" style="max-width: 100%; height: auto;">
+                        <div *ngFor="let photo of hotel?.hotelPhotos | keyvalue" style="margin-bottom: 10px;" >
+                            <img [src]="photo.value" [alt]="photo.key" style="max-width: 100%; height: auto;" >
                         </div>
                     </div>
                 </div>
@@ -37,14 +37,14 @@
             <div class="slider-indicators">
                 <div class="property-frame-1" id="propertyFrame1" *ngFor="let room of fetchedRooms; let i = index">
                     <div class="property-large">
-                        <img class="vector" src={{room.roomPhotos}}>
+                        <img class="vector" src={{room.roomPhotos}} (click)="naviagteroomdetail()">
                         <div class="hotel-type-indicator">
                             <div class="super-deluxe-suites-parent">
                                 <b>{{roomDatas[i]?.roomType}}</b>
                                 <div class="bedroom-type-frame">
                                     <div class="car-icon-frame">
                                         <div class="div2"><b style="color: black;">Price : </b>{{room.roomPrice}}</div>
-                                        <img class="car-icon" loading="lazy" alt=""
+                                        <img class="car-icon" loading="lazy" alt="" 
                                             src="../assets/public/car-icon.svg" />
                                     </div>
                                 </div>

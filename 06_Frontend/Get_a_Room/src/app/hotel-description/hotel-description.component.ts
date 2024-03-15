@@ -4,11 +4,12 @@ import { FooterComponent } from '../layout/footer/footer.component';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-
+import { RoomdetailsComponent } from '../roomdetails/roomdetails.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-hotel-description',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent, CommonModule],
+  imports: [NavbarComponent, FooterComponent, CommonModule,RoomdetailsComponent],
   templateUrl: './hotel-description.component.html',
   styleUrl: './hotel-description.component.css'
 })
@@ -23,7 +24,8 @@ export class HotelDescriptionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -101,6 +103,10 @@ export class HotelDescriptionComponent implements OnInit {
 
       }
     );
+  }
+
+  naviagteroomdetail(){
+    this.router.navigate(['/roomdetail'])
   }
 
 }

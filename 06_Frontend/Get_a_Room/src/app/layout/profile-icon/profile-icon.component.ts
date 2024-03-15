@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AuthService } from '../../behaiviour-service.service';
 import { Router } from '@angular/router';
-import { timer, Subscription } from 'rxjs';
+
 import { CommonModule } from '@angular/common';
 @Component({
 
@@ -19,8 +19,7 @@ export class ProfileIconComponent {
   // private sessionTimerSubscription: Subscription = Subscription.EMPTY;
   // private sessionDuration = 30 * 60 * 10000000;
 
-  constructor(private authService: AuthService,
-    private router:Router) {
+  constructor(private authService: AuthService,private router:Router) {
       // this.startSessionTimer();
     }
 
