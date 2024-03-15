@@ -175,6 +175,55 @@ roomRouter.post("/hotel/:hotelId/room", requireLogin, async (req, res) => {
 });
     
 
+//Update Room 
+roomRouter.put("/hotel/:hotelId/room/:roomId", requireLogin, async (req, res) => {
+    try {
+        const { hotelId, roomId } = req.params;
+        const { roomNumber, roomType, roomDesc, roomPrice, roomPhotos } = req.body;
+
+        // Check if the user role is Admin
+        const { user } = req;
+        if (!user) {
+            return res.status(401).json({ error: "JWT token is missing." });
+        }
+        if (user.role !== roles.ADMIN) {
+            return res.status(403).json({ error: "Access forbidden. Admin access required." });
+        }
+
+        // Validate required fields
+        if (!roomNumber || !roomType || !roomDesc || !roomPrice || !roomPhotos) {
+            return res.status(400).json({ error: "Missing required fields." });
+        }
+
+        // Check if the hotel exists
+        const hotel = await Hotels.findById(hotelId);
+        if (!hotel) {
+            return res.status(404).json({ error: "Hotel not found." });
+        }
+
+        // Check if the room exists
+        const room = await Rooms.findById(roomId);
+        if (!room) {
+            return res.status(404).json({ error: "Room not found." });
+        }
+
+        // Update room details
+        room.roomNumber = roomNumber;
+        room.roomType = roomType;
+        room.roomDesc = roomDesc;
+        room.roomPrice = roomPrice;
+        room.roomPhotos = roomPhotos;
+
+        await room.save();
+
+        res.json({ message: "Room details updated successfully", room });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+
 //search by roomId
 
 roomRouter.get('/room/:roomId', async (req, res) => {
@@ -247,6 +296,8 @@ roomRouter.get('/rooms/by-types', async (req, res) => {
         res.status(500).json({ error: "Internal server error" });
     }
 });
+
+
 
 
 

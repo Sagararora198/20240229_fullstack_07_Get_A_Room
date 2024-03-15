@@ -32,10 +32,11 @@
 
     </header>
     <div class="latest-property-frame">
-      <ng-container *ngFor="let hotel of searchedHotels; let i = index">
-        <app-hotel-container class="latest-property-{{ 1 }}" [Hotel]="hotel"></app-hotel-container>
+      <ng-container *ngFor="let hotel of searchedHotels">
+        <app-hotel-container class="latest-property-{{ 1 }}" [Hotel]="hotel" (click)="NavigateToHotel(hotel._id)"></app-hotel-container>
       </ng-container>
     </div>
+    
     
   </div>
 </section>
