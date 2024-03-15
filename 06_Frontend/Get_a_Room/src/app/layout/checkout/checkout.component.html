@@ -1,56 +1,56 @@
 <div class="checkout-address">
 
-  <section class="address-input-frame">
-    <div class="title-frame-group">
-      <div class="title-frame1">
-        <h1 class="title">Checkout</h1>
-        <div class="address-text">
-          <div class="simple-breadcrumbs">
-            <b class="address"> • Payment</b>
-            <div class="your-payment-details-frame"></div>
-            <div class="shipping">Shipping</div>
-            <div class="simple-breadcrumbs-child"></div>
-            <div class="payment2"> • Confirmation</div>
+    <section class="address-input-frame">
+      <div class="title-frame-group">
+        <div class="title-frame1">
+          <h1 class="title">Checkout</h1>
+          <div class="address-text">
+            <div class="simple-breadcrumbs">
+              <b class="address"> • Payment</b>
+              <div class="your-payment-details-frame"></div>
+              <div class="shipping">Shipping</div>
+              <div class="simple-breadcrumbs-child"></div>
+              <div class="payment2"> • Confirmation</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- booking-form.component.html -->
-      <div class="input-frame-container">
-        <div class="default-frame">
-          <div class="form-container">
-            <label style="margin-bottom: 30px;">Booking Information</label>
-            <form (ngSubmit)="onSubmit()">
-              <div class="form-group row">
-                <input type="text" placeholder="First Name" [(ngModel)]="firstName" name="firstName">
-                <input type="text" placeholder="Last Name" [(ngModel)]="lastName" name="lastName">
-              </div>
-              <div class="form-group">
-                <input type="text" id="address" placeholder="Location " [(ngModel)]="streetName" name="streetName">
-              </div>
-              <div class="form-group">
-                <input type="text" placeholder="Phone Number" [(ngModel)]="city" name="city">
-              </div>
-              <div class="form-group row">
-                <select [(ngModel)]="country" name="country">
-                  <option value="India" selected>India</option>
-                  <option value="USA">USA</option>
-                  <option value="China">China</option>
-                  <option value="Italy">Italy</option>
-                </select>
-                <select [(ngModel)]="selectedCity" name="selectedCity">
-                  <option value="Nagpur">Nagpur</option>
-                  <option value="Hyderabad" selected>Hyderabad</option>
-                  <option value="Jammu">Jammu</option>
-                  <option value="Kashmir">Kashmir</option>
-                </select>
-                <input type="text" placeholder="Zipcode" [(ngModel)]="zipcode" name="zipcode">
-              </div>
-              <div class="form-group">
-                <button type="submit">Confirm Booking</button>
-              </div>
-            </form>
-          </div>
+<!-- booking-form.component.html -->
+<div class="input-frame-container">
+  <div class="default-frame">
+    <div class="form-container">
+      <label style="margin-bottom: 30px;">Booking Information</label>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <input type="text" placeholder="First Name" [(ngModel)]="firstName" name="firstName">
+          <input type="text" placeholder="Last Name" [(ngModel)]="lastName" name="lastName">
+        </div>
+        <div class="form-group">
+          <input type="text" id="address" placeholder="Street Name" [(ngModel)]="streetName" name="streetName">
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="City" [(ngModel)]="city" name="city">
+        </div>
+        <div class="form-group row">
+          <select [(ngModel)]="country" name="country">
+            <option value="India" selected>India</option>
+            <option value="USA">USA</option>
+            <option value="China">China</option>
+            <option value="Italy">Italy</option>
+          </select>
+          <select [(ngModel)]="selectedCity" name="selectedCity">
+            <option value="Nagpur">Nagpur</option>
+            <option value="Hyderabad" selected>Hyderabad</option>
+            <option value="Jammu">Jammu</option>
+            <option value="Kashmir">Kashmir</option>
+          </select>
+          <input type="text" placeholder="Zipcode" [(ngModel)]="zipcode" name="zipcode">
+        </div>
+        <div class="form-group">
+          <button type="submit">Confirm Booking</button>
+        </div>
+      </form>
+    </div>
 
           <!-- GeneratedCode -->
           <!-- <div class="checkbox-off-frame">
@@ -160,51 +160,52 @@
                 </div>
               </div>
             </div> -->
-          <div class="your-detailsframe-parent">
-            <div class="your-detailsframe">
-              <h3 class="your-payment-details1">Booking Details</h3>
-              <div class="horizontal-product-card1">
-                <div class="product-image"></div>
-                <div class="sizequantityframe">
-                  <div class="titlepricegroup">
-                    <h3 class="title1">Pride Inn</h3>
-                  </div>
-                  <div class="size-l">Deluxe Suite</div>
-                  <div class="quantity-1">Guest - 3</div>
-                  <div class="titlepricegroup1">
-                    <div class="price">
-                      <b>₹</b>
-                      <span class="span26">
-                        <span>1000</span>
-                        <span class="span27"> </span>
-                      </span>
+            <div class="your-detailsframe-parent">
+              <div class="your-detailsframe">
+                <h3 class="your-payment-details1">Booking Details</h3>
+                <div class="horizontal-product-card1">
+                  <div class="product-image"></div>
+                  <div class="sizequantityframe">
+                    <div class="titlepricegroup">
+                      <h3 class="title1">Pride Inn</h3>
+                    </div>
+                    <div class="size-l">Deluxe Suite</div>
+                    <div class="quantity-1">Guest - 3</div>
+                    <div class="titlepricegroup1">
+                      <div class="price">
+                        <b>₹</b>
+                        <span class="span26">
+                          <span>1000</span>
+                          <span class="span27"> </span>
+                        </span>
+                      </div>
                     </div>
                   </div>
+                  <div class="remove-button">Remove</div>
                 </div>
-                <div class="remove-button">Remove</div>
               </div>
-            </div>
-            <div class="orderlineitemframe">
-              <div class="orderlineitemline">
-                <div class="order-line-item">
-                  <div class="subtotal">Subtotal</div>
-                  <div class="line3">
-                    <span>₹</span>
-                    <span class="span28">1000</span>
-                    <span> </span>
+              <div class="orderlineitemframe">
+                <div class="orderlineitemline">
+                  <div class="order-line-item">
+                    <div class="subtotal">Subtotal</div>
+                    <div class="line3">
+                      <span>₹</span>
+                      <span class="span28">1000</span>
+                      <span> </span>
+                    </div>
                   </div>
-                </div>
-                <div class="order-line-item1">
-                  <div class="subtotal1">Taxes</div>
-                  <div class="div19">10% subtotal</div>
-                </div>
-                <div class="orderlineitemline-child"></div>
-                <div class="order-line-item2">
-                  <div class="subtotal2">Total</div>
-                  <div class="div20">
-                    <span>₹</span>
-                    <span class="span29">1000</span>
-                    <span> </span>
+                  <div class="order-line-item1">
+                    <div class="subtotal1">Taxes</div>
+                    <div class="div19">10% subtotal</div>
+                  </div>
+                  <div class="orderlineitemline-child"></div>
+                  <div class="order-line-item2">
+                    <div class="subtotal2">Total</div>
+                    <div class="div20">
+                      <span>₹</span>
+                      <span class="span29">1000</span>
+                      <span> </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -212,10 +213,9 @@
           </div>
         </div>
       </div>
+    </section>
+    <div class="blankframe">
+      <!-- <div class="div21">$99</div> -->
+      <!-- <div class="div22">$99</div> -->
     </div>
-  </section>
-  <div class="blankframe">
-    <!-- <div class="div21">$99</div> -->
-    <!-- <div class="div22">$99</div> -->
   </div>
-</div>

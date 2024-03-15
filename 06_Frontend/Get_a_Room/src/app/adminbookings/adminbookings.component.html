@@ -14,8 +14,9 @@
             <div class="guest-count-frame"></div>
         </div>
     </div>
+
     @for (booking of upcomingBookings; track $index) {
-        <app-bookingsbox class="pride-inn-frame" [booking]="booking"></app-bookingsbox>
+        <app-bookingsbox class="pride-inn-frame" [booking]="booking" ></app-bookingsbox>
     }
 
 </div>

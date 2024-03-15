@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BookingService } from '../../adminbookings/booking.service';
+import EventEmitter from 'events';
 
 @Component({
   selector: 'app-bookingsbox',
@@ -8,12 +11,33 @@ import { Component, Input } from '@angular/core';
   styleUrl: './bookingsbox.component.css'
 })
 export class BookingsboxComponent {
-  @Input() booking:{hotelname:String,hotelImg:String,checkinDate:String,duration:String,amount:String,guests:String}={
-    hotelname:"Pride Inn",
-    hotelImg:"asd",
-    checkinDate:"12 Mar 2024",
-    duration:"Long (2-days)",
-    amount:"1100",
-    guests:"4 adults",
-  }
-}
+
+
+  // hotelname:string=""
+  // hotelImg:string=""
+  // duration:string=""
+  // amount:string=""
+  // guests:string=""
+
+  bookingDate:string =""
+  bookedBy:string=""
+  bookedRoom:string=""
+  checkinDate:string=""
+  checkoutDate:string=""
+  paymentDetails:string="wallet"
+
+  @Input() booking:any
+
+  // @Output() cancelReservationEvent: EventEmitter<any> = new EventEmitter<any>();
+
+  // deleteBooking():void{
+  //   this.cancelReservation.emit(this.booking);
+  // }
+
+  // cancelReservation() {
+  //   // Emitting an event to notify the parent component
+  //   this.cancelReservationEvent.emit(x);
+  // }
+
+ }
+

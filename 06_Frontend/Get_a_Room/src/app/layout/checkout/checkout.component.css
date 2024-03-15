@@ -1107,7 +1107,7 @@
   .input-frame1 {
     flex-wrap: wrap;
   }
-  
+
   .form-container {
     display: flex;
     flex-direction: column;
@@ -1166,4 +1166,4 @@
   .form-group button:hover {
     background-color: #ff648a;
   }
-}
+}   

@@ -35,7 +35,7 @@
                 <h3 class="room-types">Room Types</h3>
             </div>
             <div class="slider-indicators">
-                <div class="property-frame-1" id="propertyFrame1" *ngFor="let room of fetchedRooms; let i = index">
+                <div class="property-frame-1" id="propertyFrame1"  *ngFor="let room of fetchedRooms; let i = index">
                     <div class="property-large">
                         <img class="vector" src={{room.roomPhotos}} (click)="naviagteroomdetail()">
                         <div class="hotel-type-indicator">
