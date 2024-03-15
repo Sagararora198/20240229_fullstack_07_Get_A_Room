@@ -1,25 +1,17 @@
-/* .initial-options-icon3 {
-    height: 59px;
-    width: 109px;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-    cursor: pointer;
-    z-index: 1;
-  } */
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #eff0f2;
+  border-radius: 10px;
+  width: 100px;
+  height: 161px;
+  position: absolute;
+  align-items: center;
+  top: 88px;
+  justify-content: space-around;
+  right: 31px;
+  z-index: 1000;
+  border: 3px solid white;
+}
 
-    .profileContainer {
-        display: flex;
-        flex-direction: column;
-        background-color: #fbf2f2;
-        border-radius: 10px;
-        width: 208px;
-        height: 161px;
-        position: absolute;
-        align-items: center;
-        top: 88px;
-        justify-content: space-around;
-        right: 31px;
-        z-index: 1000;
-        border: 3px solid #ebbfbf;
-      }
+
