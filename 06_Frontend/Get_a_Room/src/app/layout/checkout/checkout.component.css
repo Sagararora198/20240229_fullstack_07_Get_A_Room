@@ -1107,7 +1107,6 @@
   .input-frame1 {
     flex-wrap: wrap;
   }
-<<<<<<< HEAD
   
   .form-container {
     display: flex;
@@ -1167,97 +1166,4 @@
   .form-group button:hover {
     background-color: #ff648a;
   }
-=======
-
-  .input5 {
-    flex: 1;
-  }
-
-  .input-frame2 {
-    flex-wrap: wrap;
-  }
-
-  .your-payment-details1 {
-    font-size: var(--button-03-size);
-    line-height: 22px;
-  }
-
-  .title1 {
-    font-size: var(--font-size-lg);
-    line-height: 24px;
-  }
-
-  .horizontal-product-card1,
-  .order-line-item1,
-  .order-line-item2 {
-    flex-wrap: wrap;
-  }
-
-  .your-detailsframe-parent {
-    gap: 101px 0;
-  }
-
-  .checkout-address {
-    gap: 74px 0;
-  }
 }
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  height: 350px;
-  /* margin: auto; */
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.form-group.row {
-  flex-direction: row;
-  align-items: center;
-}
-
-.form-group.row>* {
-  flex: 1;
-  margin-right: 10px;
-}
-
-.form-group.row>*:last-child {
-  margin-right: 0;
-}
-
-.form-group label {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.form-group input,
-.form-group select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 16px;
-}
-
-.form-group button {
-  padding: 10px 20px;
-  background-color: #FE4472;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.form-group button:hover {
-  background-color: #ff648a;
-}
->>>>>>> umesh
