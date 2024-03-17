@@ -47,7 +47,7 @@ const userSchema = new mongoose.Schema({
     },
     wallet: {
         type: Number,
-        min: 1
+        min: 0
     },
     location: {
         type: String,

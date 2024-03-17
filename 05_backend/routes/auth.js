@@ -95,29 +95,17 @@ authRouter.post('/signup', async (req, res) => {
     try {
         // Extracting user data from request body
         const { password, email, username } = req.body;
-        const userData = { password, email, username };
-
-        // Validating user input
-        const validations = signupValidation(userData);
-        if (validations.error) {
-            return res.status(400).json(validations);
-        }
-
-        // Checking if the email already exists
-        const existingUser = await Users.findOne({ email: email });
-        if (existingUser) {
-            return res.status(422).xson({ error: `User with email ${email} already exists` });
-        }
-
+        
         // Hashing the password
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        // Creating a new user
+        // Creating a new user with wallet set to 0
         const newUser = new Users({
             name: username,
             email: email,
             password: hashedPassword,
+            wallet: 0, // Set wallet to 0
         });
 
         // Saving the new user to the database

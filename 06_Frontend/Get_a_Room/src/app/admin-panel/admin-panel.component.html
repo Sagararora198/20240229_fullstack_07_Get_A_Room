@@ -6,18 +6,21 @@
       <ul>
         <li><a (click)="showComponent('hotel')">Manage Hotel</a></li>
         <li><a (click)="showComponent('wallet')">Wallet Management</a></li>
+        <li><a (click)="showComponent('room')">Admin Room</a></li>
       </ul>
     </div>
     <div class="remaining-page">
       <div *ngIf="selectedComponent === 'hotel'">
         <!-- Content for Manage Hotel component -->
-        <h2>Manage Hotel Component</h2>
-        <p>This is the content for the Manage Hotel component.</p>
+        <app-manage-hotel></app-manage-hotel>
       </div>
       <div *ngIf="selectedComponent === 'wallet'">
         <!-- Content for Wallet Management component -->
-        <h2>Wallet Management Component</h2>
-        <p>This is the content for the Wallet Management component.</p>
+        <app-wallet-management></app-wallet-management>
+      </div>
+      <div *ngIf="selectedComponent === 'room'">
+        <!-- Content for Wallet Management component -->
+        <app-admin-room> </app-admin-room>
       </div>
     </div>
   </div>
