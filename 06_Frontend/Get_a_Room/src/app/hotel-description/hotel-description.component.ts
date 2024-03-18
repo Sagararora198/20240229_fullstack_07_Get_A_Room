@@ -39,10 +39,17 @@ export class HotelDescriptionComponent implements OnInit {
           this.hotel = hotel;
           // console.log("hotel room :" + hotel.rooms);
           // console.log(this.hotel); // Print all data in the console
+          // console.log(hotelId);
+          this.fetchedRooms = [];
 
-          this.getRoomsByTypes(hotel.rooms);
+          // Iterate over the rooms array and push each element into fetchedRooms array
+          hotel.rooms.forEach((room: any) => {
+            this.fetchedRooms.push(room);
+          });
+          console.log(this.fetchedRooms);
+          this.getRoomsByTypes(this.fetchedRooms);
 
-          return hotel.rooms
+          // return hotel.rooms
 
         });
     }
@@ -57,34 +64,29 @@ export class HotelDescriptionComponent implements OnInit {
 
 
   //getting data of rooms
-  getRoomsByTypes(roomTypeIds: string): void {
-
-    // console.log("print room type:" + roomTypeIds);
-
-    this.http.get(`http://localhost:3000/rooms/by-types?roomTypeIds=${roomTypeIds}`)
-      .subscribe((rooms: any) => {
-        // console.log("Rooms by types:", rooms);
-        this.fetchedRooms = rooms; // Assign fetched rooms to a variable
-
-        // Access and log all properties of each room
-        if (rooms && rooms.length > 0) {
-          rooms.forEach((room: any) => {
-
-            // console.log("Room ID:", room._id);
-            // console.log("Room Type:", room.roomType);
-            // console.log("Other properties if any:", room); // Log all properties
-            this.getRoomData(room.roomType);
-
-          });
-        } else {
-          console.log("No rooms found for the provided room type IDs.");
-        }
-
-        // Handle the rooms data as needed
-      }, error => {
-        console.error("Error fetching rooms by types:", error);
-        // Handle error
-      });
+  getRoomsByTypes(roomTypeIds: any[]): void {
+    // Iterate over each room type ID
+    roomTypeIds.forEach((roomTypeId: any) => {
+      // Make an HTTP request for each room type ID
+      console.log(roomTypeId);
+      this.http.get(`http://localhost:3000/rooms/by-types?roomTypeIds=${roomTypeId}`)
+        .subscribe((rooms: any) => {
+          // Handle the fetched rooms data as needed
+          console.log('rooms:',rooms);
+          if (rooms) {
+            rooms.forEach((room: any) => {
+              // Process each room data
+              console.log("hello");
+              this.getRoomData(room._id);
+            });
+          } else {
+            console.log("No rooms found for the provided room type ID:", roomTypeId);
+          }
+        }, error => {
+          console.error("Error fetching rooms by types:", error);
+          // Handle error
+        });
+    });
   }
 
 
